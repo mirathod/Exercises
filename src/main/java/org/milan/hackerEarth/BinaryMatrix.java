@@ -4,6 +4,11 @@ import java.math.BigInteger;
 import java.util.Scanner;
 import java.util.TreeMap;
 
+/**
+ * Binary Matrix
+ * @author rathom1
+ *
+ */
 public class BinaryMatrix {
 	public static void main(String args[] ) throws Exception {
         //Scanner
