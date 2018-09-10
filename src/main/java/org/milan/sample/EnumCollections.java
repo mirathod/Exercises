@@ -43,10 +43,10 @@ public class EnumCollections {
 
 	private static void usingEnumMap() {
 		EnumMap<ThreadStates, String> enumMap = new EnumMap<ThreadStates, String>(ThreadStates.class);
-		enumMap.put(ThreadStates.START, "Thread is started");
-		enumMap.put(ThreadStates.RUNNING, "Thread is running");
-		enumMap.put(ThreadStates.WAITING, "Thread is waiting");
-		enumMap.put(ThreadStates.DEAD, "Thread is dead");
+		enumMap.put(ThreadStates.START, "thread is started");
+		enumMap.put(ThreadStates.RUNNING, "thread is running");
+		enumMap.put(ThreadStates.WAITING, "thread is waiting");
+		enumMap.put(ThreadStates.DEAD, "thread is dead");
 
 		Set<ThreadStates> keySet = enumMap.keySet();
 		for (ThreadStates key : keySet) {

@@ -1,7 +1,5 @@
 package org.milan.sample;
 
-import org.milan.binarytree.BinaryTreeDemo;
-
 public class PalindromeDemo {
 
 	public static void main(String args[] ) {

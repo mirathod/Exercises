@@ -1,28 +1,46 @@
 package org.milan.sample;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.net.InetAddress;
 import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 
+/**
+ * Get MAC Address of Current System
+ */
 public class MacAddressDemo {
-	public static void main(String[] args) {
-		InetAddress ip;
-		StringBuilder sb = new StringBuilder();
-		try {
-			ip = InetAddress.getLocalHost();
-			System.out.println("Current IP Address : " + ip.getHostAddress());
 
-			NetworkInterface network = NetworkInterface.getByInetAddress(ip);
+    private static final Logger LOG = LoggerFactory.getLogger(MacAddressDemo.class);
 
-			byte[] mac = network.getHardwareAddress();
+    public String getMacAddress() {
+        InetAddress ip;
+        StringBuilder sb = new StringBuilder();
+        try {
+            ip = InetAddress.getLocalHost();
 
-			for (int i = 0; i < mac.length; i++) {
+            LOG.debug("Current IP Address {} ", ip.getHostAddress());
 
-				sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+            NetworkInterface network = NetworkInterface.getByInetAddress(ip);
 
-			}
-			System.out.println(sb.toString());
-		} catch (Exception e) {
+            byte[] mac = network.getHardwareAddress();
 
-		}
-	}
+            for (int i = 0; i < mac.length; i++) {
+
+                sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+
+            }
+
+            LOG.debug("Current IP Address {} ", ip.getHostAddress());
+
+            return sb.toString();
+
+        } catch (UnknownHostException | SocketException e) {
+            LOG.error("Failed to get MAC Address of current machine {}", e.getMessage());
+        }
+        return null;
+
+    }
 }
