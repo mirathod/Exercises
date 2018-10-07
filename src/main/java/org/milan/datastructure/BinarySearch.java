@@ -1,35 +1,34 @@
 package org.milan.datastructure;
 
 /**
- * @author ghuser
+ * binary search in array
  *
+ * @author Milan Rathod
  */
 public class BinarySearch {
-	
-	public static void main(String[] args) {
-		int a[]={2,4,6,8,9,12,15,18};
-		int search=new BinarySearch().binarySearch(a,11,a.length);
-		if(search!=-1)
-		System.out.println("Element found at index : "+search);
-		else
-		System.out.println("Element Not found");
-		
-	}
-	int binarySearch(int a[],int X,int N){
-		int low=0,high=N-1,mid;
-		
-		while(low<=high){
-			mid=(low+high)/2;
-			if(a[mid]<X)
-				low=mid+1;
-			else if(a[mid]>X)
-				high=mid-1;
-			else 
-				return mid;
-		}
-		return -1;
-	}
 
+    /**
+     * Search number in input array with binary search
+     *
+     * @param arr    input array
+     * @param number element to be searched
+     * @return index of element if found otherwise -1
+     */
+    public int binarySearch(int[] arr, int number) {
+        int low = 0;
+        int high = arr.length - 1;
+        int mid = (low + high) / 2;
 
-	
+        while (low <= high) {
+            if (arr[mid] < number)
+                low = mid + 1;
+            else if (arr[mid] > number)
+                high = mid - 1;
+            else
+                return mid;
+            mid = (low + high) / 2;
+        }
+        return -1;
+    }
+
 }

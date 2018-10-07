@@ -2,40 +2,54 @@ package org.milan.core.file;
 
 import java.io.File;
 
-import java.io.FilenameFilter;
-
+/**
+ * Directory Demo
+ *
+ * @author Milan Rathod
+ */
 public class DirectoryDemo {
-	public static void main(String[] a) {
-		File f = new File("C:/Demo");
 
-		if (f.exists()) {
-			String[] filelist = f.list();
-			for (String file : filelist) {
-				System.out.println(file);
-			}
-		}
+    /**
+     * Create a Single Directory
+     *
+     * @return true if operation succeed, otherwise false
+     */
+    public boolean createDirectory(String path) {
 
-		File f2 = new File("C:/Demo/D1");
-		MyExt fl = new MyExt("txt");
-		String[] list2 = f2.list(fl);
+        File w = new File(path);
+        return w.mkdir();
 
-		for (String file : list2) {
-			System.out.println(file);
-		}
-	}
+    }
 
-}
+    /**
+     * Create a Single Directory & all its sub-directories
+     *
+     * @return true if operation succeed, otherwise false
+     */
+    public boolean createDirectories(String path) {
 
-class MyExt implements FilenameFilter {
+        File f = new File(path);
+        return f.mkdirs();
 
-	String ext;
+    }
 
-	public MyExt(String ext) {
-		this.ext = ext;
-	}
+    public static void main(String[] a) {
+        File f = new File("C:/Demo");
 
-	public boolean accept(File dir, String name) {
-		return name.endsWith(this.ext);
-	}
+        if (f.exists()) {
+            String[] filelist = f.list();
+            for (String file : filelist) {
+                System.out.println(file);
+            }
+        }
+
+        File f2 = new File("C:/Demo/D1");
+        CustomFileNameFilter customFileNameFilter = new CustomFileNameFilter("txt");
+        String[] list2 = f2.list(customFileNameFilter);
+
+        for (String file : list2) {
+            System.out.println(file);
+        }
+    }
 
 }
