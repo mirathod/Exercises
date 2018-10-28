@@ -1,6 +1,9 @@
-package org.milan.core;
+package org.milan.core.string;
 
-public class EqualvsEqualIgnoreCaseDemo {
+/**
+ * @author Milan Rathod
+ */
+public class EqualVsEqualIgnoreCaseDemo {
     public static void main(String[] a) {
         String s1 = "yash";
         String s2 = "Yash";
@@ -11,7 +14,6 @@ public class EqualvsEqualIgnoreCaseDemo {
         if (s1.equalsIgnoreCase(s2)) {
             System.out.println("they are equal ignoring case");
         }
-
 
     }
 }

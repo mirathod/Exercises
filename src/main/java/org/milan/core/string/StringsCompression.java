@@ -1,4 +1,4 @@
-package org.milan.strings;
+package org.milan.core.string;
 
 public class StringsCompression {
 

@@ -1,5 +1,8 @@
 package org.milan.datastructure;
 
+/**
+ * @author Milan Rathod
+ */
 public class StackDemo {
     private int top = -1;
     private int[] a = new int[100];

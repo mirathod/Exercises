@@ -1,10 +1,9 @@
 package org.milan.exceptions;
 
 /**
- * Add Description
+ * Stack Underflow Exception
  *
  * @author Milan Rathod
- * @since
  */
 public class StackUnderflowError extends RuntimeException {
 

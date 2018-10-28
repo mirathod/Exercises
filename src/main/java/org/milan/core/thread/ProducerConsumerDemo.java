@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.core.thread;
 
 public class ProducerConsumerDemo {
 	public static void main(String[] args) {

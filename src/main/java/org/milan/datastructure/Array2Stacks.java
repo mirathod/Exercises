@@ -4,6 +4,9 @@ import org.milan.exceptions.StackUnderflowError;
 
 import java.lang.reflect.Array;
 
+/**
+ * @author Milan Rathod
+ */
 public class Array2Stacks<T> {
 
     private T[] array;
