@@ -1,7 +1,7 @@
 package org.milan.datastructure;
 
 /**
- * @author ghuser
+ * @author Milan Rathod
  */
 public class SubSequenceSum {
     public static void main(String[] args) {

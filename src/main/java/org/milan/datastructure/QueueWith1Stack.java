@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.datastructure;
 
 import java.util.Stack;
 

@@ -1,5 +1,8 @@
 package org.milan.datastructure;
 
+/**
+ * @author Milan Rathod
+ */
 public class Toh {
     private static String SOURCE_PEG = "A";
 
@@ -7,7 +10,7 @@ public class Toh {
 
     private static String TARGET_PEG = "B";
 
-    //Complexity --O(2 power of n)
+    // Time Complexity O(2 power of n)
     public void listSteps(int n, String source, String target, String spare) {
         if (n == 1) {
             System.out.println("Please move from Peg " + source + "\tTo Peg\t"

@@ -9,7 +9,8 @@ import java.util.Scanner;
  */
 public class SheldonAndArray {
 
-    @SuppressWarnings("resource")
+    p
+
     public static void main(String args[]) throws Exception {
 
         Scanner sn = new Scanner(System.in);

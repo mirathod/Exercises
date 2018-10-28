@@ -1,5 +1,8 @@
 package org.milan.sample;
 
+/**
+ * @author Milan Rathod
+ */
 public class PalindromeDemo {
 
     public static void main(String args[]) {

@@ -1,4 +1,4 @@
-package org.milan.strings;
+package org.milan.core.string;
 
 import java.util.HashMap;
 import java.util.Iterator;

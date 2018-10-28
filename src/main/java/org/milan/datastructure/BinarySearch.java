@@ -8,7 +8,9 @@ package org.milan.datastructure;
 public class BinarySearch {
 
     /**
-     * Search number in input array with binary search
+     * Iterative Approach - Search number in input array with binary search
+     * <p>
+     * Time Complexity O(logn)
      *
      * @param arr    input array
      * @param number element to be searched
@@ -28,7 +30,37 @@ public class BinarySearch {
                 return mid;
             mid = (low + high) / 2;
         }
+        // return -1 if not found
         return -1;
+    }
+
+    /**
+     * Recursive Approach - Search number in input array with binary search
+     * <p>
+     * Time Complexity O(logn)
+     *
+     * @param arr    input array
+     * @param low    starting index
+     * @param high   ending index
+     * @param number element to be searched
+     * @return index of element if found otherwise -1
+     */
+    public int binarySearch(int[] arr, int low, int high, int number) {
+
+        if (low <= high) {
+            int mid = (low + high) / 2;
+
+            if (arr[mid] == number) {
+                return mid;
+            } else if (number > arr[mid]) {
+                return binarySearch(arr, mid + 1, high, number);
+            } else {
+                return binarySearch(arr, low, mid - 1, number);
+            }
+        }
+        // return -1 if not found
+        return -1;
+
     }
 
 }
