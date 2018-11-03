@@ -9,8 +9,6 @@ import java.util.Scanner;
  */
 public class SheldonAndArray {
 
-    p
-
     public static void main(String args[]) throws Exception {
 
         Scanner sn = new Scanner(System.in);
