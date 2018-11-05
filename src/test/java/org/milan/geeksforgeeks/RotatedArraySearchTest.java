@@ -18,18 +18,18 @@ public class RotatedArraySearchTest {
 
         int result = rotatedArraySearch.rotatedArraySearch(inputArray, 4);
 
-        Assert.assertEquals(result, 1);
+        Assert.assertEquals(1, result);
 
         result = rotatedArraySearch.rotatedArraySearch(inputArray, 0, inputArray.length - 1, 4);
 
-        Assert.assertEquals(result, 1);
+        Assert.assertEquals(1, result);
 
         result = rotatedArraySearch.rotatedArraySearch(inputArray, 7);
 
-        Assert.assertEquals(result, -4);
+        Assert.assertEquals(-4, result);
 
         result = rotatedArraySearch.rotatedArraySearch(inputArray, 0, inputArray.length - 1, 7);
 
-        Assert.assertEquals(result, -1);
+        Assert.assertEquals(-1, result);
     }
 }
