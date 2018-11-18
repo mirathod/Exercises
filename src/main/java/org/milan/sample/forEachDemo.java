@@ -7,33 +7,33 @@ import java.util.function.Consumer;
 
 public class forEachDemo {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		List<Integer> myList = new ArrayList<Integer>();
-		Objects.requireNonNull(null);
-		for (int i = 0; i < 10; i++)
-			myList.add(i);
-		myList.forEach(new Consumer<Integer>() {
+        List<Integer> myList = new ArrayList<Integer>();
+        Objects.requireNonNull(null);
+        for (int i = 0; i < 10; i++)
+            myList.add(i);
+        myList.forEach(new Consumer<Integer>() {
 
-			@Override
-			public void accept(Integer t) {
-				System.out.println("For each" + t);
+            @Override
+            public void accept(Integer t) {
+                System.out.println("For each" + t);
 
-			}
+            }
 
-		});
+        });
 
-		MyConsumer myConsumer = new MyConsumer();
-		myList.forEach(myConsumer);
-	}
+        MyConsumer myConsumer = new MyConsumer();
+        myList.forEach(myConsumer);
+    }
 }
 
 class MyConsumer implements Consumer<Integer> {
 
-	@Override
-	public void accept(Integer t) {
-		System.out.println("For each via class implemenatation" + t);
+    @Override
+    public void accept(Integer t) {
+        System.out.println("For each via class implemenatation" + t);
 
-	}
+    }
 
 }
