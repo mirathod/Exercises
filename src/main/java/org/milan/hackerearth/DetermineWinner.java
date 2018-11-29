@@ -2,6 +2,11 @@ package org.milan.hackerearth;
 
 import java.util.Arrays;
 
+/**
+ * {@link @https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/problem-16-b45b3a5d/}
+ *
+ * @author Milan Rathod
+ */
 class DetermineWinner {
 
     public String getWinner(long[] problems, long[] decreaseScores, long[] flash, long[] cisco) {
