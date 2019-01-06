@@ -1,4 +1,4 @@
-package org.milan.datastructure;
+package org.milan.datastructure.sorting;
 
 public class RadixSort {
     public static void main(String[] args) {
