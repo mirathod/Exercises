@@ -2,10 +2,12 @@ package org.milan.sample;
 
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class HashMapDemo {
 
@@ -19,6 +21,8 @@ public class HashMapDemo {
         for (Entry<String, Integer> entry : entrySet) {
             System.out.println(entry.getKey() + " - " + entry.getValue());
         }
+
+        new HashMapDemo().sortByValues();
 
     }
 
@@ -42,4 +46,22 @@ public class HashMapDemo {
         return sortedByValues;
     }
 
+    public void sortByValues() {
+        Map<String, Integer> expenses = new HashMap<>();
+
+        expenses.put("clothes", 120);
+        expenses.put("grocery", 150);
+        expenses.put("transportation", 100);
+        expenses.put("utility", 130);
+        expenses.put("rent", 1150);
+        expenses.put("miscellneous", 90);
+
+        Map<String, Integer> collect = expenses
+                .entrySet()
+                .stream()
+                .sorted(Entry.comparingByValue())
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+
+        System.out.println(collect);
+    }
 }

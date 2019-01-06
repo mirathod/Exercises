@@ -2,6 +2,7 @@ package org.milan.datastructure;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.searching.JumpSearch;
 
 /**
  * Test Class for {@link JumpSearch}

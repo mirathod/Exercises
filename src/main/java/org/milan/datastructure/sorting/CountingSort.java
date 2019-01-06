@@ -1,5 +1,10 @@
-package org.milan.datastructure;
+package org.milan.datastructure.sorting;
 
+/**
+ * Problem: Counting Sort
+ *
+ * @author Milan Rathod
+ */
 public class CountingSort {
     public static void main(String[] args) {
         //int[] a=new int[]{1, 4, 1, 2, 7, 5, 2};

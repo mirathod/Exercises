@@ -7,10 +7,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Add Description
+ * Array to Collection Utility Class
  *
  * @author Milan Rathod
- * @since
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public final class ArrayToCollection {

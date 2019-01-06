@@ -1,4 +1,4 @@
-package org.milan.datastructure;
+package org.milan.datastructure.searching;
 
 /**
  * Jump Search on sorted arrays
