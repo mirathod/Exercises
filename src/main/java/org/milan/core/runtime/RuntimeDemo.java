@@ -7,11 +7,11 @@ import java.io.IOException;
  */
 public class RuntimeDemo {
     public static void main(String[] s) {
-        Runtime r = Runtime.getRuntime();
+        Runtime runtime = Runtime.getRuntime();
 
         try {
 
-            r.exec("Notepad");
+            runtime.exec("Notepad");
         } catch (IOException ex) {
             System.out.println(ex.toString());
         }

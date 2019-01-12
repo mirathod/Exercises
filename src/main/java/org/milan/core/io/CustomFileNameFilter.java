@@ -1,4 +1,4 @@
-package org.milan.core.file;
+package org.milan.core.io;
 
 import java.io.File;
 import java.io.FilenameFilter;
