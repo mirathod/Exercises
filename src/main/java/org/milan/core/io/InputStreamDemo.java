@@ -1,4 +1,4 @@
-package org.milan.core.file;
+package org.milan.core.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.io;
 
 import org.apache.commons.io.IOUtils;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Byte Array Demo
+ * Convert Input Stream to Byte Array
  *
  * @author Milan Rathod
  */
@@ -20,11 +20,14 @@ public class ByteArrayDemo {
         return IOUtils.toByteArray(inputStream);
     }
 
+    /**
+     * Convert Input Stream to Byte Array through Java
+     */
     public byte[] toByteArrayUsingJava(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int read = inputStream.read();
 
-        while (read != 1) {
+        while (read != -1) {
             byteArrayOutputStream.write(read);
             read = inputStream.read();
         }
