@@ -2,6 +2,7 @@ package org.milan.sample;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.misc.ShiftArray;
 
 import java.util.Arrays;
 

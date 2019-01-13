@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.misc;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

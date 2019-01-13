@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.core;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
