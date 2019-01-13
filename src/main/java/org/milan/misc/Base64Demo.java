@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.misc;
 
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;

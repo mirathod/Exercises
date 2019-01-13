@@ -1,11 +1,11 @@
-package org.milan.sample;
+package org.milan.misc;
 
 /**
  * @author Milan Rathod
  */
 public class PalindromeDemo {
 
-    boolean palindromeString(String str) {
+    public boolean palindromeString(String str) {
         String output = "";
         for (int i = str.length() - 1; i >= 0; i--) {
             output += str.charAt(i);
@@ -14,7 +14,7 @@ public class PalindromeDemo {
         return false;
     }
 
-    boolean palindromeNumber(int number) {
+    public boolean palindromeNumber(int number) {
         int input = number, output = 0, mul = 1;
         while (number > 0) {
             int temp = number % 10;

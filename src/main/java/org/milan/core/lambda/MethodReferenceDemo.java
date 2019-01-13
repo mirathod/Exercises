@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.core.lambda;
 
 import com.google.common.collect.Lists;
 

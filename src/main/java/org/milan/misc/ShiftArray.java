@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.misc;
 
 /**
  * Problem:- Array: [12, 1, 13, 24, 12, 66, 12], X: 12 Replace X with 1 and move

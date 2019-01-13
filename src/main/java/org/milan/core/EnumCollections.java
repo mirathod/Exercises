@@ -1,4 +1,4 @@
-package org.milan.sample;
+package org.milan.core;
 
 import java.io.Closeable;
 import java.io.IOException;
