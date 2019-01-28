@@ -2,7 +2,9 @@ package org.milan.core.thread;
 
 import java.util.Scanner;
 
-// asked in KT exam of Java
+/**
+ * @author Milan Rathod
+ */
 public class ParrallComputingDemo {
 
     static int sum = 0;
@@ -17,7 +19,7 @@ public class ParrallComputingDemo {
             }
         }
         for (int i = 0; i < a.length; i++) {
-            PC p = new PC(a[i]);
+            ParallelComputing p = new ParallelComputing(a[i]);
             Thread t = new Thread(p);
             t.setName(String.valueOf(i));
             t.start(); // starts the thread
@@ -28,25 +30,5 @@ public class ParrallComputingDemo {
             }
         }
         System.out.println(" Final Sum :=" + sum);
-    }
-}
-
-class PC implements Runnable {
-    int a[];
-
-    PC(int b[]) {
-        a = b;
-    }
-
-    public void run() {
-        int localsum = 0;
-        for (int i = 0; i < a.length; i++) {
-            localsum += a[i];
-        }
-
-        synchronized (this) {
-            System.out.println("  Sum of thread " + Thread.currentThread().getName() + "=" + localsum);
-            ParrallComputingDemo.sum += localsum;
-        }
     }
 }

@@ -1,60 +1,67 @@
 package org.milan.core.thread;
 
-class A {
-    synchronized void foo(B b) {
-        String name = Thread.currentThread().getName();
-        System.out.println(name + " entered A.foo");
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println("A Interrupted");
-        }
-        System.out.println(name + " trying to call B.last()");
-        b.last();
-    }
-
-    synchronized void last() {
-        System.out.println("Inside A.last");
-    }
-}
-
-class B {
-    synchronized void bar(A a) {
-        String name = Thread.currentThread().getName();
-        System.out.println(name + " entered B.bar");
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            System.out.println("B Interrupted");
-        }
-        System.out.println(name + " trying to call A.last()");
-        a.last();
-    }
-
-    synchronized void last() {
-        System.out.println("Inside A.last");
-    }
-}
-
+/**
+ * Example to test Deadlock
+ *
+ * @author Milan Rathod
+ */
 public class DeadLockDemo implements Runnable {
 
-    A a = new A();
-    B b = new B();
+    TestA testA = new TestA();
+    TestB testB = new TestB();
 
-    DeadLockDemo() {
+    private DeadLockDemo() {
         Thread.currentThread().setName("MainThread");
         Thread t = new Thread(this, "RacingThread");
         t.start();
-        a.foo(b); // get lock on a in this thread.
+        testA.foo(testB); // get lock on a in this thread.
         System.out.println("Back in main thread");
     }
 
     public void run() {
-        b.bar(a); // get lock on b in other thread.
+        testB.bar(testA); // get lock on b in other thread.
         System.out.println("Back in other thread");
     }
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         new DeadLockDemo();
+    }
+}
+
+class TestA {
+
+    synchronized void foo(TestB testB) {
+        String name = Thread.currentThread().getName();
+        System.out.println(name + " entered foo method");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println("TestA Interrupted");
+        }
+        System.out.println(name + " trying to call TestA.last()");
+        testB.last();
+    }
+
+    synchronized void last() {
+        System.out.println("Inside TestA.last()");
+    }
+}
+
+class TestB {
+
+    synchronized void bar(TestA testA) {
+        String name = Thread.currentThread().getName();
+        System.out.println(name + " entered bar method");
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            System.out.println("TestB Interrupted");
+        }
+        System.out.println(name + " trying to call TestB.last()");
+        testA.last();
+    }
+
+    synchronized void last() {
+        System.out.println("Inside TestB.last()");
     }
 }
