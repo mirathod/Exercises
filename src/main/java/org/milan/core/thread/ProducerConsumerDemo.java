@@ -1,25 +1,44 @@
 package org.milan.core.thread;
 
+/**
+ * Example of Producer Consumer
+ *
+ * @author Milan Rathod
+ */
 public class ProducerConsumerDemo {
     public static void main(String[] args) {
-        Q q = new Q();
-        new Producer(q);
-        new Consumer(q);
+        Queue queue = new Queue();
+        new Producer(queue);
+        new Consumer(queue);
     }
 }
 
-class Q {
-    boolean flag = false;
-    int i, n;
+/**
+ * Queue Class which holds flag and count of items during inter thread communication
+ */
+class Queue {
 
-    public synchronized void put(int n) {
+    private boolean flag = false;
+
+    private int total;
+
+    private int item;
+
+    public synchronized void put(int item) {
         if (!flag) {
-            this.n = n;
-            i++;
-            System.out.println("put : " + i);
+
+            this.item = item;
+
+            total++;
+
+            System.out.println("put : " + total);
+
             flag = true;
+
             notify();
+
         } else {
+
             try {
                 wait();
             } catch (InterruptedException e) {
@@ -31,10 +50,14 @@ class Q {
     public synchronized int get() {
         if (flag) {
 
-            System.out.println("Get :" + i);
-            i--;
+            System.out.println("Get :" + total);
+
+            total--;
+
             flag = false;
+
             notify();
+
         } else {
             try {
                 wait();
@@ -43,16 +66,18 @@ class Q {
             }
 
         }
-        return n;
+        return item;
     }
 }
 
+/**
+ * Producer Class
+ */
 class Producer implements Runnable {
-    Q q;
+    private Queue queue;
 
-    public Producer(Q q) {
-        // TODO Auto-generated method stub
-        this.q = q;
+    Producer(Queue queue) {
+        this.queue = queue;
         new Thread(this, "Consumer").start();
     }
 
@@ -60,27 +85,28 @@ class Producer implements Runnable {
     public void run() {
         int i = 0;
         while (true) {
-            q.put(i++);
+            queue.put(i++);
         }
 
     }
 
 }
 
+/**
+ * Consumer Class
+ */
 class Consumer implements Runnable {
-    Q q;
+    private Queue queue;
 
-    public Consumer(Q q) {
-        // TODO Auto-generated method stub
-        this.q = q;
+    Consumer(Queue queue) {
+        this.queue = queue;
         new Thread(this, "Producer").start();
     }
 
     @Override
     public void run() {
-        // TODO Auto-generated method stub
         while (true) {
-            q.get();
+            queue.get();
         }
     }
 
