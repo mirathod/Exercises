@@ -1,13 +1,27 @@
 package org.milan.core;
 
 /**
+ * Example of Static Block, Static Method and Instance Block
+ *
  * @author Milan Rathod
  */
 public class StaticDemo {
-    static int count;
-    int j;
+    private static int count;
 
-    public StaticDemo() {
+    public static void main(String[] a) {
+        StaticDemo firstObject = new StaticDemo();
+        StaticDemo secondObject = new StaticDemo();
+
+        System.out.println("No of Objects Created :" + StaticDemo.count);
+
+        // Correct Way
+        StaticDemo.sayHello();
+
+        // Incorrect Way
+        firstObject.sayHello();
+    }
+
+    private StaticDemo() {
         count++;
         System.out.println("Inside Constructor");
     }
@@ -22,19 +36,9 @@ public class StaticDemo {
         System.out.println("Static block is executed first and only once.");
     }
 
-    public static void sayHello() {
+    private static void sayHello() {
 
         System.out.println("Hello LDites");
-    }
-
-    public static void main(String[] a) {
-        StaticDemo a1 = new StaticDemo();
-        StaticDemo a2 = new StaticDemo();
-
-        System.out.println("No of Objects Created :" + StaticDemo.count);
-        StaticDemo.sayHello(); // proper way
-
-        a1.sayHello(); // no error but aa not proper way to call static method
     }
 
 }

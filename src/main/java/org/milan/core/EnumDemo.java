@@ -1,17 +1,19 @@
 package org.milan.core;
 
-import java.util.EnumSet;
-
+/**
+ * Java Enum Example
+ *
+ * @author Milan Rathod
+ */
 public class EnumDemo {
-    // can be private , protected ,default and public as it is inside a class
+
     enum Days {
-        // each of the below is object/instance of enum Days
+        // Each of below values are instance of enum Days
         MONDAY(70), TUESDAY(70), WEDNESDAY(70), THURSDAY(70), FRIDAY(70), SATURDAY(70), SUNDAY(40) {
             @Override
             public int getFreeHours() {
                 return 3;
             }
-
         };
 
         int salary;
