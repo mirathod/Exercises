@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.collections;
 
 import com.google.common.collect.Lists;
 

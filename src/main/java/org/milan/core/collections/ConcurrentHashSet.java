@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.collections;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,6 +11,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class ConcurrentHashSet {
 
     public static void main(String[] args) {
+
+        String property = System.getProperty("java.class.path");
+
+        System.out.println("test" + property);
         ConcurrentHashMap<String, Integer> stringIntegerConcurrentHashMap = new ConcurrentHashMap<>();
 
         stringIntegerConcurrentHashMap.put("Test1", 111);

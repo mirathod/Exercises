@@ -1,35 +1,39 @@
 package org.milan.datastructure.linkedlist;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-public class LinkedListDemo {
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+/**
+ * LinkedList operations
+ *
+ * @author Milan Rathod
+ */
+public class LinkedList {
+
+    private static final Logger LOG = LoggerFactory.getLogger(LinkedList.class);
 
     Node head;
 
-    //Node Class to represent Node in LinkedList
-    static class Node {
-        int data;
-        Node next;
-
-        Node(int d) {
-            data = d;
-            next = null;
-        }
-
-    }
-
-    //Insert scenario 1: To insert node before head
+    /**
+     * Insert node before head node
+     */
     public void insertBeforeHead(int data) {
         Node newHead = new Node(data);
         newHead.next = this.head;
         this.head = newHead;
     }
 
-    //Insert scenario 2: To insert node between two nodes
-    public void afterSpecifiedNode(Node previousNode, int data) {
+    /**
+     * Insert node after specified node
+     */
+    public void insertAfterSpecifiedNode(Node previousNode, int data) {
         if (previousNode == null) {
-            System.out.println("Previous node cannot be null");
+            LOG.warn("Previous node cannot be null");
             return;
         }
         Node newHead = new Node(data);
@@ -37,11 +41,13 @@ public class LinkedListDemo {
         previousNode.next = newHead;
     }
 
-    //Insert scenario 3: To insert node at the end of list
+    /**
+     * Insert Node at the end of list
+     */
     public void insertAtEnd(int data) {
         Node newHead = new Node(data);
         if (this.head == null) {
-            System.out.println("LinkedList is empty");
+            LOG.warn("linked list is empty");
             return;
         }
         Node last = head;
@@ -51,11 +57,14 @@ public class LinkedListDemo {
         last.next = newHead;
     }
 
-    //To delete node from linkedlist
-    public void deleteNode(int data) {
-        Node temp = head, previous = null;
+    /**
+     * Delete a node by data key
+     */
+    public void deleteNodeByKey(int data) {
+        Node temp = head;
+        Node previous = null;
 
-        //If node to be deleted is head node
+        // To be deleted node is a head node
         if (temp != null && temp.data == data) {
             head = temp.next;
             return;
@@ -68,82 +77,75 @@ public class LinkedListDemo {
         }
 
         if (temp == null) {
-            System.out.println("Node with key " + data + " is not present in linkedlist");
             return;
         }
         previous.next = temp.next;
     }
 
-    //Delete node from linkedlist by index
-    public void deleteNodeByIndex(int index) {
+    /**
+     * Delete a node by its position
+     */
+    public void deleteNodeByPosition(int position) {
 
-        if (index == 0) {
+        // To be deleted node is a head node
+        if (position == 1) {
             head = head.next;
             return;
         }
 
         int targetIndex = 1;
-        Node temp = head.next, previous = head;
-        while (targetIndex != index) {
-            if (temp == null) {
-                System.out.println("Node with index " + index + " is not present in linkedlist");
-                return;
-            }
-            previous = temp;
+
+        Node temp = head;
+
+        while (temp != null && targetIndex < position - 1) {
             temp = temp.next;
             targetIndex++;
         }
-        previous.next = temp.next;
+
+        if (temp == null || temp.next == null) return;
+
+        temp.next = temp.next.next;
 
     }
 
-    //To calculate size of linkedlist - iterative approach
-    public int sizeByIterative() {
-        int count = 0;
-        Node temp = head;
-        if (temp == null) {
-            System.out.println("Linkedlist is empty");
-            return -1;
-        }
-        while (temp != null) {
-            count++;
-            temp = temp.next;
-        }
-        return count;
-    }
-
-    //To calculate size of linkedlist - recursive approach
-    public int sizebyRecursive(Node head) {
-        if (head == null) {
-            return 0;
-        } else {
-            return 1 + sizebyRecursive(head.next);
-        }
-    }
-
+    /**
+     * Swap two nodes of linked list
+     */
     public void swap(int x, int y) {
         if (x == y) {
-            System.out.println("Both nodes are same, no changes required");
+            LOG.warn("both nodes are same, no changes required");
             return;
         }
-        Node currentX = head, previousX = null;
+
+        Node currentX = head;
+
+        Node previousX = null;
+
+        Node currentY = head;
+
+        Node previousY = null;
+
         while (currentX != null && currentX.data != x) {
             previousX = currentX;
             currentX = currentX.next;
         }
-        Node currentY = head, previousY = null;
+
         while (currentY != null && currentY.data != y) {
             previousY = currentY;
             currentY = currentY.next;
         }
+
+        // Check to ensure that both nodes are present in linked list
         if (currentX == null || currentY == null) {
-            System.out.println("one of the nodes are not present in linkedlist");
+            LOG.warn("one of the nodes are not present in linked list");
             return;
         }
+
         if (previousX != null)
             previousX.next = currentY;
         else
             head = currentY;
+
         if (previousY != null)
             previousY.next = currentX;
         else
@@ -155,9 +157,26 @@ public class LinkedListDemo {
         currentY.next = temp;
     }
 
+    /**
+     * Swap linked list nodes in pair
+     */
+    public void swapPairs(Node head) {
+
+        if (head != null && head.next != null) {
+            int temp = head.data;
+            head.data = head.next.data;
+            head.next.data = temp;
+
+            swapPairs(head.next.next);
+        }
+
+    }
+
     //Reverse the linkedlist - iterative approach
     public void reverseByIterative() {
-        Node current = head, prev = null, next = null;
+        Node current = head;
+        Node prev = null;
+        Node next = null;
         while (current != null) {
             next = current.next;
             current.next = prev;
@@ -182,12 +201,13 @@ public class LinkedListDemo {
     }
 
     //Merge two linkedlist - iterative approach
-    public Node MergeListByIterative(Node l1, Node l2) {
+    public Node mergeByIterative(Node l1, Node l2) {
 
         Node current1 = l1;
         Node current2 = l2;
 
-        Node temp, tail;
+        Node temp;
+        Node tail;
         if (current1.data < current2.data) {
             temp = current1;
             current1 = current1.next;
@@ -200,28 +220,23 @@ public class LinkedListDemo {
         while (current1 != null && current2 != null) {
             if (current1.data <= current2.data) {
                 temp.next = current1;
-                //System.out.println(temp.data);
                 current1 = current1.next;
             } else if (current1.data > current2.data) {
                 temp.next = current2;
-                //System.out.println(temp.data);
                 current2 = current2.next;
             }
             temp = temp.next;
         }
         if (null == current1) {
-            current1 = temp;
             temp.next = current2;
         } else {
-            current2 = temp;
             temp.next = current1;
         }
         return tail;
     }
 
     //Merge two linkedlist - recursive approach
-    public Node MergeListByRecursive(Node head1, Node head2) {
-
+    public Node mergeByRecursive(Node head1, Node head2) {
 
         if (head1 == null) {
             return head2;
@@ -235,10 +250,10 @@ public class LinkedListDemo {
 
         if (head1.data < head2.data) {
             current = head1;
-            current.next = MergeListByRecursive(head1.next, head2);
+            current.next = mergeByRecursive(head1.next, head2);
         } else {
             current = head2;
-            current.next = MergeListByRecursive(head1, head2.next);
+            current.next = mergeByRecursive(head1, head2.next);
         }
 
         return current;
@@ -246,7 +261,9 @@ public class LinkedListDemo {
 
     //Reverse a linked list in group of given size
     public Node reverseByGroupSize(Node head, int size) {
-        Node current = head, prev = null, next = null;
+        Node current = head;
+        Node prev = null;
+        Node next = null;
         int count = 0;
         while (count < size && current != null) {
             next = current.next;
@@ -260,23 +277,26 @@ public class LinkedListDemo {
         return prev;
     }
 
-    //To detect the loop in linkedlist
-    public void detectLoop(Node node, boolean flag) {
-        Node slow = node, fast = node;
+    /**
+     * Return true if loop is present in linked list
+     */
+    public int detectAndCountLoop() {
+        Node slow = head;
+        Node fast = head;
+        int count = 0;
         while (slow != null && fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
             if (slow == fast) {
-                System.out.println("Loop existed");
-                if (flag) {
-                    removeLoop(slow, node);
-                }
-                return;
+                Node current = slow;
+                do {
+                    count++;
+                    current = current.next;
+                } while (current != slow);
+                return count;
             }
         }
-        System.out.println("Loop doesnt't exist");
-
-
+        return count;
     }
 
     //remove detected loop based on boolean flag
@@ -297,7 +317,8 @@ public class LinkedListDemo {
 
     //add contents of two linked lists
     public Node addTwoLinkedList(Node n1, Node n2, int carry) {
-        int x = 0, y = 0;
+        int x = 0;
+        int y = 0;
         if (n1 == null && n2 == null) return null;
         if (n1 != null) {
             x = n1.data;
@@ -320,10 +341,53 @@ public class LinkedListDemo {
         return n;
     }
 
+    /**
+     * Remove duplicates in ascending sorted linked list
+     */
+    public void removeDuplicatesSorted() {
+        Node current = head;
+
+        if (current == null) return;
+
+        Node next = current.next;
+
+        while (next != null) {
+            if (current.data == next.data) {
+                current.next = next.next;
+            } else {
+                current = current.next;
+            }
+            next = next.next;
+        }
+    }
+
+    /**
+     *
+     */
+    public void removeDuplicatesUnsorted() {
+
+        Set<Integer> store = new HashSet<>();
+
+        Node current = head;
+        Node previous = null;
+
+        while (current != null) {
+            if (!store.contains(current.data)) {
+                store.add(current.data);
+                previous = current;
+            } else {
+                previous.next = current.next;
+            }
+            current = current.next;
+        }
+
+    }
+
     //
     public Node rotate(Node head, int k) {
         int count = 1;
-        Node temp = head, newHead;
+        Node temp = head;
+        Node newHead;
         while (count < k) {
             temp = temp.next;
             count++;
@@ -340,7 +404,10 @@ public class LinkedListDemo {
 
     //Circular Linked list - split into two halved
     public List<Node> split(Node head) {
-        Node ptr1 = head, ptr2 = head, head1 = null, head2 = null;
+        Node ptr1 = head;
+        Node ptr2 = head;
+        Node head1 = null;
+        Node head2 = null;
         while (ptr2.next != head && ptr2.next.next != head) {
             ptr2 = ptr2.next.next;
             ptr1 = ptr1.next;
@@ -380,27 +447,87 @@ public class LinkedListDemo {
         }
     }
 
-
-    //To print linkedlist
     public void printList() {
-        Node n = head;
-        while (n != null) {
-            System.out.print(n.data + "-->");
-            n = n.next;
+        printList(head);
+    }
+
+    public void printList(Node node) {
+        Node temp = node;
+        while (temp != null) {
+            System.out.print(temp.data + "-->");
+            temp = temp.next;
         }
         System.out.println("null");
     }
 
-    //To print singly linkedlist
-    public void printList(Node node) {
-        Node temp = node;
-        if (temp != null) {
-            do {
-                System.out.print(temp.data + "-->");
-                temp = temp.next;
-            } while (temp != node);
-            System.out.println();
+    /**
+     * Get Node based on requested position
+     */
+    public Node get(int position) {
+        Node current = head;
 
+        int count = 0;
+
+        while (current != null) {
+            if (count == position) {
+                return current;
+            }
+            count++;
+            current = current.next;
+        }
+        return null;
+    }
+
+    /**
+     * Check if node is present in linked list or not
+     */
+    public boolean contains(int key) {
+        Node current = head;
+        while (current != null) {
+            if (current.data == key) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    /**
+     * Calculate size of a linked list - iterative approach
+     */
+    public int size() {
+        int count = 0;
+        Node temp = head;
+        if (temp == null) {
+            LOG.warn("linked list is empty");
+            return -1;
+        }
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+
+    /**
+     * Calculate size of a linked list - recursive approach
+     */
+    public int size(Node head) {
+        if (head == null) {
+            return 0;
+        } else {
+            return 1 + size(head.next);
+        }
+    }
+
+    static class Node {
+        int data;
+
+        Node next;
+
+        Node(int d) {
+            data = d;
+            next = null;
         }
     }
 }

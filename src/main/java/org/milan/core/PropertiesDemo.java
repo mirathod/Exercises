@@ -1,4 +1,4 @@
-package org.milan.core.collections;
+package org.milan.core;
 
 import java.util.Properties;
 
