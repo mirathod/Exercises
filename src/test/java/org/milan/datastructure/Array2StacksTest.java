@@ -1,19 +1,13 @@
 package org.milan.datastructure;
 
-import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link Array2Stacks}
  *
  * @author Milan Rathod
- * @since
  */
 public class Array2StacksTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
 
     @Test
     public void test() {
