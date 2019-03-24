@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class ShiftArrayTest {
 
     @Test
-    public void computeFinalArray() {
+    public void testComputeFinalArray() {
         int[] inputArray = {12, 1, 13, 24, 12, 66, 12};
         int[] expectedResult = {1, 1, 1, 1, 13, 24, 66};
 

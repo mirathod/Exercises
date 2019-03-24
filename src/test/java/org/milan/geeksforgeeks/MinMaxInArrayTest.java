@@ -13,7 +13,7 @@ import java.util.List;
 public class MinMaxInArrayTest {
 
     @Test
-    public void findMinMax() {
+    public void testFindMinMax() {
         MinMaxInArray minMaxInArray = new MinMaxInArray();
 
         int[] inputArray = {10, 11, 45, 2, 33, 30, 7};
@@ -24,7 +24,7 @@ public class MinMaxInArrayTest {
     }
 
     @Test
-    public void findMinMax1() {
+    public void testFindMinMax1() {
         MinMaxInArray minMaxInArray = new MinMaxInArray();
 
         int[] inputArray = {10, 11, 45, 2, 33, 30, 7};
@@ -35,7 +35,7 @@ public class MinMaxInArrayTest {
     }
 
     @Test
-    public void findMinMax2() {
+    public void testFindMinMax2() {
         MinMaxInArray minMaxInArray = new MinMaxInArray();
 
         int[] inputArray = {10, 11, 45, 2, 33, 30, 7};

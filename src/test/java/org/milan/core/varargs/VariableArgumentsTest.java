@@ -11,7 +11,7 @@ import org.junit.Test;
 public class VariableArgumentsTest {
 
     @Test
-    public void sum() {
+    public void testSum() {
         VariableArguments variableArguments = new VariableArguments();
 
         int result = variableArguments.sum(10, 20, 30);

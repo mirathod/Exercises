@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ChocolatesDistributionTest {
 
     @Test
-    public void maxNumOfChocolates() {
+    public void testMaxNumOfChocolates() {
         ChocolatesDistribution chocolatesDistribution = new ChocolatesDistribution();
 
         int[] inputArray = {1, 2, 3, 4, 5};

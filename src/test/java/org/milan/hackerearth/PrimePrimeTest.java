@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PrimePrimeTest {
 
     @Test
-    public void primeCount() {
+    public void testPrimeCount() {
         PrimePrime primePrime = new PrimePrime();
         long result = primePrime.calculatePrimeCount(1, 839);
 

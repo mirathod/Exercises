@@ -11,7 +11,7 @@ import org.junit.Test;
 public class RotatedArraySearchTest {
 
     @Test
-    public void rotatedArraySearch() {
+    public void testRotatedArraySearch() {
         RotatedArraySearch rotatedArraySearch = new RotatedArraySearch();
 
         int[] inputArray = {3, 4, 5, 6, 1, 2};

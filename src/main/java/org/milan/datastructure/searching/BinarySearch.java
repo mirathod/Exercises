@@ -16,7 +16,7 @@ public class BinarySearch {
      * @param number element to be searched
      * @return index of element if found otherwise -1
      */
-    public int binarySearch(int[] arr, int number) {
+    public int search(int[] arr, int number) {
         int low = 0;
         int high = arr.length - 1;
         int mid = (low + high) / 2;
@@ -45,7 +45,7 @@ public class BinarySearch {
      * @param number element to be searched
      * @return index of element if found otherwise -1
      */
-    public int binarySearch(int[] arr, int low, int high, int number) {
+    public int search(int[] arr, int low, int high, int number) {
 
         if (low <= high) {
             int mid = (low + high) / 2;
@@ -53,9 +53,9 @@ public class BinarySearch {
             if (arr[mid] == number) {
                 return mid;
             } else if (number > arr[mid]) {
-                return binarySearch(arr, mid + 1, high, number);
+                return search(arr, mid + 1, high, number);
             } else {
-                return binarySearch(arr, low, mid - 1, number);
+                return search(arr, low, mid - 1, number);
             }
         }
         // return -1 if not found

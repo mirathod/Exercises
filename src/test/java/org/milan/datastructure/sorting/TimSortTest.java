@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link TimSort}
  *
  * @author Milan Rathod
  */
 public class TimSortTest {
 
     @Test
-    public void sort() {
+    public void testSort() {
         int[] inputArray = new int[]{4, 5, 3, 2, 4, 1};
 
         TimSort timSort = new TimSort();

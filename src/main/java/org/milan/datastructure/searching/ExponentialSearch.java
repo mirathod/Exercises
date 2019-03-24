@@ -9,9 +9,6 @@ import java.util.Arrays;
  */
 public class ExponentialSearch {
 
-    // Returns position of first occurrence of
-    // x in array
-
     /**
      * @param inputArray given array
      * @param number     element to search

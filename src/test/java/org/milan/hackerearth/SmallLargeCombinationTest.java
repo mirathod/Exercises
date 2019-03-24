@@ -11,7 +11,7 @@ import org.junit.Test;
 public class SmallLargeCombinationTest {
 
     @Test
-    public void computeSmallLargeCount() {
+    public void testComputeSmallLargeCount() {
         SmallLargeCombination smallLargeCombination = new SmallLargeCombination();
         long result = smallLargeCombination.computeSmallLargeCount(new long[]{5, 2, 3, 1, 4});
 

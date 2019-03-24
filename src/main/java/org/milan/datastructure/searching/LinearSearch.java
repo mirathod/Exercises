@@ -14,7 +14,7 @@ public class LinearSearch {
      * @param element    element to search in given array
      * @return -1 if not found or index of element in given array if found
      */
-    public int linearSearch(int[] inputArray, int element) {
+    public int search(int[] inputArray, int element) {
 
         for (int i = 0; i < inputArray.length; i++) {
             if (inputArray[i] == element) {

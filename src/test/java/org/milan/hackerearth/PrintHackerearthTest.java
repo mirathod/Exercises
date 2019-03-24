@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PrintHackerearthTest {
 
     @Test
-    public void printHackerearth() {
+    public void testPrintHackerearth() {
         String input = "aahkcreeatrha";
         PrintHackerearth printHackerearth = new PrintHackerearth();
         int result = printHackerearth.printHackerearth(input);

@@ -13,7 +13,7 @@ import java.util.List;
 public class TheGreatKianTest {
 
     @Test
-    public void getSumValues() {
+    public void testGetSumValues() {
         TheGreatKian theGreatKian = new TheGreatKian();
         List<Long> result = theGreatKian.getSumValues(new int[]{1, 2, 3, 4, 5});
 

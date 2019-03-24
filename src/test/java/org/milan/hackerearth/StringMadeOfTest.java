@@ -11,7 +11,7 @@ import org.junit.Test;
 public class StringMadeOfTest {
 
     @Test
-    public void countDashes() {
+    public void testCountDashes() {
         StringMadeOf stringMadeOf = new StringMadeOf();
         int result = stringMadeOf.countDashes("12134");
 

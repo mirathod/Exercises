@@ -11,7 +11,7 @@ import org.junit.Test;
 public class KthPrimeTest {
 
     @Test
-    public void calculateMinimumOperations() {
+    public void testCalculateMinimumOperations() {
         KthPrime kthPrime = new KthPrime();
         int result = kthPrime.calculateMinimumOperations(new int[]{12, 2, 1, 14}, 4, 3);
 

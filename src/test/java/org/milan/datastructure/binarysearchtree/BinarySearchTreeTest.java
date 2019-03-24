@@ -1,18 +1,13 @@
 package org.milan.datastructure.binarysearchtree;
 
-import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link BinarySearchTree}
  *
  * @author Milan Rathod
  */
 public class BinarySearchTreeTest {
-
-    @Before
-    public void setUp() throws Exception {
-    }
 
     @Test
     public void test() {

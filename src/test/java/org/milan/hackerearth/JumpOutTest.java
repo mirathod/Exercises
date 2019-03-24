@@ -13,7 +13,7 @@ import java.io.IOException;
 public class JumpOutTest {
 
     @Test
-    public void minimumLengthJump() throws IOException {
+    public void testMinimumLengthJump() throws IOException {
         JumpOut jumpOut = new JumpOut();
         int result = jumpOut.minimumLengthJump(new int[]{4, 2, 4, 2, 3}, 5);
 

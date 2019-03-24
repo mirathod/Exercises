@@ -11,7 +11,7 @@ import org.junit.Test;
 public class MysteryTest {
 
     @Test
-    public void solve() {
+    public void testSolve() {
         Mystery mystery = new Mystery();
         int result = mystery.solve(14, 5, 9);
 

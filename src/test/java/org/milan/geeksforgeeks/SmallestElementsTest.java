@@ -13,7 +13,7 @@ import java.util.List;
 public class SmallestElementsTest {
 
     @Test
-    public void findSmallestElements() {
+    public void testFindSmallestElements() {
         int[] inputArray = {12, 13, 1, 10, 34, 1};
         SmallestElements smallestElements = new SmallestElements();
         List<Integer> result = smallestElements.findSmallestElements(inputArray);

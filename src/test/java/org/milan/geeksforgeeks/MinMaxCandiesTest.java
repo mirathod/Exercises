@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test class for {@link MinMaxCandies}
  *
  * @author Milan Rathod
  */
@@ -23,13 +23,13 @@ public class MinMaxCandiesTest {
     }
 
     @Test
-    public void getMinAmount() {
+    public void testGetMinAmount() {
         int result = minMaxCandies.getMinAmount(inputArray, 2);
         Assert.assertEquals(3, result);
     }
 
     @Test
-    public void getMaxAmount() {
+    public void testGetMaxAmount() {
         int result = minMaxCandies.getMaxAmount(inputArray, 2);
         Assert.assertEquals(7, result);
 

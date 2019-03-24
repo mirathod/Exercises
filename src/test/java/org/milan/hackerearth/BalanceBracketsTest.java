@@ -3,14 +3,14 @@ package org.milan.hackerearth;
 import org.junit.Test;
 
 /**
- * Test For BalanceBrackets Class
+ * Test Class for {@link BalanceBrackets}
  *
  * @author Milan Rathod
  */
 public class BalanceBracketsTest {
 
     @Test
-    public void checkBalance() {
+    public void testCheckBalance() {
         BalanceBrackets balanceBrackets = new BalanceBrackets();
         balanceBrackets.checkBalance("(())");
     }

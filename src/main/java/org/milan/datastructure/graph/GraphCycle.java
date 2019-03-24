@@ -31,7 +31,7 @@ class GraphCycle {
         this.V = V;
         adj = new LinkedList[V];
         for (int i = 0; i < V; i++)
-            adj[i] = new LinkedList<Integer>();
+            adj[i] = new LinkedList<>();
     }
 
     void addEdge(int v, int e) {
@@ -39,13 +39,12 @@ class GraphCycle {
     }
 
     void DFS() {
-        Stack<Integer> st = new Stack<Integer>();
+        Stack<Integer> st = new Stack<>();
         boolean visited[] = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i])
                 DFSUtil(visited, i, st);
         }
-        System.out.print("");
     }
 
     void DFSUtil(boolean visited[], int i, Stack<Integer> st) {

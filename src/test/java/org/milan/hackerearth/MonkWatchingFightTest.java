@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link MonkWatchingFight}
  *
  * @author Milan Rathod
  * @since
@@ -12,7 +12,7 @@ import org.junit.Test;
 public class MonkWatchingFightTest {
 
     @Test
-    public void heightOfBST() {
+    public void testHeightOfBST() {
 
         // Input Data
         int n = 4;

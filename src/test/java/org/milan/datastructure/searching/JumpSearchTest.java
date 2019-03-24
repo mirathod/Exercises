@@ -1,8 +1,7 @@
-package org.milan.datastructure;
+package org.milan.datastructure.searching;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.datastructure.searching.JumpSearch;
 
 /**
  * Test Class for {@link JumpSearch}
@@ -12,7 +11,7 @@ import org.milan.datastructure.searching.JumpSearch;
 public class JumpSearchTest {
 
     @Test
-    public void jumpSearch() {
+    public void testJumpSearch() {
 
         JumpSearch jumpSearch = new JumpSearch();
 

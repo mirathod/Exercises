@@ -11,7 +11,7 @@ import org.junit.Test;
 public class BytelandianGoldCoinsTest {
 
     @Test
-    public void replaceCoins() {
+    public void testReplaceCoins() {
         BytelandianGoldCoins bytelandianGoldCoins = new BytelandianGoldCoins();
         long result = bytelandianGoldCoins.replaceCoins(474788800);
 

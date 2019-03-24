@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Add Description
+ * Test Class for {@link Counter}
  *
  * @author Milan Rathod
  */
@@ -25,7 +25,7 @@ public class CounterTest {
     }
 
     @Test
-    public void getCount() {
+    public void testGetCount() {
         Runnable r = () -> {
             int count = counter.getCount();
 

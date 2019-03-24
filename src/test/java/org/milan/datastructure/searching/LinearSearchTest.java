@@ -1,26 +1,25 @@
-package org.milan.datastructure;
+package org.milan.datastructure.searching;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.datastructure.searching.LinearSearch;
 
 /**
- * Add Description
+ * Test Class for {@link LinearSearch}
  *
  * @author Milan Rathod
  */
 public class LinearSearchTest {
 
     @Test
-    public void linearSearch() {
+    public void testLinearSearch() {
         LinearSearch linearSearch = new LinearSearch();
 
         int[] inputArray = {2, 4, 6, 8, 9, 12, 15, 18};
-        int result = linearSearch.linearSearch(inputArray, 12);
+        int result = linearSearch.search(inputArray, 12);
 
         Assert.assertEquals(result, 5);
 
-        result = linearSearch.linearSearch(inputArray, 5);
+        result = linearSearch.search(inputArray, 5);
 
         Assert.assertEquals(result, -1);
     }

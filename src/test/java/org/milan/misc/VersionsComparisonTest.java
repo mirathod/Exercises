@@ -11,7 +11,7 @@ import org.junit.Test;
 public class VersionsComparisonTest {
 
     @Test
-    public void compareVersions() {
+    public void testCompareVersions() {
 
         VersionsComparison versionsComparison = new VersionsComparison();
 

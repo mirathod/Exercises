@@ -21,7 +21,7 @@ public class StreamsDemoTest {
     }
 
     @Test
-    public void mapAndFilter() {
+    public void testMapAndFilter() {
         List<String> inputList = Arrays.asList("1", "2", "3", "4", "5", "6");
         List<Integer> integers = streamsDemo.mapAndFilter(inputList);
         System.out.print(integers);

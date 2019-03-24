@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PerfectSquareTest {
 
     @Test
-    public void isPerfectSquare() {
+    public void testIsPerfectSquare() {
         PerfectSquare perfectSquare = new PerfectSquare();
         boolean result = perfectSquare.isPerfectSquare(25, true);
 

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class CountingSortTest {
 
     @Test
-    public void sort() {
+    public void testSort() {
         CountingSort countingSort = new CountingSort();
 
         int[] inputArray = new int[]{170, 45, 75, 90, 80, 24, 2, 66};

@@ -48,6 +48,5 @@ public class JumpSearch {
 
         return -1;
 
-
     }
 }
