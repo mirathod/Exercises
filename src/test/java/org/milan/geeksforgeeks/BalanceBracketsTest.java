@@ -1,5 +1,6 @@
-package org.milan.hackerearth;
+package org.milan.geeksforgeeks;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -12,6 +13,8 @@ public class BalanceBracketsTest {
     @Test
     public void testCheckBalance() {
         BalanceBrackets balanceBrackets = new BalanceBrackets();
-        balanceBrackets.checkBalance("(())");
+        boolean result = balanceBrackets.checkBalance("(())");
+
+        Assert.assertTrue(result);
     }
 }

@@ -8,9 +8,12 @@ import java.util.Stack;
 public class BinarySearchTree {
 
     Node root;
-    static int max_level = 0;
-    int counter = 0;
-    LinkedList<Integer> list;
+
+    private static int MAX_LEVEL = 0;
+
+    private int counter = 0;
+
+    private LinkedList<Integer> list;
 
     public BinarySearchTree(int key) {
         this.root = new Node(key);
@@ -182,9 +185,9 @@ public class BinarySearchTree {
     public void rightViewOfTree(Node node, int level) {
         if (node == null)
             return;
-        if (level > max_level) {
+        if (level > MAX_LEVEL) {
             System.out.println(node.key);
-            max_level = level;
+            MAX_LEVEL = level;
         }
         rightViewOfTree(node.right, level + 1);
         rightViewOfTree(node.left, level + 1);

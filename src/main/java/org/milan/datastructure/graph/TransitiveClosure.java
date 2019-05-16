@@ -3,7 +3,9 @@ package org.milan.datastructure.graph;
 import java.util.List;
 
 /**
- * Transitive Closure of a graph using DFS
+ * Problem: Transitive Closure of a graph using DFS
+ * <p>
+ * refer {@link @https://www.geeksforgeeks.org/transitive-closure-of-a-graph-using-dfs/}
  *
  * @author Milan Rathod
  */

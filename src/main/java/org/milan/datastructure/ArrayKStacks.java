@@ -40,11 +40,11 @@ public class ArrayKStacks {
     }
 
     private boolean isOverflow() {
-        return (free == -1) ? true : false;
+        return free == -1;
     }
 
     private boolean isUnderflow(int sn) {
-        return (top[sn] == -1) ? true : false;
+        return top[sn] == -1;
     }
 
     private void push(int value, int sn) {

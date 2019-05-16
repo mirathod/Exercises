@@ -8,7 +8,7 @@ import java.util.List;
  * Find first and second smallest element in array
  * <p>
  * {@link @https://www.geeksforgeeks.org/to-find-smallest-and-second-smallest-element-in-an-array/}
- *
+ * <p>
  * Time Complexity - O(n)
  *
  * @author Milan Rathod

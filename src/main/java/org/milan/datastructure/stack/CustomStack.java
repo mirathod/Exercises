@@ -1,4 +1,4 @@
-package org.milan.datastructure;
+package org.milan.datastructure.stack;
 
 import java.util.Arrays;
 

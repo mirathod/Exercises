@@ -13,16 +13,6 @@ package org.milan.geeksforgeeks;
  */
 public class Splitwise {
 
-    public static void main(String[] args) {
-
-        // Input Graph describing debts of persons to each other
-        int[][] input = {{0, 1000, 2000},
-                {0, 0, 5000},
-                {0, 0, 0}};
-
-        new Splitwise().simplifyDebt(input, 3);
-    }
-
     public void simplifyDebt(int[][] input, int persons) {
 
         // Amount array to hold amount(i.e. credit/debit) of each person

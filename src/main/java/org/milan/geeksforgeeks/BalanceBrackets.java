@@ -1,15 +1,17 @@
-package org.milan.hackerearth;
+package org.milan.geeksforgeeks;
 
 import java.util.Stack;
 
 /**
- * Balance Brackets
+ * Problem: Balance Brackets
+ * <p>
+ * refer {@link @https://www.geeksforgeeks.org/check-for-balanced-parentheses-in-an-expression/}
  *
  * @author Milan Rathod
  */
 public class BalanceBrackets {
 
-    public boolean checkBalance(String str) {
+    boolean checkBalance(String str) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
@@ -17,7 +19,7 @@ public class BalanceBrackets {
                 stack.push(ch);
             } else if ((ch == ')') && (!stack.isEmpty())) {
 
-                if (((char) stack.peek() == '(' && ch == ')')) {
+                if ((stack.peek() == '(')) {
                     stack.pop();
                 } else {
                     return false;

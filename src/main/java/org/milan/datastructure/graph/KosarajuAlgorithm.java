@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Stack;
 
 /**
- * Implementation of Kosaraju's Algorithm
+ * Problem: Kosaraju's Algorithm
+ * <p>
+ * refer {@link @https://www.geeksforgeeks.org/strongly-connected-components/}
  *
  * @author Milan Rathod
  */

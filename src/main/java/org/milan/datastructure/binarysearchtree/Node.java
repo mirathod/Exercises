@@ -1,19 +1,22 @@
 package org.milan.datastructure.binarysearchtree;
 
 /**
- * Add Description
+ * Class containing left and right child of current node and key value
  *
  * @author Milan Rathod
- * @since
  */
 public class Node implements Comparable<Node> {
+
     public int key;
-    public Node left, right;
 
-    public Node(int key) {
+    public Node left;
+
+    public Node right;
+
+    Node(int key) {
         this.key = key;
-        left = right = null;
-
+        left = null;
+        right = null;
     }
 
     public String toString() {

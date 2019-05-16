@@ -40,14 +40,14 @@ class GraphCycle {
 
     void DFS() {
         Stack<Integer> st = new Stack<>();
-        boolean visited[] = new boolean[V];
+        boolean[] visited = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i])
                 DFSUtil(visited, i, st);
         }
     }
 
-    void DFSUtil(boolean visited[], int i, Stack<Integer> st) {
+    void DFSUtil(boolean[] visited, int i, Stack<Integer> st) {
         st.push(i);
         visited[i] = true;
         for (int k : adj[i]) {

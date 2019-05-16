@@ -1,7 +1,8 @@
-package org.milan.datastructure;
+package org.milan.datastructure.stack;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.stack.CustomStack;
 
 /**
  * Test Class for {@link CustomStack}
