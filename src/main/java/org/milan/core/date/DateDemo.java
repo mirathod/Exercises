@@ -6,7 +6,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
 
+/**
+ * Example of {@link Date}
+ *
+ * @author Milan Rathod
+ */
 public class DateDemo {
+
     public static void main(String[] s) throws ParseException {
         Date date = new Date();
 
@@ -25,7 +31,6 @@ public class DateDemo {
         System.out.println("String to Date:- " + parsedDate);
 
         // Compare Dates
-
         dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
         Date date1 = dateFormat.parse("6/22/1989");
@@ -35,8 +40,6 @@ public class DateDemo {
         System.out.println(date1.before(date2));
         System.out.println(date1.equals(date2));
         System.out.println(date1.compareTo(date2));
-
     }
-
 
 }

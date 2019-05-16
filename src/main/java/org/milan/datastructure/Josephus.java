@@ -1,11 +1,13 @@
 package org.milan.datastructure;
 
+/**
+ * Problem: Josephus problem
+ * <p>
+ * refer {@link @https://www.geeksforgeeks.org/josephus-problem-set-1-a-on-solution/}
+ *
+ * @author Milan Rathod
+ */
 public class Josephus {
-    public static void main(String[] args) {
-        Josephus j = new Josephus();
-        int lucky = j.luckyPerson(7, 3);
-        System.out.println("Lucky Person is at no. " + lucky + " in circle");
-    }
 
     public int luckyPerson(int n, int k) {
         if (n == 1) {

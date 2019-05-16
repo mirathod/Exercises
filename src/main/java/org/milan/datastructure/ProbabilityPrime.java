@@ -1,9 +1,12 @@
 package org.milan.datastructure;
 
 /**
+ * Problem: Probability Prime
+ *
  * @author Milan Rathod
  */
 public class ProbabilityPrime {
+
     public static void main(String[] args) {
         Euclid e = new Euclid();
         int rel = 0, total = 0;

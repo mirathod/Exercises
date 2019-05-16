@@ -3,6 +3,8 @@ package org.milan.core.util;
 import java.util.StringTokenizer;
 
 /**
+ * Example of StringTokenizer
+ *
  * @author Milan Rathod
  */
 public class StringTokenizerDemo {

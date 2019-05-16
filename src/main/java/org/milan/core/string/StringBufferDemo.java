@@ -1,6 +1,8 @@
 package org.milan.core.string;
 
 /**
+ * Example of {@link StringBuffer}
+ *
  * @author Milan Rathod
  */
 public class StringBufferDemo {

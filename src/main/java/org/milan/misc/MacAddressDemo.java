@@ -10,6 +10,8 @@ import java.net.UnknownHostException;
 
 /**
  * Get MAC Address of Current System
+ *
+ * @author Milan Rathod
  */
 public class MacAddressDemo {
 

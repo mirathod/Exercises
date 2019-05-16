@@ -1,15 +1,13 @@
 package org.milan.core.string;
 
+/**
+ * Problem: Text Justification
+ *
+ * @author Milan Rathod
+ */
 public class TextJustification {
 
-    public static void main(String[] args) {
-        TextJustification textJustification = new TextJustification();
-        String[] words = {"This", "is", "a", "text", "justification", "problem", "in", "tutorial", "horizon"};
-        int maxLength = 25;
-        System.out.println(textJustification.find(words, maxLength, 0));
-    }
-
-    private String find(String[] words, int maxLength, int index) {
+    public String justify(String[] words, int maxLength, int index) {
         if (index < words.length) {
             String result = "";
             int remainingLength = maxLength;
@@ -50,7 +48,7 @@ public class TextJustification {
                 }
             }
             result = result.replaceAll("\\$", " ");
-            return result + "\n" + find(words, maxLength, index);
+            return result + "\n" + justify(words, maxLength, index);
         } else {
             return "";
         }

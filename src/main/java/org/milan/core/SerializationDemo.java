@@ -6,7 +6,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+/**
+ * Serializable Demo
+ *
+ * @author Milan Rathod
+ */
 public class SerializationDemo {
+
     public static void main(String[] a) throws Exception {
         Square square = new Square();
         square.size = 15;

@@ -5,23 +5,13 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
- * @author rathom1
+ * Problem: String Permutation
+ *
+ * @author Milan Rathod
  */
 public class StringsPermutation {
 
-    public static void main(String[] args) {
-        StringsPermutation stringsPermutation = new StringsPermutation();
-        String s1 = "abc";
-        String s2 = "ccb";
-        if (stringsPermutation.isPermutation(s1, s2)) {
-            System.out.println(s1 + " and " + s2 + " are permuted.");
-        } else {
-            System.out.println(s1 + " and " + s2 + " are not permuted.");
-        }
-
-    }
-
-    public boolean isPermutation(String s1, String s2) {
+    public boolean isPermutate(String s1, String s2) {
         if (s1.length() != s2.length()) {
             return false;
         }

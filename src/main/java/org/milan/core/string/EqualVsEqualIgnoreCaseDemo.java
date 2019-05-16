@@ -1,9 +1,12 @@
 package org.milan.core.string;
 
 /**
+ * Equals and EqualIgnoreCase Comparison
+ *
  * @author Milan Rathod
  */
 public class EqualVsEqualIgnoreCaseDemo {
+
     public static void main(String[] a) {
         String s1 = "yash";
         String s2 = "Yash";

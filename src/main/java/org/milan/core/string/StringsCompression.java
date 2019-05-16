@@ -1,15 +1,11 @@
 package org.milan.core.string;
 
+/**
+ * Problem: String compression
+ *
+ * @author Milan Rathod
+ */
 public class StringsCompression {
-
-    public static void main(String[] args) {
-        String s1 = "ssssuuuummmmmmiiiittttttttttttt";
-        StringsCompression sc = new StringsCompression();
-        System.out.println("Compression of " + s1 + " is : " + sc.compression(s1));
-        s1 = "Jaain";
-        System.out.println("Compression of " + s1 + " is : " + sc.compression(s1));
-
-    }
 
     public String compression(String input) {
         if (input != null) {

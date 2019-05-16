@@ -1,11 +1,12 @@
 package org.milan.core.thread;
 
 /**
- * Add Description
+ * Class responsible for computing in parallel
  *
  * @author Milan Rathod
  */
 public class ParallelComputing implements Runnable {
+
     int[] numbers;
 
     ParallelComputing(int[] numbers) {
@@ -20,7 +21,7 @@ public class ParallelComputing implements Runnable {
 
         synchronized (this) {
             System.out.println("  Sum of thread " + Thread.currentThread().getName() + "=" + localsum);
-            ParrallComputingDemo.sum += localsum;
+            ParallelComputingDemo.sum += localsum;
         }
     }
 }

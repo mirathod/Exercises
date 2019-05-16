@@ -3,13 +3,17 @@ package org.milan.core.date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+/**
+ * Example of {@link Calendar}
+ *
+ * @author Milan Rathod
+ */
 public class CalenderDemo {
+
     public static void main(String[] args) {
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
-        // get Calenar instance with the
-        // current date and time in the default
-        // locale and timezone.
+        // Get calender instance with the current date and time in the default locale and timezone.
         Calendar calendar = Calendar.getInstance();
 
         // Display current date information

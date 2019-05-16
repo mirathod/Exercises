@@ -1,12 +1,17 @@
 package org.milan.datastructure;
 
+/**
+ * Exponentiation Example
+ *
+ * @author Milan Rathod
+ */
 public class Exponentiation {
     public static void main(String[] args) {
         long exp = new Exponentiation().pow(2, 5);
         System.out.println("Exponentiation : " + exp);
     }
 
-    long pow(long x, long n) {
+    private long pow(long x, long n) {
         if (n == 0)
             return 1;
         //if(n==1)

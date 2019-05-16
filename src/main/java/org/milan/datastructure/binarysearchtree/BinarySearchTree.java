@@ -5,6 +5,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * Binary Search Tree Implementation
+ *
+ * @author Milan Rathod
+ */
 public class BinarySearchTree {
 
     Node root;
