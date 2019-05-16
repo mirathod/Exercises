@@ -1,38 +1,19 @@
 package org.milan.hackerearth;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
 /**
- * Monk and ATM - Number Theory
+ * Problem: Monk and ATM - Number Theory
+ * <p>
+ * refer {@link @https://www.hackerearth.com/problem/algorithm/monk-and-atm/}
  *
  * @author Milan Rathod
  */
 public class MonkAndATM {
 
-    @SuppressWarnings("resource")
-    public static void main(String args[]) throws Exception {
-
-        Scanner s = new Scanner(System.in);
-        int T = s.nextInt();
-
-        List<Integer> list = new ArrayList<>();
-
-        for (int i = 0; i < T; i++) {
-            int N = s.nextInt();
-            list.add(N);
-        }
-        for (Integer N : list) {
-            int output = new MonkAndATM().checkPin(N);
-            System.out.println(output);
-        }
-
-    }
-
     public int checkPin(int n) {
-        int max = 0, pin = 1;
+        int max = 0;
+        int pin = 1;
         for (int i = pin; i <= n / 2; i++) {
             int temp = returnCoin(n, i);
             if (max < temp) {
@@ -42,11 +23,11 @@ public class MonkAndATM {
         return max;
     }
 
-    public int returnCoin(int N, int PIN) {
-        if (N % PIN != 0)
+    private int returnCoin(int N, int pin) {
+        if (N % pin != 0)
             return 0;
 
-        int M = N / PIN;
+        int M = N / pin;
         int value = 0;
         for (int i = 1; i <= M; i++) {
             BigInteger b1 = new BigInteger(String.valueOf(i));
@@ -62,10 +43,8 @@ public class MonkAndATM {
 
     }
 
-    public boolean isPowerof2(int value) {
-        if ((value & -value) == value)
-            return true;
-        return false;
+    private boolean isPowerof2(int value) {
+        return (value & -value) == value;
     }
 
 }

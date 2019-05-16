@@ -3,7 +3,7 @@ package org.milan.core;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link StringToBoolean}
  *
  * @author Milan Rathod
  */

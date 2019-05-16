@@ -17,7 +17,6 @@ public class Permutation {
                 System.out.print(a[i]);
             }
         }
-
     }
 
     //Algorithm 3 --O(n)

@@ -18,14 +18,14 @@ public class ByteArrayDemoTest {
     private static final String FILE_PATH = "C:" + File.separator + "testDir" + File.separator + "ByteArray.txt";
 
     @Test
-    public void toByteArrayUsingCommons() throws IOException {
+    public void testToByteArrayUsingCommons() throws IOException {
         ByteArrayDemo byteArrayDemo = new ByteArrayDemo();
         int result = byteArrayDemo.toByteArrayUsingCommons(new FileInputStream(FILE_PATH)).length;
         Assert.assertEquals(15, result);
     }
 
     @Test
-    public void toByteArrayUsingJava() throws IOException {
+    public void testToByteArrayUsingJava() throws IOException {
         ByteArrayDemo byteArrayDemo = new ByteArrayDemo();
         int result = byteArrayDemo.toByteArrayUsingJava(new FileInputStream(FILE_PATH)).length;
         Assert.assertEquals(15, result);

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class DetermineWinnerTest {
 
     @Test
-    public void getWinner() {
+    public void testGetWinner() {
         DetermineWinner determineWinner = new DetermineWinner();
         String winner = determineWinner.getWinner(new long[]{1000, 2000, 3000, 4000},
                 new long[]{1, 2, 30, 40},

@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class BinaryMatrix {
 
-    public int main(String args[]) throws Exception {
+    public int main(String[] args) {
         //Scanner
         Scanner s = new Scanner(System.in);
         int N = s.nextInt();

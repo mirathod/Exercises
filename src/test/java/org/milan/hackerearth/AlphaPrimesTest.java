@@ -11,7 +11,7 @@ import org.junit.Test;
 public class AlphaPrimesTest {
 
     @Test
-    public void getCount() {
+    public void testGetCount() {
         AlphaPrimes alphaPrimes = new AlphaPrimes();
         int count = alphaPrimes.getCount(110, 114);
 

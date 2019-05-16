@@ -11,7 +11,7 @@ import org.junit.Test;
 public class RoysLifeCycleTest {
 
     @Test
-    public void getLongestCodingStreakPerDay() {
+    public void testGetLongestCodingStreakPerDay() {
 
         RoysLifeCycle roysLifeCycle = new RoysLifeCycle();
 
@@ -32,7 +32,6 @@ public class RoysLifeCycleTest {
         Assert.assertEquals(6, result);
 
         Assert.assertEquals(9, roysLifeCycle.getLongestCodingStreakAcross());
-
 
     }
 }

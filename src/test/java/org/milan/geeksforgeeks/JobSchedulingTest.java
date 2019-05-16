@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link JobScheduling}
  *
  * @author Milan Rathod
  */
 public class JobSchedulingTest {
 
     @Test
-    public void isCompletionPossible() {
+    public void testIsCompletionPossible() {
 
         JobScheduling jobScheduling = new JobScheduling();
 

@@ -5,14 +5,14 @@ import org.junit.Test;
 import org.milan.datastructure.searching.ExponentialSearch;
 
 /**
- * Add Description
+ * Test Class for {@link ExponentialSearch}
  *
  * @author Milan Rathod
  */
 public class ExponentialSearchTest {
 
     @Test
-    public void exponentialSearch() {
+    public void testExponentialSearch() {
         ExponentialSearch exponentialSearch = new ExponentialSearch();
 
         int[] inputArray = {2, 4, 6, 8, 9, 12, 15, 18};

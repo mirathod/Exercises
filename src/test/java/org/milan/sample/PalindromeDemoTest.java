@@ -12,7 +12,7 @@ import org.milan.misc.PalindromeDemo;
 public class PalindromeDemoTest {
 
     @Test
-    public void palindromeString() {
+    public void testPalindromeString() {
         PalindromeDemo palindromeDemo = new PalindromeDemo();
         boolean result = palindromeDemo.palindromeString("abc");
 
@@ -20,7 +20,7 @@ public class PalindromeDemoTest {
     }
 
     @Test
-    public void palindromeNumber() {
+    public void testPalindromeNumber() {
         PalindromeDemo palindromeDemo = new PalindromeDemo();
         boolean result = palindromeDemo.palindromeNumber(13431);
 

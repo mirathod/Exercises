@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link MinimumPlatforms}
  *
  * @author Milan Rathod
  */
 public class MinimumPlatformsTest {
 
     @Test
-    public void computeMinimumPlatforms() {
+    public void testComputeMinimumPlatforms() {
         MinimumPlatforms minimumPlatforms = new MinimumPlatforms();
 
         int result = minimumPlatforms.computeMinimumPlatforms(new int[]{900, 940, 950, 1100, 1200, 1200},

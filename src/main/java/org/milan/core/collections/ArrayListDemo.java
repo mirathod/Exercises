@@ -7,33 +7,32 @@ import java.util.Iterator;
  * @author Milan Rathod
  */
 public class ArrayListDemo {
+
     public static void main(String[] args) {
-        ArrayList<Comparable> a1 = new ArrayList<Comparable>();
-        ArrayList<Animal1> a2 = new ArrayList<Animal1>(); // using generics
-        a1.add(new Animal1());
-        a1.add(new Animal1());
-        a1.add("Animal");
-        // a1.add(new Integer(42));
 
-        a2.add(new Animal1());
-        a2.add(new Animal1());
-        // a2.add("Animal");
-        // a2.add(new Integer(42));
+        ArrayList<Comparable> comparableArrayList = new ArrayList<>();
+        ArrayList<Animal> animalArrayList = new ArrayList<>();
+        comparableArrayList.add(new Animal());
+        comparableArrayList.add(new Animal());
+        comparableArrayList.add("Animal");
 
-        Iterator<Comparable> i = a1.iterator();
+        animalArrayList.add(new Animal());
+        animalArrayList.add(new Animal());
+
+        Iterator<Comparable> i = comparableArrayList.iterator();
 
         while (i.hasNext()) {
             System.out.println(i.next().toString());
         }
 
-        // Collections.sort(a1);
+        // Collections.sort(comparableArrayList);
 
         // Alternate way
-        for (Object o : a1) {
+        for (Object o : comparableArrayList) {
             System.out.println(o.toString());
         }
 
-        Object[] arrayFromArrayList = a1.toArray(); // obtaining array from ArrayList
+        Object[] arrayFromArrayList = comparableArrayList.toArray(); // obtaining array from ArrayList
 
         for (Object o : arrayFromArrayList) {
             System.out.println(o.toString());
@@ -43,9 +42,10 @@ public class ArrayListDemo {
 
 }
 
-class Animal1 implements Comparable<Object> {
-    int height;
-    int weight;
+class Animal implements Comparable<Object> {
+
+    private int height;
+    private int weight;
 
     @Override
     public String toString() {

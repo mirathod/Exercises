@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link UnrepeatedChararcterInString}
  *
  * @author Milan Rathod
  */
 public class UnrepeatedChararcterInStringTest {
 
     @Test
-    public void longestSubstringUnrepeatedChar() {
+    public void testLongestSubstringUnrepeatedChar() {
         UnrepeatedChararcterInString unrepeatedChararcterInString = new UnrepeatedChararcterInString();
         String result = unrepeatedChararcterInString.longestSubstringUnrepeatedChar("abcabaabccfdsaewer");
 

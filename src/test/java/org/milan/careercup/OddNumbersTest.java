@@ -7,14 +7,14 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- * Add Description
+ * Test Class for {@link OddNumbers}
  *
  * @author Milan Rathod
  */
 public class OddNumbersTest {
 
     @Test
-    public void findOddNumbers() {
+    public void testFindOddNumbers() {
         OddNumbers oddNumbers = new OddNumbers();
         int[] inputArray = {2, 3, 2, 3, 3, 4, 5, 4, 2, 2, 5, 6};
 

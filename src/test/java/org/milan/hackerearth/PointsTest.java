@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PointsTest {
 
     @Test
-    public void findWays() {
+    public void testFindWays() {
         Points points = new Points();
         long result = points.findWays(new long[]{1, 10, 20, 30, 50}, 5, 19);
 

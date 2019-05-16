@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link ThePsychicType}
  *
  * @author Milan Rathod
  */
 public class ThePsychicTypeTest {
 
     @Test
-    public void isReachable() {
+    public void testIsReachable() {
         ThePsychicType thePsychicType = new ThePsychicType();
         boolean result = thePsychicType.isReachable(new int[]{3, 4, 2, 5, 5}, 1, 4);
 

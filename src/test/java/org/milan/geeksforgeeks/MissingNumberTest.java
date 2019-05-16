@@ -11,7 +11,7 @@ import org.junit.Test;
 public class MissingNumberTest {
 
     @Test
-    public void findMissingNumber() {
+    public void testFindMissingNumber() {
         MissingNumber missingNumber = new MissingNumber();
 
         int[] inputArray = {1, 2, 4, 5, 6};

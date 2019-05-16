@@ -4,14 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test Class for {@link EqualMedian}
  *
  * @author Milan Rathod
  */
 public class EqualMedianTest {
 
     @Test
-    public void findMinimumSwapOperations() {
+    public void testFindMinimumSwapOperations() {
         EqualMedian equalMedian = new EqualMedian();
         int result = equalMedian.findMinimumSwapOperations(new int[]{1, 2, 3, 7, 8
         }, new int[]{1, 6, 6, 6, 9}, 5);

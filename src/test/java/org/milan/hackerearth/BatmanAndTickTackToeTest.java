@@ -11,7 +11,7 @@ import org.junit.Test;
 public class BatmanAndTickTackToeTest {
 
     @Test
-    public void isWonScenarioAvailable() {
+    public void testIsWonScenarioAvailable() {
         char[][] matrix = {
                 {'x', '.', '.', 'x'},
                 {'.', 'o', 'x', '.'},

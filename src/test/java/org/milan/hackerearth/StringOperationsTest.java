@@ -22,7 +22,7 @@ public class StringOperationsTest {
     }
 
     @Test
-    public void verifyOperation() {
+    public void testVerifyOperation() {
         stringOperations.replaceOperation(inputString, 0, 'a');
         stringOperations.replaceOperation(inputString, 7, 'x');
         Assert.assertEquals("aellowoxld", inputString.toString());
