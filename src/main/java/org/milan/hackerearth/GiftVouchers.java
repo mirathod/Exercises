@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Add Description
+ * Problem: Gift Vouchers
  *
  * @author Milan Rathod
  */
@@ -40,7 +40,7 @@ public class GiftVouchers {
         passengerList.forEach((integer, integers) -> {
             Collections.sort(integers);
             Object[] values = integers.toArray();
-            for (int i = selectedPassangers - 1; i< values.length;) {
+            for (int i = selectedPassangers - 1; i < values.length; ) {
                 output.add((Integer) values[i]);
                 i += selectedPassangers;
             }

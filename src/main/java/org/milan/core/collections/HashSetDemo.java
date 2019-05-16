@@ -1,39 +1,69 @@
 package org.milan.core.collections;
 
 import java.util.HashSet;
+import java.util.Objects;
 
 /**
+ * Example of {@link HashSet}
+ *
  * @author Milan Rathod
  */
 public class HashSetDemo {
+
     public static void main(String[] args) {
-        Animal3 a1 = new Animal3();
-        a1.weight = 40;
-        Animal3 a2 = new Animal3();
-        a2.weight = 30;
-        Animal3 a3 = new Animal3();
-        a3.weight = 20;
-        Animal3 a4 = new Animal3();
-        a4.weight = 10;
-        HashSet<Animal3> t = new HashSet<Animal3>();
+        HashSet<Book> books = new HashSet<>();
 
-        t.add(a1);
-        t.add(a2);
-        t.add(a3);
-        t.add(a4);
-        t.add(a1);  // set does not allow duplicates
-        t.add(a2);
+        Book book1 = new Book();
+        book1.setPrice(40);
 
+        Book book2 = new Book();
+        book2.setPrice(30);
 
-        System.out.println(t.size());
-        for (Object o : t) {
-            System.out.println(((Animal3) o).weight);
+        Book book3 = new Book();
+        book3.setPrice(20);
+
+        Book book4 = new Book();
+        book4.setPrice(10);
+
+        books.add(book1);
+        books.add(book2);
+        books.add(book3);
+        books.add(book4);
+
+        // Set does not allow duplicates
+        books.add(book1);
+
+        System.out.println(books.size());
+
+        for (Book book : books) {
+            System.out.println(book.getPrice());
         }
 
     }
 
 }
 
-class Animal3 {
-    int weight;
+class Book {
+    private int price;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(price);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return price == book.price;
+    }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Java 8 Streams Demo @see {@link java.util.stream.Streams}
+ * Java 8 Streams Demo @see {@link java.util.stream.Stream}
  *
  * @author Milan Rathod
  */

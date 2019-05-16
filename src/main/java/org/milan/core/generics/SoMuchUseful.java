@@ -2,7 +2,13 @@ package org.milan.core.generics;
 
 import java.util.ArrayList;
 
+/**
+ * Generics Use case
+ *
+ * @author Milan Rathod
+ */
 public class SoMuchUseful {
+
     public static void main(String[] a) {
 
         // String Array to List of Strings
@@ -25,6 +31,5 @@ public class SoMuchUseful {
         ArrayList<Float> floatsList = new ArrayList<>();
 
         ArrayToCollection.fromArrayToCollection(floatsArray, floatsList);
-
     }
 }

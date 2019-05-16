@@ -22,6 +22,6 @@ public class OddNumbersTest {
 
         List<Integer> actual = Lists.newArrayList(3, 6);
 
-        Assert.assertTrue(result.equals(actual));
+        Assert.assertEquals(result, actual);
     }
 }

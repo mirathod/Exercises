@@ -1,9 +1,12 @@
 package org.milan.datastructure;
 
 /**
+ * Problem: Tower of hanoi problem
+ *
  * @author Milan Rathod
  */
 public class Toh {
+
     private static String SOURCE_PEG = "A";
 
     private static String SPARE_PEG = "C";

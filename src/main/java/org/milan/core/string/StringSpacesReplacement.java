@@ -1,26 +1,14 @@
 package org.milan.core.string;
 
+/**
+ * Problem: String space replacement
+ *
+ * @author Milan Rathod
+ */
 public class StringSpacesReplacement {
 
-    public static void main(String[] args) {
-        String input = "I am Sumit Jain";
-        StringSpacesReplacement spacesReplacement = new StringSpacesReplacement();
-        System.out.println("New String: " + spacesReplacement.replaceSpaces(input));
-
-    }
-
     public String replaceSpaces(String input) {
-        String[] str = input.split(" ");
-        String output = "";
-        for (int i = 0; i < str.length - 1; i++) {
-            output += str[i] + "%20";
-        }
-        output += str[str.length - 1];
-        return output;
-    }
-
-    public String replace(String s) {
-        char arr[] = s.toCharArray();
+        char[] arr = input.toCharArray();
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < arr.length; i++) {
@@ -30,7 +18,6 @@ public class StringSpacesReplacement {
                 sb.append(arr[i]);
 
         }
-
         return sb.toString();
     }
 

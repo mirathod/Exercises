@@ -4,7 +4,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * Base64 example
+ *
+ * @author Milan Rathod
+ */
 public class Base64Demo {
 
     public static void main(String[] args) {
@@ -26,8 +30,6 @@ public class Base64Demo {
         byte[] decodedString = java.util.Base64.getDecoder().decode(encodedString);
         String orig = new String(decodedString, StandardCharsets.UTF_8);
         System.out.println(orig);
-
-
     }
 
 }

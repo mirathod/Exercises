@@ -1,14 +1,11 @@
 package org.milan.core.string;
 
+/**
+ * Problem: String Roatation
+ *
+ * @author Milan Rathod
+ */
 public class StringsRotation {
-
-    public static void main(String[] args) {
-        String s1 = "sumitjain";
-        String s2 = "tjainsumi";
-        StringsRotation stringsRotation = new StringsRotation();
-        System.out.println("Is '" + s1 + "' and '" + s2 + "' are rotated?? : " + stringsRotation.isRotated(s1, s2));
-
-    }
 
     public boolean isRotated(String s1, String s2) {
         if ((s1 == null || s2 == null) && s1.length() != s2.length()) {

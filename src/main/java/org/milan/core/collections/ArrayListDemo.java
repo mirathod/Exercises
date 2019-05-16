@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
+ * Example for {@link ArrayList}
+ *
  * @author Milan Rathod
  */
 public class ArrayListDemo {
@@ -11,28 +13,25 @@ public class ArrayListDemo {
     public static void main(String[] args) {
 
         ArrayList<Comparable> comparableArrayList = new ArrayList<>();
-        ArrayList<Animal> animalArrayList = new ArrayList<>();
+
         comparableArrayList.add(new Animal());
         comparableArrayList.add(new Animal());
         comparableArrayList.add("Animal");
 
-        animalArrayList.add(new Animal());
-        animalArrayList.add(new Animal());
+        Iterator<Comparable> iterator = comparableArrayList.iterator();
 
-        Iterator<Comparable> i = comparableArrayList.iterator();
-
-        while (i.hasNext()) {
-            System.out.println(i.next().toString());
+        // Iterate through while loop
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next().toString());
         }
 
-        // Collections.sort(comparableArrayList);
-
-        // Alternate way
+        // Alternate way - for each loop
         for (Object o : comparableArrayList) {
             System.out.println(o.toString());
         }
 
-        Object[] arrayFromArrayList = comparableArrayList.toArray(); // obtaining array from ArrayList
+        // Obtaining array from ArrayList
+        Object[] arrayFromArrayList = comparableArrayList.toArray();
 
         for (Object o : arrayFromArrayList) {
             System.out.println(o.toString());
@@ -42,16 +41,37 @@ public class ArrayListDemo {
 
 }
 
+/**
+ * Animal Class
+ */
 class Animal implements Comparable<Object> {
 
     private int height;
+
     private int weight;
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
 
     @Override
     public String toString() {
         return ("Height :-" + height + " and weight:-" + weight);
     }
 
+    @Override
     public int compareTo(Object o) {
         return 1;
     }

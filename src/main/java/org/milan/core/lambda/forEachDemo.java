@@ -5,6 +5,11 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+/**
+ * for each example
+ *
+ * @author Milan Rathod
+ */
 public class forEachDemo {
 
     public static void main(String[] args) {

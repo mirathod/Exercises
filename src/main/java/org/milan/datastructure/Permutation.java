@@ -3,9 +3,12 @@ package org.milan.datastructure;
 import java.util.Random;
 
 /**
+ * Problem: Permutation
+ *
  * @author Milan Rathod
  */
 public class Permutation {
+
     public static void main(String[] args) {
 
         int a[] = new Permutation().RandomGeneartor3(10);

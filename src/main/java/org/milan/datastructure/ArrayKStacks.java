@@ -1,11 +1,23 @@
 package org.milan.datastructure;
 
 /**
+ * Implement stack with k arrays
+ *
  * @author Milan Rathod
  */
 public class ArrayKStacks {
-    int free, k, n;
-    int[] arr, next, top;
+
+    int free;
+
+    int k;
+
+    int n;
+
+    int[] arr;
+
+    int[] next;
+
+    int[] top;
 
     public static void main(String[] args) {
         ArrayKStacks aks = new ArrayKStacks(3, 10);

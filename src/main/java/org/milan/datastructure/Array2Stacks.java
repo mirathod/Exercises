@@ -5,6 +5,8 @@ import org.milan.exceptions.StackUnderflowError;
 import java.lang.reflect.Array;
 
 /**
+ * Implement Stack with 2 arrays
+ *
  * @author Milan Rathod
  */
 public class Array2Stacks<T> {

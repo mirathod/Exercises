@@ -1,9 +1,12 @@
 package org.milan.core;
 
 /**
+ * Example of instanceOf keyword
+ *
  * @author Milan Rathod
  */
 public class InstanceOfDemo {
+
     public static void main(String[] a) {
 
         BluetoothDevice bluetoothDevice = new BluetoothDevice();

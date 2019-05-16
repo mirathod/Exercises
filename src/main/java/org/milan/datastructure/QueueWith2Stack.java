@@ -2,6 +2,11 @@ package org.milan.datastructure;
 
 import java.util.Stack;
 
+/**
+ * Implement queue with 2 stacks
+ *
+ * @author Milan Rathod
+ */
 public class QueueWith2Stack {
 
     Stack<Integer> stack1 = new Stack<>();

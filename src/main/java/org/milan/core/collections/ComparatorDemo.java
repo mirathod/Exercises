@@ -1,44 +1,38 @@
 package org.milan.core.collections;
 
-/**
- * @author Milan Rathod
- */
-// Use a custom comparator.
-
 import java.util.Comparator;
-import java.util.Iterator;
 import java.util.TreeSet;
 
-// A reverse comparator for strings.
-class MyComp implements Comparator<Object> {
-    public int compare(Object a, Object b) {
-        String aStr, bStr;
-        aStr = (String) a;
-        bStr = (String) b;
-// reverse the comparison
-        return bStr.compareTo(aStr);
+/**
+ * Comparator Example
+ *
+ * @author Milan Rathod
+ */
+public class ComparatorDemo {
+
+    public static void main(String[] args) {
+        TreeSet<String> treeSet = new TreeSet<>(new CustomComparator());
+
+        treeSet.add("C");
+        treeSet.add("A");
+        treeSet.add("B");
+        treeSet.add("E");
+        treeSet.add("F");
+        treeSet.add("D");
+
+        for (String item : treeSet) {
+            System.out.println(item + " ");
+        }
     }
-// no need to override equals
 }
 
-public class ComparatorDemo {
-    public static void main(String args[]) {
-// Create a tree set
-        TreeSet<String> ts = new TreeSet<String>(new MyComp());
-// Add elements to the tree set
-        ts.add("C");
-        ts.add("A");
-        ts.add("B");
-        ts.add("E");
-        ts.add("F");
-        ts.add("D");
-// Get an iterator
-        Iterator<String> i = ts.iterator();
-// Display elements
-        while (i.hasNext()) {
-            Object element = i.next();
-            System.out.print(element + " ");
-        }
-        System.out.println();
+/**
+ * A custom comparator which prints string in reverse/descending order
+ */
+class CustomComparator implements Comparator<Object> {
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return ((String) o2).compareTo((String) o1);
     }
 }

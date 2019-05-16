@@ -5,10 +5,10 @@ import java.util.Scanner;
 /**
  * @author Milan Rathod
  */
-public class ParrallComputingDemo {
+public class ParallelComputingDemo {
 
     static int sum = 0;
-    static int a[][] = new int[3][3];
+    static int[][] a = new int[3][3];
     static Scanner s = new Scanner(System.in);
 
     public static void main(String[] g) {
