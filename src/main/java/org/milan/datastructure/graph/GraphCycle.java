@@ -22,7 +22,7 @@ class GraphCycle {
             System.out.println("no cycle");
     }
 
-    LinkedList<Integer> adj[];
+    LinkedList<Integer>[] adj;
     int flag = 0;
     int V;
 
