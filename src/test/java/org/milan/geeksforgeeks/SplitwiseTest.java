@@ -10,7 +10,7 @@ import org.junit.Test;
 public class SplitwiseTest {
 
     @Test
-    public void simplifyDebt() {
+    public void testSimplifyDebt() {
         // Input Graph describing debts of persons to each other
         int[][] input = {{0, 1000, 2000},
                 {0, 0, 5000},

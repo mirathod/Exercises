@@ -11,7 +11,7 @@ import org.junit.Test;
 public class MonkAndATMTest {
 
     @Test
-    public void checkPin() {
+    public void testCheckPin() {
         MonkAndATM monkAndATM = new MonkAndATM();
 
         int result = monkAndATM.checkPin(48);

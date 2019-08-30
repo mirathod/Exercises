@@ -1,133 +1,100 @@
 package org.milan.datastructure.linkedlist;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 /**
- * Test Class {@link LinkedList}
+ * Test Class for {@link LinkedList}
  *
  * @author Milan Rathod
  */
 public class LinkedListTest {
 
-    private LinkedList linkedList;
+    private LinkedList<Integer> linkedList;
 
     @Before
     public void setup() {
-        linkedList = new LinkedList();
+        linkedList = new LinkedList<>(new LinkedList.Node<>(5));
 
-        linkedList.head = new LinkedList.Node(5);
-        LinkedList.Node second = new LinkedList.Node(10);
-        LinkedList.Node third = new LinkedList.Node(15);
-
-        linkedList.head.next = second;
-        second.next = third;
-
+        linkedList.insertAfterSpecifiedPosition(10, 0);
+        linkedList.insertAfterSpecifiedPosition(15, 1);
     }
 
     @Test
-    public void testInsert() {
+    public void testInsertBeforeHead() {
+        assertEquals(3, linkedList.getSize());
 
         linkedList.insertBeforeHead(1);
 
-        linkedList.insertAfterSpecifiedNode(linkedList.get(2), 12);
+        assertTrue(linkedList.contains(1));
 
-        linkedList.insertAtEnd(20);
+        assertEquals(1, linkedList.searchByIndex(0).data.intValue());
 
-        Assert.assertEquals(1, linkedList.get(0).data);
-
-        Assert.assertEquals(12, linkedList.get(3).data);
-
-        Assert.assertEquals(20, linkedList.get(5).data);
-
+        assertEquals(4, linkedList.getSize());
     }
 
     @Test
-    public void testDelete() {
+    public void testInsertAfterSpecifiedNode() {
+        assertEquals(3, linkedList.getSize());
+
+        linkedList.insertAfterSpecifiedNode(10, 12);
+
+        assertTrue(linkedList.contains(12));
+
+        assertEquals(12, linkedList.searchByIndex(2).data.intValue());
+
+        assertEquals(4, linkedList.getSize());
+    }
+
+    @Test
+    public void testInsertAfterSpecifiedPosition() {
+        assertEquals(3, linkedList.getSize());
+
+        linkedList.insertAfterSpecifiedPosition(12, 1);
+
+        assertTrue(linkedList.contains(12));
+
+        assertEquals(12, linkedList.searchByIndex(2).data.intValue());
+
+        assertEquals(4, linkedList.getSize());
+    }
+
+    @Test
+    public void testInsertAtEnd() {
+        assertEquals(3, linkedList.getSize());
+
+        linkedList.insertAtEnd(20);
+
+        assertTrue(linkedList.contains(20));
+
+        assertEquals(20, linkedList.searchByIndex(3).data.intValue());
+
+        assertEquals(4, linkedList.getSize());
+    }
+
+    @Test
+    public void testDeleteNodeByKey() {
+        assertEquals(3, linkedList.getSize());
+
         linkedList.deleteNodeByKey(15);
 
-        Assert.assertEquals(5, linkedList.get(0).data);
+        assertEquals(2, linkedList.getSize());
 
-        Assert.assertEquals(10, linkedList.get(1).data);
-
-        linkedList.deleteNodeByPosition(2);
-
-        Assert.assertEquals(5, linkedList.get(0).data);
-
+        assertFalse(linkedList.contains(15));
     }
 
     @Test
-    public void testLoop() {
+    public void testDeleteNodeByPosition() {
+        assertEquals(3, linkedList.getSize());
 
-        Assert.assertEquals(0, linkedList.detectAndCountLoop());
+        linkedList.deleteNodeByPosition(1);
 
-        linkedList.insertAtEnd(20);
+        assertEquals(2, linkedList.getSize());
 
-        LinkedList.Node node = linkedList.get(3);
-
-        node.next = linkedList.get(1);
-
-        Assert.assertEquals(3, linkedList.detectAndCountLoop());
-
-    }
-
-    @Test
-    public void testRemoveDuplicatesSorted() {
-
-        linkedList.insertBeforeHead(5);
-
-        linkedList.insertAfterSpecifiedNode(linkedList.get(2), 10);
-
-        linkedList.insertAtEnd(15);
-
-        linkedList.removeDuplicatesSorted();
-
-        Assert.assertEquals(5, linkedList.get(0).data);
-
-        Assert.assertEquals(10, linkedList.get(1).data);
-
-        Assert.assertEquals(15, linkedList.get(2).data);
-    }
-
-    @Test
-    public void testRemoveDuplicatesUnsorted() {
-
-        linkedList.insertBeforeHead(15);
-
-        linkedList.insertBeforeHead(10);
-
-        linkedList.insertAtEnd(5);
-
-        linkedList.removeDuplicatesUnsorted();
-
-        Assert.assertEquals(10, linkedList.get(0).data);
-
-        Assert.assertEquals(15, linkedList.get(1).data);
-
-        Assert.assertEquals(5, linkedList.get(2).data);
-
-    }
-
-    @Test
-    public void testSwap() {
-        linkedList.insertBeforeHead(7);
-
-        linkedList.insertBeforeHead(2);
-
-        linkedList.swap(2, 15);
-
-        Assert.assertEquals(15, linkedList.get(0).data);
-
-        Assert.assertEquals(2, linkedList.get(4).data);
-    }
-
-    @Test
-    public void testSwapPairs() {
-        linkedList.swapPairs(linkedList.head);
-
-        Assert.assertEquals(10, linkedList.get(0).data);
-
-        Assert.assertEquals(5, linkedList.get(1).data);
+        assertFalse(linkedList.contains(10));
     }
 }

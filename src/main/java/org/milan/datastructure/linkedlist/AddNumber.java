@@ -7,24 +7,30 @@ package org.milan.datastructure.linkedlist;
  */
 public class AddNumber {
 
-    public LinkedList.Node add(LinkedList list, int number) {
+    private ReverseLinkedList reverseLinkedList;
 
-        LinkedList.Node reversedHead = list.reverseByRecursive(list.head, null);
-
-        reversedHead = addNumber(reversedHead, number);
-
-        return list.reverseByRecursive(reversedHead, null);
+    public AddNumber() {
+        reverseLinkedList = new ReverseLinkedList();
     }
 
-    private LinkedList.Node addNumber(LinkedList.Node head, int number) {
+    public LinkedList.Node<Integer> add(LinkedList.Node<Integer> head, int number) {
+
+        LinkedList.Node<Integer> reversedHead = reverseLinkedList.reverseByRecursive(head);
+
+        LinkedList.Node<Integer> newHead = addNumber(reversedHead, number);
+
+        return reverseLinkedList.reverseByRecursive(newHead);
+    }
+
+    private LinkedList.Node<Integer> addNumber(LinkedList.Node<Integer> head, int number) {
 
         int sum;
 
-        LinkedList.Node prev = null;
+        LinkedList.Node<Integer> prev = null;
 
         int carry = number;
 
-        LinkedList.Node temp = head;
+        LinkedList.Node<Integer> temp = head;
 
         while (head != null) {
             sum = carry + head.data;
@@ -41,7 +47,7 @@ public class AddNumber {
         }
 
         if (carry > 0) {
-            LinkedList.Node newNode = new LinkedList.Node(carry);
+            LinkedList.Node<Integer> newNode = new LinkedList.Node<>(carry);
             prev.next = newNode;
         }
 

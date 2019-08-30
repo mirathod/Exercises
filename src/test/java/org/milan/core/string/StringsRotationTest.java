@@ -11,7 +11,7 @@ import org.junit.Test;
 public class StringsRotationTest {
 
     @Test
-    public void isRotated() {
+    public void testIsRotated() {
         StringsRotation stringsRotation = new StringsRotation();
 
         String s1 = "sumitjain";

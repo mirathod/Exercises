@@ -10,13 +10,11 @@ import org.junit.Test;
  */
 public class MiddleElementTest {
 
-    private LinkedList linkedList;
+    private LinkedList<Integer> linkedList;
 
     @Test
     public void testOddLengthLinkedList() {
-        linkedList = new LinkedList();
-
-        linkedList.head = new LinkedList.Node(1);
+        linkedList = new LinkedList<>(new LinkedList.Node<>(1));
 
         linkedList.insertAtEnd(2);
         linkedList.insertAtEnd(3);
@@ -25,20 +23,18 @@ public class MiddleElementTest {
 
         MiddleElement middleElement = new MiddleElement();
 
-        LinkedList.Node result = middleElement.find(linkedList.head);
+        LinkedList.Node<Integer> result = middleElement.find(linkedList.getHead());
 
-        Assert.assertEquals(3, result.data);
+        Assert.assertEquals(3, result.data.intValue());
 
-        result = middleElement.findV2(linkedList.head);
+        result = middleElement.findV2(linkedList.getHead());
 
-        Assert.assertEquals(3, result.data);
+        Assert.assertEquals(3, result.data.intValue());
     }
 
     @Test
     public void testEvenLengthLinkedList() {
-        linkedList = new LinkedList();
-
-        linkedList.head = new LinkedList.Node(1);
+        linkedList = new LinkedList<>(new LinkedList.Node<>(1));
 
         linkedList.insertAtEnd(2);
         linkedList.insertAtEnd(3);
@@ -48,12 +44,12 @@ public class MiddleElementTest {
 
         MiddleElement middleElement = new MiddleElement();
 
-        LinkedList.Node result = middleElement.find(linkedList.head);
+        LinkedList.Node<Integer> result = middleElement.find(linkedList.getHead());
 
-        Assert.assertEquals(4, result.data);
+        Assert.assertEquals(4, result.data.intValue());
 
-        result = middleElement.findV2(linkedList.head);
+        result = middleElement.findV2(linkedList.getHead());
 
-        Assert.assertEquals(4, result.data);
+        Assert.assertEquals(4, result.data.intValue());
     }
 }

@@ -1,6 +1,7 @@
 package org.milan.datastructure.linkedlist;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,35 +11,39 @@ import org.junit.Test;
  */
 public class AddNumberTest {
 
-    @Test
-    public void add() {
-        LinkedList linkedList = new LinkedList();
+    private AddNumber addNumber;
 
-        linkedList.head = new LinkedList.Node(1);
+    @Before
+    public void setup() {
+        addNumber = new AddNumber();
+    }
+
+    @Test
+    public void testAdd() {
+        LinkedList<Integer> linkedList = new LinkedList<>(new LinkedList.Node<>(1));
 
         linkedList.insertAtEnd(2);
         linkedList.insertAtEnd(3);
         linkedList.insertAtEnd(4);
         linkedList.insertAtEnd(5);
+        addNumber.add(linkedList.getHead(), 5);
 
-        AddNumber addNumber = new AddNumber();
+        Assert.assertEquals(5, linkedList.searchByIndex(3).data.intValue());
+        Assert.assertEquals(0, linkedList.searchByIndex(4).data.intValue());
+    }
 
-        addNumber.add(linkedList, 5);
-
-        Assert.assertEquals(5, linkedList.get(3).data);
-        Assert.assertEquals(0, linkedList.get(4).data);
-
-        linkedList = new LinkedList();
-
-        linkedList.head = new LinkedList.Node(9);
+    @Test
+    public void testAdd_newNodeAddition() {
+        LinkedList<Integer> linkedList = new LinkedList<>(new LinkedList.Node<>(9));
 
         linkedList.insertAtEnd(9);
 
-        addNumber.add(linkedList, 5);
+        LinkedList.Node<Integer> head = addNumber.add(linkedList.getHead(), 5);
 
-        Assert.assertEquals(1, linkedList.get(0).data);
-        Assert.assertEquals(0, linkedList.get(1).data);
-        Assert.assertEquals(4, linkedList.get(2).data);
+        Assert.assertEquals(3, linkedList.size(head));
 
+        Assert.assertEquals(1, head.getData().intValue());
+        Assert.assertEquals(0, head.getNext().getData().intValue());
+        Assert.assertEquals(4, head.getNext().getNext().getData().intValue());
     }
 }

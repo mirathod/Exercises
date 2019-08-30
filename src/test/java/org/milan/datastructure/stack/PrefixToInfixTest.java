@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class PrefixToInfixTest {
 
     @Test
-    public void conversion() {
+    public void testConversion() {
         PrefixToInfix prefixToInfix = new PrefixToInfix();
 
         Assert.assertEquals("((A+B)*(C-D))", prefixToInfix.conversion("*+AB-CD"));

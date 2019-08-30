@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PostfixToInfixTest {
 
     @Test
-    public void conversion() {
+    public void testConversion() {
         PostfixToInfix postfixToInfix = new PostfixToInfix();
 
         Assert.assertEquals("((a*b)+c)", postfixToInfix.conversion("ab*c+"));

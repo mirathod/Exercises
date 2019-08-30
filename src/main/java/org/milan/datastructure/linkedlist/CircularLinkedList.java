@@ -3,21 +3,18 @@ package org.milan.datastructure.linkedlist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashSet;
 import java.util.NoSuchElementException;
-import java.util.Objects;
-import java.util.Set;
 
 /**
- * Linked list with all basic operations
+ * circular linked list with all basic operations
  *
  * @author Milan Rathod
  */
-public class LinkedList<E> {
+public class CircularLinkedList<E> {
     /**
-     * Logger for logging linked list related logs
+     * Logger for logging circular linked list related logs
      */
-    private static final Logger LOG = LoggerFactory.getLogger(LinkedList.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CircularLinkedList.class);
 
     /**
      * Head node
@@ -25,29 +22,30 @@ public class LinkedList<E> {
     private Node<E> head;
 
     /**
-     * Size of the linked list
+     * Size of the list
      */
     private int size;
 
     /**
      * Constructs an empty list
      */
-    public LinkedList() {
+    public CircularLinkedList() {
         head = null;
     }
 
     /**
      * Constructs an list with head
      */
-    public LinkedList(Node<E> head) {
+    public CircularLinkedList(Node<E> head) {
         this.head = head;
+        head.next = head;
         adjustSize(head);
     }
 
     /**
-     * return head of the linked list
+     * return head of the list
      *
-     * @return head of the linked list
+     * @return head of the list
      */
     public Node<E> getHead() {
         return head;
@@ -61,41 +59,16 @@ public class LinkedList<E> {
     public void insertBeforeHead(E data) {
         if (isEmpty()) {
             head = new Node<>(data);
+            head.next = head;
         } else {
             Node<E> newHead = new Node<>(data, head);
+            Node<E> temp = head;
+            while (temp.next != head) {
+                temp = temp.next;
+            }
+            temp.next = newHead;
             head = newHead;
         }
-        size++;
-    }
-
-    /**
-     * Insert new node after specified node
-     *
-     * @param previousNodeKey node after which new node to be inserted
-     * @param newNodeKey      data of the new node to be inserted
-     */
-    public void insertAfterSpecifiedNode(E previousNodeKey, E newNodeKey) {
-
-        // Check if list is empty
-        if (isEmpty()) {
-            throw new NoSuchElementException("Node with key " + previousNodeKey.toString() + " not found");
-        }
-
-        Node<E> current = head;
-
-        // Loop through list until previous node found
-        while (current != null && !current.data.equals(previousNodeKey)) {
-            current = current.next;
-        }
-
-        // If null, previous node not found
-        if (current == null) {
-            throw new NoSuchElementException("Node with key " + previousNodeKey.toString() + " not found");
-        }
-
-        // previous node is found
-        Node<E> newNode = new Node<>(newNodeKey, current.next);
-        current.next = newNode;
         size++;
     }
 
@@ -116,7 +89,9 @@ public class LinkedList<E> {
             temp = temp.next;
         }
         Node<E> newNode = new Node<>(data);
-        newNode.next = temp.next;
+        if (temp.next == head) {
+            newNode.next = head;
+        }
         temp.next = newNode;
         size++;
     }
@@ -133,10 +108,11 @@ public class LinkedList<E> {
             head = newNode;
         } else {
             Node<E> last = head;
-            while (last.next != null) {
+            while (last.next != null && last.next != head) {
                 last = last.next;
             }
             last.next = newNode;
+            newNode.next = head;
         }
         size++;
     }
@@ -152,13 +128,18 @@ public class LinkedList<E> {
 
         // To be deleted node is a head node
         if (temp != null && temp.data == data) {
+            Node<E> lastNode = temp;
+            while (lastNode.next != temp) {
+                lastNode = lastNode.next;
+            }
+            lastNode.next = temp.next;
             head = temp.next;
             size--;
             return;
         }
 
         // Identify the deletion node
-        while (temp != null && temp.data != data) {
+        while (temp != null && temp.data != data && temp.next != head) {
             previous = temp;
             temp = temp.next;
         }
@@ -186,6 +167,11 @@ public class LinkedList<E> {
 
         // To be deleted node is a head node
         if (position == 0) {
+            Node<E> lastNode = head;
+            while (lastNode.next != head) {
+                lastNode = lastNode.next;
+            }
+            lastNode.next = head.next;
             head = head.next;
             size--;
         } else {
@@ -201,105 +187,34 @@ public class LinkedList<E> {
         }
     }
 
-    public void printList() {
-        printList(head);
-    }
-
-    public void printList(Node<E> node) {
-        Node<E> temp = node;
-        while (temp != null) {
-            System.out.print(temp.data + "-->");
-            temp = temp.next;
-        }
-        System.out.println("null");
-    }
-
     /**
-     * Method to find a node on a given index
+     * return size of the list
      *
-     * @param index
-     * @return {@link Node<E>}
-     */
-    public Node<E> searchByIndex(int index) {
-        if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Index is Invalid");
-        }
-        Node<E> temp = head;
-        for (int i = 0; i < index; i++) {
-            temp = temp.next;
-        }
-        return temp;
-    }
-
-    /**
-     * Method to find a node for a given value
-     *
-     * @param value
-     * @return {@link Node<E>}
-     */
-    public Node<E> searchByValue(E value) {
-        Node<E> temp = head;
-        while (null != temp && temp.data != value) {
-            temp = temp.next;
-        }
-        if (temp.data == value) {
-            return temp;
-        }
-        return null;
-    }
-
-    /**
-     * return size of the linked list
-     *
-     * @return linked list size
+     * @return list size
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * check if linked list is empty or not
+     * check if list is empty or not
      */
     public boolean isEmpty() {
         return size == 0;
     }
 
     /**
-     * Check if node is present in linked list or not
+     * Check if node is present in list or not
      */
     public boolean contains(E key) {
         Node<E> current = head;
-        while (current != null) {
+        do {
             if (current.data == key) {
                 return true;
             }
             current = current.next;
-        }
+        } while (current != head);
         return false;
-    }
-
-    /**
-     * Calculate size of a linked list - iterative approach
-     */
-    public int computeSize() {
-        int count = 0;
-        Node<E> temp = head;
-        while (temp != null) {
-            count++;
-            temp = temp.next;
-        }
-        return count;
-    }
-
-    /**
-     * Calculate size of a linked list - recursive approach
-     */
-    public int size(Node<E> head) {
-        if (head == null) {
-            return 0;
-        } else {
-            return 1 + size(head.next);
-        }
     }
 
     /**
@@ -343,20 +258,6 @@ public class LinkedList<E> {
 
         public void setNext(Node<E> next) {
             this.next = next;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Node<?> node = (Node<?>) o;
-            return Objects.equals(data, node.data) &&
-                    Objects.equals(next, node.next);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(data, next);
         }
     }
 }

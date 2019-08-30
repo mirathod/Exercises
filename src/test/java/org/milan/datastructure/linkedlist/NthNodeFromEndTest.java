@@ -1,6 +1,7 @@
 package org.milan.datastructure.linkedlist;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,13 +11,13 @@ import org.junit.Test;
  */
 public class NthNodeFromEndTest {
 
-    private LinkedList linkedList;
+    private LinkedList<Integer> linkedList;
 
-    @Test
-    public void find() {
-        linkedList = new LinkedList();
+    private NthNodeFromEnd nthNodeFromEnd;
 
-        linkedList.head = new LinkedList.Node(1);
+    @Before
+    public void setup() {
+        linkedList = new LinkedList<>(new LinkedList.Node<>(1));
 
         linkedList.insertAtEnd(2);
         linkedList.insertAtEnd(3);
@@ -24,14 +25,28 @@ public class NthNodeFromEndTest {
         linkedList.insertAtEnd(5);
         linkedList.insertAtEnd(6);
 
-        NthNodeFromEnd nthNodeFromEnd = new NthNodeFromEnd();
+        nthNodeFromEnd = new NthNodeFromEnd();
+    }
 
-        LinkedList.Node result = nthNodeFromEnd.find(linkedList.head, 3);
+    @Test
+    public void testFind() {
+        LinkedList.Node<Integer> result = nthNodeFromEnd.find(linkedList.getHead(), 3);
 
-        Assert.assertEquals(4, result.data);
+        Assert.assertEquals(4, result.data.intValue());
 
-        result = nthNodeFromEnd.find(linkedList.head, 6);
+        result = nthNodeFromEnd.find(linkedList.getHead(), 6);
 
-        Assert.assertEquals(1, result.data);
+        Assert.assertEquals(1, result.data.intValue());
+    }
+
+    @Test
+    public void testFindV2() {
+        LinkedList.Node<Integer> result = nthNodeFromEnd.findV2(linkedList.getHead(), 3);
+
+        Assert.assertEquals(4, result.data.intValue());
+
+        result = nthNodeFromEnd.find(linkedList.getHead(), 6);
+
+        Assert.assertEquals(1, result.data.intValue());
     }
 }
