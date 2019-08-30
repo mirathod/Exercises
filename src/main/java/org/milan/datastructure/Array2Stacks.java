@@ -18,8 +18,6 @@ public class Array2Stacks<T> {
 
     public Array2Stacks(Class<T> classT, int capacity) {
         super();
-
-
         array = (T[]) Array.newInstance(classT, capacity);
         top1 = -1;
         top2 = capacity;

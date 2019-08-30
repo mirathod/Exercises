@@ -11,7 +11,7 @@ import org.junit.Test;
 public class NodesByLevelTest {
 
     @Test
-    public void totalNodesByLevel() {
+    public void testTotalNodesByLevel() {
         Graph graph = new Graph(7);
         graph.addEdge(graph, 0, 1);
         graph.addEdge(graph, 0, 2);

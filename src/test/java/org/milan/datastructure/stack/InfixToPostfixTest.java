@@ -11,7 +11,7 @@ import org.junit.Test;
 public class InfixToPostfixTest {
 
     @Test
-    public void conversion() {
+    public void testConversion() {
         InfixToPostfix infixToPostfix = new InfixToPostfix();
         String result = infixToPostfix.conversion("a+b*c+d");
 

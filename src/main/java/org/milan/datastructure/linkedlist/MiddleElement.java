@@ -1,5 +1,8 @@
 package org.milan.datastructure.linkedlist;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Problem: {@link @https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/}
  *
@@ -7,16 +10,28 @@ package org.milan.datastructure.linkedlist;
  */
 public class MiddleElement {
 
-    public LinkedList.Node find(LinkedList.Node head) {
+    /**
+     * Logger
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(MiddleElement.class);
+
+    /**
+     * Find Middle element in linked list using two pointers with
+     * one pointer moving twice fast to other pointer
+     *
+     * @param head head of the linked list
+     * @return middle element or null if linked list is empty
+     */
+    public LinkedList.Node<Integer> find(LinkedList.Node<Integer> head) {
 
         // Base condition
         if (head == null) {
-            System.out.println("Empty LinkedList");
+            LOG.error("Linkedlist is empty");
             return null;
         }
 
-        LinkedList.Node slow = head;
-        LinkedList.Node fast = head;
+        LinkedList.Node<Integer> slow = head;
+        LinkedList.Node<Integer> fast = head;
 
         while (fast != null && fast.next != null) {
             slow = slow.next;
@@ -26,15 +41,21 @@ public class MiddleElement {
         return slow;
     }
 
-    public LinkedList.Node findV2(LinkedList.Node head) {
+    /**
+     * Find Middle element in linked list using mid pointer moving based on counter value
+     *
+     * @param head head of the linked list
+     * @return middle element or null if linked list is empty
+     */
+    public LinkedList.Node<Integer> findV2(LinkedList.Node<Integer> head) {
 
         // Base condition
         if (head == null) {
-            System.out.println("Empty LinkedList");
+            LOG.error("Linkedlist is empty");
             return null;
         }
 
-        LinkedList.Node mid = head;
+        LinkedList.Node<Integer> mid = head;
 
         int counter = 0;
 
@@ -47,9 +68,7 @@ public class MiddleElement {
             counter++;
             head = head.next;
         }
-
         return mid;
     }
-
 
 }

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class PrefixToPostfixTest {
 
     @Test
-    public void conversion() {
+    public void testConversion() {
         PrefixToPostfix prefixToPostfix = new PrefixToPostfix();
 
         Assert.assertEquals("AB+CD-*", prefixToPostfix.conversion("*+AB-CD"));

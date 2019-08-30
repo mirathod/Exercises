@@ -11,7 +11,7 @@ import org.junit.Test;
 public class InfixToPrefixTest {
 
     @Test
-    public void conversion() {
+    public void testConversion() {
         InfixToPrefix infixToPrefix = new InfixToPrefix();
 
         Assert.assertEquals("*-A/BC-/AKL", infixToPrefix.conversion("(A-B/C)*(A/K-L)"));
