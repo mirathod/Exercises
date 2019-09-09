@@ -12,7 +12,7 @@ import org.milan.datastructure.queue.StackWith2QueuesPush;
 public class StackWith2QueuesPushTest {
 
     @Test
-    public void testOperations() {
+    public void testStackOperations() {
         StackWith2QueuesPush stackWith2QueuesPush = new StackWith2QueuesPush();
 
         Assert.assertEquals(0, stackWith2QueuesPush.size());

@@ -1,5 +1,6 @@
 package org.milan.datastructure.queue;
 
+import java.util.EmptyStackException;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -12,35 +13,55 @@ import java.util.Queue;
  */
 public class StackWith2QueuesPush {
 
-    private Queue<Integer> q1 = new LinkedList<>();
+    /**
+     * Auxiliary Queue for handling stack operations
+     */
+    private Queue<Integer> queue1 = new LinkedList<>();
 
-    private Queue<Integer> q2 = new LinkedList<>();
+    /**
+     * Auxiliary Queue for handling stack operations
+     */
+    private Queue<Integer> queue2 = new LinkedList<>();
 
+    /**
+     * Size of the stack
+     */
     private int size;
 
+    /**
+     * Push operation of stack
+     */
     public void push(int item) {
         size++;
-        q2.add(item);
+        queue2.add(item);
 
         // Push all elements from q1 to q2
-        while (!q1.isEmpty()) {
-            q2.add(q1.peek());
-            q1.remove();
+        while (!queue1.isEmpty()) {
+            queue2.add(queue1.poll());
         }
 
         // Swap names of two queues
-        Queue<Integer> q = q1;
-        q1 = q2;
-        q2 = q;
+        Queue<Integer> q = queue1;
+        queue1 = queue2;
+        queue2 = q;
     }
 
+    /**
+     * Pop operation of stack
+     */
     public int pop() {
-        if (q1.isEmpty()) return Integer.MIN_VALUE;
-        int item = q1.remove();
+        if (queue1.isEmpty()) {
+            throw new EmptyStackException();
+        }
+
         size--;
-        return item;
+
+        return queue1.remove();
     }
 
+    /**
+     * Returns size of the stack
+     */
     public int size() {
         return size;
     }
