@@ -11,11 +11,11 @@ import org.junit.Test;
 public class PostfixEvaluationTest {
 
     @Test
-    public void evalute() {
+    public void testEvaluate() {
         PostfixEvaluation postfixEvaluation = new PostfixEvaluation();
 
-        Assert.assertEquals(288, postfixEvaluation.evalute("6523+8*+3+*"));
+        Assert.assertEquals(288, postfixEvaluation.evaluate("6523+8*+3+*"));
 
-        Assert.assertEquals(4, postfixEvaluation.evalute("231*+9-"));
+        Assert.assertEquals(4, postfixEvaluation.evaluate("231*+9-"));
     }
 }

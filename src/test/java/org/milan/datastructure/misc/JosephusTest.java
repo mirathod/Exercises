@@ -1,7 +1,8 @@
-package org.milan.datastructure;
+package org.milan.datastructure.misc;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.misc.Josephus;
 
 /**
  * Test class for {@link Josephus}

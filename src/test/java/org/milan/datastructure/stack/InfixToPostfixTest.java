@@ -13,8 +13,13 @@ public class InfixToPostfixTest {
     @Test
     public void testConversion() {
         InfixToPostfix infixToPostfix = new InfixToPostfix();
+
         String result = infixToPostfix.conversion("a+b*c+d");
 
-        Assert.assertEquals(result, "abc*+d+");
+        Assert.assertEquals("abc*+d+", result);
+
+        result = infixToPostfix.conversion("a*b-(c+d)+e");
+
+        Assert.assertEquals("ab*cd+-e+", result);
     }
 }

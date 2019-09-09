@@ -1,4 +1,4 @@
-package org.milan.datastructure.stack;
+package org.milan.datastructure.queue;
 
 import java.util.LinkedList;
 import java.util.Queue;

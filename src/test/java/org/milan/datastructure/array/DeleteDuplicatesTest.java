@@ -1,7 +1,8 @@
-package org.milan.datastructure;
+package org.milan.datastructure.array;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.array.DeleteDuplicates;
 
 import java.util.Arrays;
 import java.util.Objects;

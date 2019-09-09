@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.EmptyStackException;
 
 /**
  * Problem: Evaluation of postfix expression
@@ -17,14 +18,23 @@ public class PostfixEvaluation {
 
     private static final Logger LOG = LoggerFactory.getLogger(PostfixEvaluation.class);
 
+    /**
+     * stack used for storing operators
+     */
     private Deque<Integer> stack = new ArrayDeque<>();
 
-    public int evalute(String input) {
+    /**
+     * Evaluate given postfix expression
+     *
+     * @param input postfix expression
+     * @return result of evaluation
+     */
+    public int evaluate(String input) {
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
             if (Character.isDigit(c)) {
                 int n = Character.getNumericValue(c);
-                push(n);
+                stack.push(n);
             } else {
                 int x = pop();
                 int y = pop();
@@ -45,20 +55,16 @@ public class PostfixEvaluation {
                     default:
                         throw new IllegalStateException("Unexpected value: " + c);
                 }
-                push(z);
+                stack.push(z);
             }
         }
         return stack.pop();
     }
 
-    private void push(int item) {
-        stack.push(item);
-    }
-
     private int pop() {
         if (stack.isEmpty()) {
-            LOG.warn("Stack is empty");
-            return 0;
+            LOG.error("Stack is empty");
+            throw new EmptyStackException();
         }
         return stack.pop();
     }

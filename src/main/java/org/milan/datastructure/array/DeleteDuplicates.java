@@ -1,4 +1,4 @@
-package org.milan.datastructure;
+package org.milan.datastructure.array;
 
 /**
  * Problem: Delete Duplicates
@@ -21,7 +21,7 @@ public class DeleteDuplicates {
                     }
                 }
             }
-            if (present == false) {
+            if (!present) {
                 uniqueNumbers[k] = original[j];
                 k++;
             }

@@ -1,4 +1,4 @@
-package org.milan.datastructure;
+package org.milan.datastructure.array;
 
 /**
  * Implement stack with k arrays
