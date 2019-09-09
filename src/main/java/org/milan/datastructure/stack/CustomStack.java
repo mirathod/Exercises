@@ -1,6 +1,7 @@
 package org.milan.datastructure.stack;
 
 import java.util.Arrays;
+import java.util.EmptyStackException;
 
 /**
  * Custom Implementation of {@link java.util.Stack}
@@ -9,12 +10,24 @@ import java.util.Arrays;
  */
 public class CustomStack<T> {
 
-    private static final int DEFAULT_CAPACITY = 5;
+    /**
+     * Default capacity of stack
+     */
+    private static final int DEFAULT_CAPACITY = 4;
 
+    /**
+     * current size of the stack
+     */
     private int size = 0;
 
+    /**
+     * capacity of the stack
+     */
     private int capacity;
 
+    /**
+     * data store to store stack elements
+     */
     private T[] store;
 
     @SuppressWarnings("unchecked")
@@ -29,19 +42,28 @@ public class CustomStack<T> {
         store = (T[]) new Object[capacity];
     }
 
-    public boolean push(T value) {
-        if (this.size >= store.length) {
-            int newSize = size + (size >> 1);
-            store = Arrays.copyOf(store, newSize);
+    /**
+     * Push new item to top of the stack
+     *
+     * @param value item to be pushed
+     */
+    public void push(T value) {
+
+        // If stack is full increase size of store
+        if (this.size == capacity) {
+            capacity = (size << 1);
+            store = Arrays.copyOf(store, capacity);
         }
 
         store[size++] = value;
-        return true;
     }
 
+    /**
+     * Pop top item from the stack
+     */
     public T pop() {
-        if (size <= 0) {
-            return null;
+        if (isEmpty()) {
+            throw new EmptyStackException();
         }
 
         T value = store[--size];
@@ -49,9 +71,9 @@ public class CustomStack<T> {
         // To prevent memory leak dereference element at top of the stack
         store[size] = null;
 
-        int reducedSize = size;
-        if (size >= capacity && size < (reducedSize + (reducedSize << 1))) {
-            System.arraycopy(store, 0, store, 0, size);
+        if (size <= capacity / 4 && capacity > DEFAULT_CAPACITY) {
+            capacity = capacity >> 1;
+            store = Arrays.copyOf(store, capacity);
         }
         return value;
     }
@@ -66,10 +88,29 @@ public class CustomStack<T> {
         return false;
     }
 
+    /**
+     * Return top of the stack
+     */
+    public T top() {
+        if (isEmpty()) {
+            throw new EmptyStackException();
+        }
+
+        return store[size - 1];
+    }
+
+    /**
+     * size of the stack
+     *
+     * @return size
+     */
     public int size() {
         return size;
     }
 
+    /**
+     * Clear all elements of the stack
+     */
     public void clear() {
         for (int i = 0; i < size; i++) {
             store[i] = null;
@@ -77,6 +118,11 @@ public class CustomStack<T> {
         size = 0;
     }
 
+    /**
+     * Check if stack is empty or not
+     *
+     * @return true if empty otherwise false
+     */
     public boolean isEmpty() {
         return size == 0;
     }

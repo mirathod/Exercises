@@ -1,7 +1,8 @@
-package org.milan.datastructure.stack;
+package org.milan.datastructure.queue;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.queue.StackWith2QueuesPush;
 
 /**
  * Test Class for {@link StackWith2QueuesPush}
