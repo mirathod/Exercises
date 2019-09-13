@@ -2,7 +2,6 @@ package org.milan.datastructure.queue;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.datastructure.queue.StackWith2QueuesPop;
 
 /**
  * Test Class for {@link StackWith2QueuesPop}
@@ -12,7 +11,7 @@ import org.milan.datastructure.queue.StackWith2QueuesPop;
 public class StackWith2QueuesPopTest {
 
     @Test
-    public void testOperations() {
+    public void testStackOperations() {
         StackWith2QueuesPop stackWith2QueuesPop = new StackWith2QueuesPop();
 
         Assert.assertEquals(0, stackWith2QueuesPop.size());

@@ -11,7 +11,7 @@ import org.milan.exceptions.EmptyQueueException;
  */
 public class QueueWith1StackTest {
 
-    @Test(expected = EmptyQueueException.class)
+    @Test
     public void testEnqueueDequeueOperations() {
         QueueWith1Stack queueWith1Stack = new QueueWith1Stack();
 
@@ -28,6 +28,13 @@ public class QueueWith1StackTest {
         Assert.assertEquals(2, queueWith1Stack.dequeue());
 
         Assert.assertEquals(3, queueWith1Stack.dequeue());
+
+        Assert.assertTrue(queueWith1Stack.isEmpty());
+    }
+
+    @Test(expected = EmptyQueueException.class)
+    public void testEmptyQueueException() {
+        QueueWith1Stack queueWith1Stack = new QueueWith1Stack();
 
         Assert.assertTrue(queueWith1Stack.isEmpty());
 
