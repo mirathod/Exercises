@@ -1,6 +1,6 @@
 package org.milan.hackerearth;
 
-import org.milan.datastructure.binarysearchtree.BinarySearchTree;
+import org.milan.datastructure.tree.BinarySearchTree;
 
 /**
  * Monk Watching Fight - Binary Search Tree
@@ -17,7 +17,7 @@ public class MonkWatchingFight {
             binarySearchTree.insert(arr[i]);
         }
 
-        return binarySearchTree.height();
+        return binarySearchTree.height(binarySearchTree.getRoot());
 
     }
 

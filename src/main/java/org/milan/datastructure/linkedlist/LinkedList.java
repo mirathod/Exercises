@@ -3,10 +3,8 @@ package org.milan.datastructure.linkedlist;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Objects;
-import java.util.Set;
 
 /**
  * Linked list with all basic operations
@@ -315,16 +313,16 @@ public class LinkedList<E> {
         }
     }
 
-    static class Node<E> {
+    public static class Node<E> {
         E data;
 
         Node<E> next;
 
-        Node(E data) {
+        public Node(E data) {
             this(data, null);
         }
 
-        Node(E data, Node<E> next) {
+        public Node(E data, Node<E> next) {
             this.data = data;
             this.next = next;
         }
