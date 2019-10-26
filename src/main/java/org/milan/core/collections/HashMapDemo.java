@@ -24,7 +24,9 @@ public class HashMapDemo {
 
         HashMapDemo hashMapDemo = new HashMapDemo();
 
-        System.out.println(hashMapDemo.sortByComparator(map, true));
+        // System.out.println(hashMapDemo.sortByComparator(map, true));
+
+        hashMapDemo.sortByValues();
 
     }
 
@@ -53,7 +55,7 @@ public class HashMapDemo {
                 .entrySet()
                 .stream()
                 .sorted(Entry.comparingByValue())
-                .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e2, LinkedHashMap::new));
+                .collect(Collectors.toMap(Entry::getKey, Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
 
         System.out.println(collect);
     }
