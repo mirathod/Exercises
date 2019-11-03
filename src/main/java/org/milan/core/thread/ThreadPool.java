@@ -4,7 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * Add Description
+ * Thread pool class
  *
  * @author Milan Rathod
  */

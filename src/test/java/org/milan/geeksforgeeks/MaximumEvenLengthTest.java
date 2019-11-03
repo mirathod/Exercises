@@ -11,7 +11,7 @@ import org.junit.Test;
 public class MaximumEvenLengthTest {
 
     @Test
-    public void find() {
+    public void testFind() {
         MaximumEvenLength maximumEvenLength = new MaximumEvenLength();
 
         String result = maximumEvenLength.find("this is a test string");

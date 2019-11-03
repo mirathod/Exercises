@@ -7,7 +7,7 @@ import org.junit.Test;
 import java.util.List;
 
 /**
- * Add Description
+ * Test class for {@link InorderTraversalWithThreadedTree}
  *
  * @author Milan Rathod
  */
