@@ -3,7 +3,7 @@ package org.milan.datastructure.graph;
 import org.junit.Test;
 
 /**
- * Add Description
+ * Test class for {@link DepthFirstSearch}
  *
  * @author Milan Rathod
  */

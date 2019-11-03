@@ -11,7 +11,7 @@ import org.junit.Test;
 public class LongestSubSequenceWithKCharsTest {
 
     @Test
-    public void compute() {
+    public void testCompute() {
         LongestSubSequenceWithKChars longestSubSequenceWithKChars = new LongestSubSequenceWithKChars();
         String result = longestSubSequenceWithKChars.compute("geeksforgeeks", 2);
 

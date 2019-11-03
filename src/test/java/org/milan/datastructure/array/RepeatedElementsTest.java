@@ -13,7 +13,7 @@ import java.util.List;
 public class RepeatedElementsTest {
 
     @Test
-    public void getTwoRepeatedElements() {
+    public void testGetTwoRepeatedElements() {
         RepeatedElements repeatedElements = new RepeatedElements();
 
         List<Integer> result = repeatedElements.getTwoRepeatedElements(new int[]{4, 2, 4, 5, 2, 3, 1}, 7);
@@ -24,7 +24,7 @@ public class RepeatedElementsTest {
     }
 
     @Test
-    public void getTwoRepeatedElementsByExpression() {
+    public void testGetTwoRepeatedElementsByExpression() {
         RepeatedElements repeatedElements = new RepeatedElements();
 
         List<Integer> result = repeatedElements.getTwoRepeatedElementsByExpression(new int[]{4, 2, 4, 5, 2, 3, 1}, 7);

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * Add Description
+ * Utility for files
  *
  * @author Milan Rathod
  */

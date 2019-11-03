@@ -11,7 +11,7 @@ import org.junit.Test;
 public class ExpandStringRangeTest {
 
     @Test
-    public void expand() {
+    public void testExpand() {
         ExpandStringRange expandStringRange = new ExpandStringRange();
 
         String result = expandStringRange.expand("1-5, 8, 11-14, 18, 20, 26-29");

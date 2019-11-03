@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class SubSequenceDivisbleByTest {
 
     @Test
-    public void count() {
+    public void testCount() {
         int result = new SubSequenceDivisbleBy().count("330", 6);
         Assert.assertEquals(4, result);
     }
