@@ -1,5 +1,6 @@
 package org.milan.datastructure.graph;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -14,6 +15,6 @@ public class GraphTest {
         Graph graph = new Graph(5);
         graph.addEdge(graph, 1, 2);
 
-        graph.printGraph(graph);
+        Assert.assertEquals(2, graph.getAdjList()[1].get(0).intValue());
     }
 }

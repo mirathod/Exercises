@@ -7,7 +7,7 @@ import java.util.Queue;
  * Problem: Breadth First Search
  * <p>
  * Time Complexity: O(V+E) where V is number of vertices in graph and E is number of edges in graph
- *
+ * <p>
  * refer {@link @https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/}
  *
  * @author Milan Rathod
@@ -20,6 +20,11 @@ public class BreadthFirstSearch {
         this.graph = graph;
     }
 
+    /**
+     * Breadth first search of graph
+     *
+     * @param vertex starting vertex
+     */
     public void bfs(int vertex) {
 
         // Mark all the vertices as not visited

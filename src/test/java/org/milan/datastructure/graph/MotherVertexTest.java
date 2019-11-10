@@ -11,7 +11,7 @@ import org.junit.Test;
 public class MotherVertexTest {
 
     @Test
-    public void find() {
+    public void testFind() {
         Graph graph = new Graph(7);
         graph.addEdge(graph, 0, 1);
         graph.addEdge(graph, 0, 2);
