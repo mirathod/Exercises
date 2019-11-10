@@ -218,15 +218,20 @@ public class CircularLinkedList<E> {
     }
 
     /**
-     * Adjust size of the linked list based on passed head node
+     * Adjust size of the circular linked list based on passed head node
      *
      * @param head head of the linked list
      */
     private void adjustSize(Node<E> head) {
         Node<E> current = head;
-        while (current != null) {
-            current = current.next;
+
+        if (current != null && current.next == head) {
             size++;
+        } else {
+            while (current != null && current.next != head) {
+                current = current.next;
+                size++;
+            }
         }
     }
 

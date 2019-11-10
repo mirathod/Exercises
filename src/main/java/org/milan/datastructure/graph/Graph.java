@@ -14,7 +14,17 @@ public class Graph {
 
     private LinkedList<Integer>[] adjList;
 
+    /**
+     * Default type is directed graph
+     */
+    private GraphType graphType;
+
     public Graph(int size) {
+        this(size, GraphType.DIRECTED);
+    }
+
+    public Graph(int size, GraphType graphType) {
+        this.graphType = graphType;
         this.size = size;
 
         adjList = new LinkedList[size];
@@ -24,42 +34,37 @@ public class Graph {
         }
     }
 
+    /**
+     * Get size of the graph
+     */
     public int getSize() {
         return this.size;
     }
 
+    /**
+     * Get adjacency list
+     */
     public LinkedList<Integer>[] getAdjList() {
         return this.adjList;
     }
 
     /**
-     * Add an edge between two vertices in directed graph
+     * Add an edge between two vertices in given graph
      */
     public void addEdge(Graph graph, int src, int dest) {
         // Add an edge from src to dest
         graph.adjList[src].add(dest);
-    }
 
-    /**
-     * Add an edge between two vertices in undirected graph
-     */
-    public void addEdgeUndirected(Graph graph, int src, int dest) {
-        // Add an edge from src to dest
-        graph.adjList[src].add(dest);
-
-        // Since graph is undirected, add an edge from dest to src
-        graph.adjList[dest].add(src);
-    }
-
-    public void printGraph(Graph graph) {
-        for (int i = 0; i < graph.size; i++) {
-            System.out.println("Adjacency list of vertex " + i);
-            System.out.print("head");
-            for (Integer integer : graph.adjList[i]) {
-                System.out.print(" -> " + integer);
-            }
-            System.out.println("\n");
+        if (graphType.equals(GraphType.UNDIRECTED)) {
+            // Since graph is undirected, add an edge from dest to src
+            graph.adjList[dest].add(src);
         }
     }
+}
 
+/**
+ * Enum for type of graphs
+ */
+enum GraphType {
+    DIRECTED, UNDIRECTED
 }

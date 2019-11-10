@@ -1,63 +1,58 @@
 package org.milan.datastructure.graph;
 
-import java.util.LinkedList;
-import java.util.Stack;
-
 /**
  * @author Milan Rathod
  */
 class GraphCycle {
-    public static void main(String[] args) {
-        GraphCycle g = new GraphCycle(4);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        //g.addEdge(1, 2);
-        // g.addEdge(2, 0);
-        g.addEdge(2, 3);
-        //g.addEdge(3, 3);
-        g.DFS();
-        if (g.flag == 1)
-            System.out.println("contains cycle");
-        else
-            System.out.println("no cycle");
+
+    private Graph graph;
+
+    public GraphCycle(Graph graph) {
+        this.graph = graph;
     }
 
-    LinkedList<Integer>[] adj;
-    int flag = 0;
-    int V;
+    /**
+     * Check if cycle exists in graph
+     */
+    public boolean isCycleExists() {
 
-    GraphCycle(int V) {
+        // Visited boolean array
+        boolean[] visited = new boolean[graph.getSize()];
 
-        this.V = V;
-        adj = new LinkedList[V];
-        for (int i = 0; i < V; i++)
-            adj[i] = new LinkedList<>();
-    }
+        // Recursive stack boolean array indicates if current vertex is in rec stack or not
+        boolean[] recStack = new boolean[graph.getSize()];
 
-    void addEdge(int v, int e) {
-        adj[v].add(e);
-    }
-
-    void DFS() {
-        Stack<Integer> st = new Stack<>();
-        boolean[] visited = new boolean[V];
-        for (int i = 0; i < V; i++) {
-            if (!visited[i])
-                DFSUtil(visited, i, st);
+        for (int i = 0; i < graph.getSize(); i++) {
+            if (isCyclicUtil(visited, i, recStack)) {
+                return true;
+            }
         }
+        return false;
     }
 
-    void DFSUtil(boolean[] visited, int i, Stack<Integer> st) {
-        st.push(i);
+    /**
+     * Utility function to perform actual cyclic check operation
+     */
+    private boolean isCyclicUtil(boolean[] visited, int i, boolean[] recStack) {
+
+        if (recStack[i]) {
+            return true;
+        }
+
+        if (visited[i]) {
+            return false;
+        }
+
         visited[i] = true;
-        for (int k : adj[i]) {
-            if (!visited[k])
-                DFSUtil(visited, k, st);
-            else if (st.contains(k))
-                flag = 1;
+        recStack[i] = true;
+
+        for (int k : graph.getAdjList()[i]) {
+            if (isCyclicUtil(visited, k, recStack)) {
+                return true;
+            }
         }
-        if (flag != 1)
-            st.pop();
+        recStack[i] = false;
+        return false;
     }
 }
 
