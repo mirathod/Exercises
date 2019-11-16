@@ -1,6 +1,7 @@
 package org.milan.algorithm.sorting;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,27 +11,28 @@ import org.junit.Test;
  */
 public class MergeSortTest {
 
+    private MergeSort mergeSort;
+
+    private int[] inputArray;
+
+    @Before
+    public void setup() {
+        mergeSort = new MergeSort();
+
+        inputArray = new int[]{38, 27, 43, 3, 9, 82, 10};
+    }
+
     @Test
     public void testSort() {
-        int[] inputArray = new int[]{38, 27, 43, 3, 9, 82, 10};
-
-        MergeSort mergeSort = new MergeSort();
         mergeSort.sort(inputArray);
 
-        Assert.assertEquals(3, inputArray[0]);
-
-        Assert.assertEquals(82, inputArray[inputArray.length - 1]);
+        Assert.assertArrayEquals(new int[]{3, 9, 10, 27, 38, 43, 82}, inputArray);
     }
 
     @Test
     public void testIterativeSort() {
-        int[] inputArray = new int[]{38, 27, 43, 3, 9, 82, 10};
+        mergeSort.sortIterative(inputArray);
 
-        MergeSort mergeSort = new MergeSort();
-        mergeSort.itertiveSort(inputArray, inputArray.length);
-
-        Assert.assertEquals(3, inputArray[0]);
-
-        Assert.assertEquals(82, inputArray[inputArray.length - 1]);
+        Assert.assertArrayEquals(new int[]{3, 9, 10, 27, 38, 43, 82}, inputArray);
     }
 }

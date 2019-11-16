@@ -1,6 +1,7 @@
 package org.milan.algorithm.sorting;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,16 +11,37 @@ import org.junit.Test;
  */
 public class CountingSortTest {
 
+    private CountingSort countingSort;
+
+    private int[] inputArray;
+
+    @Before
+    public void setup() {
+        countingSort = new CountingSort();
+
+        inputArray = new int[]{170, 45, 75, 90, 80, 24, 2, 66};
+    }
+
     @Test
-    public void testSort() {
-        CountingSort countingSort = new CountingSort();
+    public void testSort_PositiveNumbers() {
+        int[] result = countingSort.sort(inputArray);
 
-        int[] inputArray = new int[]{170, 45, 75, 90, 80, 24, 2, 66};
+        Assert.assertArrayEquals(new int[]{2, 24, 45, 66, 75, 80, 90, 170}, result);
+    }
 
-        countingSort.sort(inputArray);
+    @Test
+    public void testSort_NegativeNumbers() {
+        int[] inputArray = new int[]{-10, 12, 20, -1, -3};
 
-        Assert.assertEquals(2, inputArray[0]);
+        int[] result = countingSort.sort(inputArray);
 
-        Assert.assertEquals(170, inputArray[inputArray.length - 1]);
+        Assert.assertArrayEquals(new int[]{-10, -3, -1, 12, 20}, result);
+    }
+
+    @Test
+    public void testSortPositive() {
+        int[] result = countingSort.sortPositive(inputArray);
+
+        Assert.assertArrayEquals(new int[]{2, 24, 45, 66, 75, 80, 90, 170}, result);
     }
 }

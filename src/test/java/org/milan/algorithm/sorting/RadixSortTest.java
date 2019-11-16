@@ -14,10 +14,8 @@ public class RadixSortTest {
     public void testSort() {
         int[] inputArray = new int[]{64, 8, 216, 512, 27, 729, 2, 343, 125};
 
-        new RadixSort().sort(inputArray);
+        int[] result = new RadixSort().sort(inputArray);
 
-        Assert.assertEquals(2, inputArray[0]);
-
-        Assert.assertEquals(729, inputArray[inputArray.length - 1]);
+        Assert.assertArrayEquals(new int[]{2, 8, 27, 64, 125, 216, 343, 512, 729}, result);
     }
 }

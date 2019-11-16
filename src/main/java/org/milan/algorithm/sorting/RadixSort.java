@@ -1,5 +1,7 @@
 package org.milan.algorithm.sorting;
 
+import java.util.Arrays;
+
 /**
  * Problem: Radix Sort
  *
@@ -7,23 +9,24 @@ package org.milan.algorithm.sorting;
  */
 public class RadixSort {
 
-    public void sort(int[] a) {
-        int m = getMax(a);
-        for (int exp = 1; m / exp > 0; exp *= 10) {
-            countingSort(a, exp);
+    /**
+     * Radix sort using counting sort as subroutine
+     */
+    public int[] sort(int[] arr) {
+
+        // Find maximum number to know number of digits
+        int max = Arrays.stream(arr).max().getAsInt();
+
+        // Do counting sort for every digit
+        // Instead of passing digit number exp is passed
+        for (int exp = 1; max / exp > 0; exp *= 10) {
+            arr = countingSort(arr, exp);
         }
+
+        return arr;
     }
 
-    private int getMax(int[] a) {
-        int max = a[0];
-        for (int i = 1; i < a.length; i++) {
-            if (a[i] > max)
-                max = a[i];
-        }
-        return max;
-    }
-
-    private void countingSort(int[] arr, int exp) {
+    private int[] countingSort(int[] arr, int exp) {
         int[] count = new int[10];
 
         int[] output = new int[arr.length];
@@ -42,6 +45,6 @@ public class RadixSort {
             --count[(arr[i] / exp) % 10];
         }
 
-        System.arraycopy(output, 0, arr, 0, arr.length);
+        return output;
     }
 }

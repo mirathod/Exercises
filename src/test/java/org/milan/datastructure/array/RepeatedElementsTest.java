@@ -1,9 +1,8 @@
 package org.milan.datastructure.array;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 /**
  * Test Class for {@link RepeatedElements}
@@ -12,25 +11,28 @@ import java.util.List;
  */
 public class RepeatedElementsTest {
 
-    @Test
-    public void testGetTwoRepeatedElements() {
-        RepeatedElements repeatedElements = new RepeatedElements();
+    private RepeatedElements repeatedElements;
 
-        List<Integer> result = repeatedElements.getTwoRepeatedElements(new int[]{4, 2, 4, 5, 2, 3, 1}, 7);
+    private int[] inputArray;
 
-        Assert.assertEquals(4, (int) result.get(0));
+    @Before
+    public void setup() {
+        repeatedElements = new RepeatedElements();
 
-        Assert.assertEquals(2, (int) result.get(1));
+        inputArray = new int[]{4, 2, 4, 5, 2, 3, 1};
     }
 
     @Test
-    public void testGetTwoRepeatedElementsByExpression() {
-        RepeatedElements repeatedElements = new RepeatedElements();
+    public void testGetAll() {
+        int[] result = repeatedElements.getAll(inputArray);
 
-        List<Integer> result = repeatedElements.getTwoRepeatedElementsByExpression(new int[]{4, 2, 4, 5, 2, 3, 1}, 7);
+        Assert.assertArrayEquals(new int[]{4, 2}, result);
+    }
 
-        Assert.assertEquals(4, (int) result.get(0));
+    @Test
+    public void testGetAllV2() {
+        int[] result = repeatedElements.getAllV2(inputArray);
 
-        Assert.assertEquals(2, (int) result.get(1));
+        Assert.assertArrayEquals(new int[]{4, 2}, result);
     }
 }

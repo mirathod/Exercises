@@ -1,23 +1,29 @@
 package org.milan.datastructure.array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
- * Problem 1: find two repeating elements in a given array
+ * Problem: find two repeating elements in a given array
  * <p>
  * refer {@link @https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/}
+ * <p>
+ * Time complexity: O(n)
+ * Space complexity: O(n)
  *
  * @author Milan Rathod
  */
 public class RepeatedElements {
 
     /**
-     * Time Complexity O(n)
-     * Space Complexity O(n)
+     * Get All repeated elements from given input array
+     * <p>
+     * Approach is similar to counting sort
      */
-    public List<Integer> getTwoRepeatedElements(int[] inputArray, int length) {
+    public int[] getAll(int[] inputArray) {
+
+        int length = inputArray.length;
+
         int[] count = new int[length];
 
         List<Integer> output = new ArrayList<>();
@@ -29,39 +35,27 @@ public class RepeatedElements {
                 count[inputArray[i]]++;
             }
         }
-        return output;
+        return output.stream().mapToInt(value -> value).toArray();
     }
 
-    public List<Integer> getTwoRepeatedElementsByExpression(int[] inputArray, int length) {
+    /**
+     * Get All repeated elements from given input array
+     * <p>
+     * NOTE: this approach modified the original array
+     */
+    public int[] getAllV2(int[] inputArray) {
 
-        int sum = 0;
+        List<Integer> output = new ArrayList<>();
 
-        int product = 1;
-
-        for (int i = 0; i < length; i++) {
-            sum += inputArray[i];
-            product *= inputArray[i];
+        for (int i = 0; i < inputArray.length; i++) {
+            if (inputArray[Math.abs(inputArray[i])] > 0) {
+                inputArray[Math.abs(inputArray[i])] = -inputArray[Math.abs(inputArray[i])];
+            } else {
+                output.add(Math.abs(inputArray[i]));
+            }
         }
-
-        int x;
-        int y;
-
-        int n = length - 2;
-
-        sum -= (n * (n + 1)) / 2;
-
-        product /= factorial(n);
-
-        // Different between x and y
-        int d = (int) Math.sqrt(sum * sum - 4 * product);
-
-        x = (sum + d) / 2;
-        y = (sum - d) / 2;
-
-        return Arrays.asList(x, y);
+        return output.stream().mapToInt(value -> value).toArray();
     }
 
-    private int factorial(int n) {
-        return (n == 0) ? 1 : n * factorial(n - 1);
-    }
+
 }
