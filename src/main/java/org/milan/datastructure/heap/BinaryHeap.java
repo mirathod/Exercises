@@ -1,5 +1,7 @@
 package org.milan.datastructure.heap;
 
+import org.milan.datastructure.array.ArrayUtil;
+
 import java.util.stream.IntStream;
 
 /**
@@ -109,7 +111,7 @@ public class BinaryHeap {
 
         // Swap the element if either left or right children is less than current node
         if (min != index) {
-            swap(index, min);
+            ArrayUtil.swap(store, index, min);
             minHeapify(min);
         }
     }
@@ -140,7 +142,7 @@ public class BinaryHeap {
 
         // Swap the element if either left or right children is greater than current node
         if (max != index) {
-            swap(index, max);
+            ArrayUtil.swap(store, index, max);
             maxHeapify(max);
         }
     }
@@ -184,27 +186,15 @@ public class BinaryHeap {
 
         if (this.heapType == HeapType.MAX) {
             while (index > 0 && store[index] > store[getParent(index)]) {
-                swap(index, getParent(index));
+                ArrayUtil.swap(store, index, getParent(index));
                 index = getParent(index);
             }
         } else {
             while (index > 0 && store[index] < store[getParent(index)]) {
-                swap(index, getParent(index));
+                ArrayUtil.swap(store, index, getParent(index));
                 index = getParent(index);
             }
         }
-    }
-
-    /**
-     * Swap two elements in array
-     *
-     * @param i first element index
-     * @param j second element index
-     */
-    private void swap(int i, int j) {
-        int temp = store[i];
-        store[i] = store[j];
-        store[j] = temp;
     }
 
     /**
@@ -240,7 +230,7 @@ public class BinaryHeap {
         buildHeap(array);
 
         for (int i = array.length - 1; i >= 0; i--) {
-            swap(0, i);
+            ArrayUtil.swap(store, 0, i);
             this.count--;
             heapify(0);
         }

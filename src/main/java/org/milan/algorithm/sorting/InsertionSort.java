@@ -1,5 +1,7 @@
 package org.milan.algorithm.sorting;
 
+import org.milan.datastructure.array.ArrayUtil;
+
 /**
  * Problem: Insertion Sort
  *
@@ -7,34 +9,46 @@ package org.milan.algorithm.sorting;
  */
 public class InsertionSort {
 
+    /**
+     * Iterative approach
+     */
     public int[] sort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
-            swap(arr, i);
+            adjustElements(arr, i);
         }
         return arr;
     }
 
-    public void sort(int[] arr, int left, int right) {
-        for (int i = left + 1; i <= right; i++) {
-            swap(arr, i);
-        }
-    }
-
+    /**
+     * Recursive approach
+     */
     public void recursiveSort(int[] arr, int length) {
         if (length == 1) return;
 
         recursiveSort(arr, length - 1);
 
-        swap(arr, length - 1);
-
+        adjustElements(arr, length - 1);
     }
 
-    private void swap(int[] arr, int length) {
+    /**
+     * Overloaded method currently being used in {@link TimSort}
+     */
+    public void sort(int[] arr, int left, int right) {
+        for (int i = left + 1; i <= right; i++) {
+            adjustElements(arr, i);
+        }
+    }
+
+    /**
+     * Adjust given array elements
+     *
+     * @param arr    array of integers
+     * @param length size of array
+     */
+    private void adjustElements(int[] arr, int length) {
         for (int i = length; i > 0; i--) {
             if (arr[i] < arr[i - 1]) {
-                int temp = arr[i];
-                arr[i] = arr[i - 1];
-                arr[i - 1] = temp;
+                ArrayUtil.swap(arr, i, i - 1);
             }
         }
     }

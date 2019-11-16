@@ -18,8 +18,6 @@ public class TimSortTest {
 
         timSort.sort(inputArray);
 
-        Assert.assertEquals(1, inputArray[0]);
-
-        Assert.assertEquals(5, inputArray[inputArray.length - 1]);
+        Assert.assertArrayEquals(new int[]{1, 2, 3, 4, 4, 5}, inputArray);
     }
 }

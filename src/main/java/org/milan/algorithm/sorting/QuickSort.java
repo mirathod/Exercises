@@ -1,26 +1,36 @@
 package org.milan.algorithm.sorting;
 
+import org.milan.datastructure.array.ArrayUtil;
+
 /**
  * Problem: Quick Sort
+ * <p>
+ * Time complexity: O(nlogn)
+ * Space complexity: O(1)
+ * In place algorithm
+ * Divide and Conquer paradigm
+ * <p>
+ * For Arrays used this over {@link MergeSort}
  *
  * @author Milan Rathod
  */
 public class QuickSort {
 
+    /**
+     * Recursive approach
+     */
     public void sort(int[] arr) {
         quickSort(arr, 0, arr.length - 1);
     }
 
-    private void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int partitionIndex = partition(arr, low, high);
+    /**
+     * Iterative approach
+     */
+    public void sortIterative(int[] arr) {
+        int low = 0;
+        int high = arr.length - 1;
 
-            quickSort(arr, low, partitionIndex - 1);
-            quickSort(arr, partitionIndex + 1, high);
-        }
-    }
-
-    public void iterativeSort(int[] arr, int low, int high) {
+        // Auxiliary stack
         int[] stack = new int[high - low + 1];
 
         // Initialize top of the stack
@@ -29,10 +39,12 @@ public class QuickSort {
         stack[++top] = low;
         stack[++top] = high;
 
+        // Keep popping from stack while it is not empty
         while (top >= 0) {
             high = stack[top--];
             low = stack[top--];
 
+            // Set pivot at its correct position
             int partitionIndex = partition(arr, low, high);
 
             // Push elements which are left side of pivot if available
@@ -49,6 +61,22 @@ public class QuickSort {
         }
     }
 
+    private void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int partitionIndex = partition(arr, low, high);
+
+            quickSort(arr, low, partitionIndex - 1);
+
+            quickSort(arr, partitionIndex + 1, high);
+        }
+    }
+
+    /**
+     * This function takes last element as pivot, places
+     * the pivot element at correct position in sorted array
+     * and places all smaller (smaller than pivot) to left and
+     * all greater elements to right of pivot
+     */
     private int partition(int[] arr, int low, int high) {
         int pivot = arr[high];
 
@@ -57,15 +85,13 @@ public class QuickSort {
         for (int j = low; j <= high - 1; j++) {
             if (arr[j] <= pivot) {
                 i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+
+                // Swap arr[i] with arr[j]
+                ArrayUtil.swap(arr, i, j);
             }
         }
 
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
+        ArrayUtil.swap(arr, i + 1, high);
         return i + 1;
     }
 }

@@ -14,14 +14,10 @@ public class ShuffleElements {
         Random random = new Random();
         for (int i = input.length - 1; i >= 0; i--) {
             int j = random.nextInt(i + 1);
-            swap(input, i, j);
+
+            // Swap input[i] with input[k]
+            ArrayUtil.swap(input, i, j);
         }
         return input;
-    }
-
-    private void swap(int[] input, int source, int destination) {
-        int temp = input[source];
-        input[source] = input[destination];
-        input[destination] = temp;
     }
 }
