@@ -11,7 +11,6 @@ package org.milan.misc;
  */
 public class StockSpanProblem {
 
-
     /**
      * Compute stock span values based on stock prices
      *

@@ -1,7 +1,8 @@
-package org.milan.geeksforgeeks;
+package org.milan.datastructure.array;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.datastructure.array.SmallestElements;
 
 import java.util.List;
 

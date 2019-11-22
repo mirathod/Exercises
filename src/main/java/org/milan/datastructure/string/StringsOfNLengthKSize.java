@@ -1,4 +1,4 @@
-package org.milan.misc;
+package org.milan.datastructure.string;
 
 import java.util.Arrays;
 
