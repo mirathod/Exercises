@@ -20,7 +20,7 @@ public class BytelandianGoldCoins {
     }
 
     public long replaceCoins(long coin) {
-        return values.computeIfAbsent(coin,
-                value -> Math.max(value, replaceCoins(value >> 2) + replaceCoins(value / 3) + replaceCoins(value >> 1)));
+        return values.containsKey(coin) ? values.get(coin) :
+                Math.max(coin, replaceCoins(coin >> 2) + replaceCoins(coin / 3) + replaceCoins(coin >> 1));
     }
 }
