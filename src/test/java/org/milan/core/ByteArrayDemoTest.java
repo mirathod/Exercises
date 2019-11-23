@@ -1,12 +1,12 @@
 package org.milan.core;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.milan.core.io.ByteArrayDemo;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Test Class for {@link ByteArrayDemo}
@@ -15,20 +15,26 @@ import java.io.IOException;
  */
 public class ByteArrayDemoTest {
 
-    private static final String FILE_PATH = "C:" + File.separator + "testDir" + File.separator + "ByteArray.txt";
+    private InputStream inputStream;
+
+    private ByteArrayDemo byteArrayDemo;
+
+    @Before
+    public void setup() {
+        inputStream = getClass().getClassLoader().getResourceAsStream("ByteArray.txt");
+
+        byteArrayDemo = new ByteArrayDemo();
+    }
 
     @Test
     public void testToByteArrayUsingCommons() throws IOException {
-        ByteArrayDemo byteArrayDemo = new ByteArrayDemo();
-        int result = byteArrayDemo.toByteArrayUsingCommons(new FileInputStream(FILE_PATH)).length;
-        Assert.assertEquals(15, result);
+        byte[] result = byteArrayDemo.toByteArrayUsingCommons(inputStream);
+        Assert.assertEquals(15, result.length);
     }
 
     @Test
     public void testToByteArrayUsingJava() throws IOException {
-        ByteArrayDemo byteArrayDemo = new ByteArrayDemo();
-        int result = byteArrayDemo.toByteArrayUsingJava(new FileInputStream(FILE_PATH)).length;
-        Assert.assertEquals(15, result);
-
+        byte[] result = byteArrayDemo.toByteArrayUsingJava(inputStream);
+        Assert.assertEquals(15, result.length);
     }
 }
