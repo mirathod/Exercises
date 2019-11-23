@@ -1,4 +1,4 @@
-package org.milan.geeksforgeeks;
+package org.milan.datastructure.stack;
 
 import java.util.Stack;
 
@@ -11,7 +11,7 @@ import java.util.Stack;
  */
 public class BalanceBrackets {
 
-    boolean checkBalance(String str) {
+    public boolean checkBalance(String str) {
         Stack<Character> stack = new Stack<>();
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);

@@ -1,8 +1,8 @@
-package org.milan.sample;
+package org.milan.datastructure.array;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.misc.ShiftArray;
+import org.milan.datastructure.array.ShiftArray;
 
 import java.util.Arrays;
 

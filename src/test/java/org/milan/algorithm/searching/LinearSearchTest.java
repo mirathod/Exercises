@@ -1,8 +1,8 @@
 package org.milan.algorithm.searching;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.milan.algorithm.searching.LinearSearch;
 
 /**
  * Test Class for {@link LinearSearch}
@@ -11,17 +11,30 @@ import org.milan.algorithm.searching.LinearSearch;
  */
 public class LinearSearchTest {
 
-    @Test
-    public void testLinearSearch() {
-        LinearSearch linearSearch = new LinearSearch();
+    private LinearSearch linearSearch;
 
-        int[] inputArray = {2, 4, 6, 8, 9, 12, 15, 18};
+    private int[] inputArray;
+
+    @Before
+    public void setup() {
+        linearSearch = new LinearSearch();
+
+        inputArray = new int[]{2, 4, 6, 8, 9, 12, 15, 18};
+    }
+
+    @Test
+    public void testSearch_ElementIsPresent() {
+
         int result = linearSearch.search(inputArray, 12);
 
         Assert.assertEquals(result, 5);
+    }
 
-        result = linearSearch.search(inputArray, 5);
+    @Test
+    public void testSearch_ElementIsNotPresent() {
+        int result = linearSearch.search(inputArray, 5);
 
         Assert.assertEquals(result, -1);
     }
+
 }

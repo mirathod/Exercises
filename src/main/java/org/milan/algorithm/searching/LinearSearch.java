@@ -1,14 +1,16 @@
 package org.milan.algorithm.searching;
 
 /**
- * Linear Search Algorithm
+ * Problem: Linear Search
+ * <p>
+ * Time complexity: O(n)
  *
  * @author Milan Rathod
  */
 public class LinearSearch {
 
     /**
-     * perform linear search - Time complexity of O(n).
+     * Find given element with linear search
      *
      * @param inputArray given array
      * @param element    element to search in given array
@@ -21,9 +23,7 @@ public class LinearSearch {
                 return i;
             }
         }
-
         // return -1 if not found
         return -1;
-
     }
 }

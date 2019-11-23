@@ -13,7 +13,7 @@ import java.util.Map;
 public class ElectionWinner {
 
     /**
-     * Finding winner from the given array of votes using hashmap
+     * Finding winner from the given array of votes using hash map
      *
      * @param votes array of strings representing votes
      * @return winner

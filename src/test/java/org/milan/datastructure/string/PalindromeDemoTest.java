@@ -1,8 +1,8 @@
-package org.milan.sample;
+package org.milan.datastructure.string;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.misc.PalindromeDemo;
+import org.milan.datastructure.string.PalindromeDemo;
 
 /**
  * Test Class for {@link PalindromeDemo}

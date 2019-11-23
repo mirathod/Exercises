@@ -1,4 +1,4 @@
-package org.milan.misc;
+package org.milan.datastructure.array;
 
 /**
  * Problem:- Array: [12, 1, 13, 24, 12, 66, 12], X: 12 Replace X with 1 and move

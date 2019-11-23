@@ -1,4 +1,4 @@
-package org.milan.geeksforgeeks;
+package org.milan.datastructure.array;
 
 import org.junit.Assert;
 import org.junit.Test;

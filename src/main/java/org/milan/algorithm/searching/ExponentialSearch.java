@@ -3,7 +3,9 @@ package org.milan.algorithm.searching;
 import java.util.Arrays;
 
 /**
- * Exponential Search - Time Complexity O(logn)
+ * Problem: Exponential Search
+ * <p>
+ * Time complexity: O(logn)
  *
  * @author Milan Rathod
  */
@@ -14,7 +16,7 @@ public class ExponentialSearch {
      * @param number     element to search
      * @return -1 if not found or index of element if found
      */
-    public int exponentialSearch(int[] inputArray, int number) {
+    public int search(int[] inputArray, int number) {
 
         int arraySize = inputArray.length;
 

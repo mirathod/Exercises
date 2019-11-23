@@ -1,4 +1,4 @@
-package org.milan.geeksforgeeks;
+package org.milan.datastructure.array;
 
 import java.util.ArrayList;
 import java.util.Collections;

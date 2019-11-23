@@ -1,8 +1,8 @@
 package org.milan.algorithm.searching;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
-import org.milan.algorithm.searching.BinarySearch;
 
 /**
  * Test Class for {@link BinarySearch}
@@ -11,21 +11,42 @@ import org.milan.algorithm.searching.BinarySearch;
  */
 public class BinarySearchTest {
 
+    private BinarySearch binarySearch;
+
+    private int[] inputArray;
+
+    @Before
+    public void setup() {
+        binarySearch = new BinarySearch();
+
+        inputArray = new int[]{2, 4, 6, 8, 9, 12, 15, 18};
+    }
+
     @Test
-    public void testBinarySearch() {
-        BinarySearch binarySearch = new BinarySearch();
+    public void testSearch_ElementIsPresent() {
+        int result = binarySearch.search(inputArray, 12);
 
-        int[] inputArray = {2, 4, 6, 8, 9, 12, 15, 18};
-        int resultByIterative = binarySearch.search(inputArray, 12);
-        int resultByRecursive = binarySearch.search(inputArray, 0, inputArray.length - 1, 12);
+        Assert.assertEquals(5, result);
+    }
 
-        Assert.assertEquals(5, resultByIterative);
-        Assert.assertEquals(5, resultByRecursive);
+    @Test
+    public void testSearch_ElementIsNotPresent() {
+        int result = binarySearch.search(inputArray, 10);
 
-        resultByIterative = binarySearch.search(inputArray, 10);
-        resultByRecursive = binarySearch.search(inputArray, 0, inputArray.length - 1, 10);
+        Assert.assertEquals(-1, result);
+    }
 
-        Assert.assertEquals(-1, resultByIterative);
-        Assert.assertEquals(-1, resultByRecursive);
+    @Test
+    public void testSearchRecursive_ElementIsPresent() {
+        int result = binarySearch.searchRecursive(inputArray, 12);
+
+        Assert.assertEquals(5, result);
+    }
+
+    @Test
+    public void testSearchRecursive_ElementIsNotPresent() {
+        int result = binarySearch.search(inputArray, 10);
+
+        Assert.assertEquals(-1, result);
     }
 }

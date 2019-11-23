@@ -1,11 +1,10 @@
-package org.milan.misc;
+package org.milan.datastructure.string;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * Problem: Remove all repeatative chars from string based on bust size
+ * Problem: Remove all repetitive chars from string based on bust size
  * <p>
  * Example: input string = abcdeeeeddcbfgf, burst size = 3
  * <p>
@@ -18,29 +17,7 @@ import java.util.stream.Collectors;
  */
 public class StringBust {
 
-    public static void main(String[] args) {
-        List<String> input = new ArrayList<>();
-
-        input.add("a");
-        input.add("b");
-        input.add("c");
-        input.add("d");
-        input.add("e");
-        input.add("e");
-        input.add("e");
-        input.add("e");
-        input.add("d");
-        input.add("d");
-        input.add("c");
-        input.add("b");
-        input.add("f");
-        input.add("g");
-        input.add("f");
-
-        System.out.println(compute(input, 3));
-    }
-
-    static List<String> compute(List<String> inputArray, int burstSize) {
+    public List<String> compute(List<String> inputArray, int burstSize) {
 
         String input = inputArray.stream().map(String::valueOf).collect(Collectors.joining());
 

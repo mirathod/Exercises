@@ -1,7 +1,9 @@
 package org.milan.algorithm.searching;
 
 /**
- * binary search in array
+ * Problem: Binary Search
+ * <p>
+ * Time complexity: O(logn)
  *
  * @author Milan Rathod
  */
@@ -9,8 +11,6 @@ public class BinarySearch {
 
     /**
      * Iterative Approach - Search number in input array with binary search
-     * <p>
-     * Time Complexity O(logn)
      *
      * @param arr    input array
      * @param number element to be searched
@@ -19,16 +19,18 @@ public class BinarySearch {
     public int search(int[] arr, int number) {
         int low = 0;
         int high = arr.length - 1;
-        int mid = (low + high) / 2;
 
         while (low <= high) {
+
+            // To avoid overflow
+            int mid = low + (high - low) / 2;
+
             if (arr[mid] < number)
                 low = mid + 1;
             else if (arr[mid] > number)
                 high = mid - 1;
             else
                 return mid;
-            mid = (low + high) / 2;
         }
         // return -1 if not found
         return -1;
@@ -36,8 +38,17 @@ public class BinarySearch {
 
     /**
      * Recursive Approach - Search number in input array with binary search
-     * <p>
-     * Time Complexity O(logn)
+     *
+     * @param arr    input array
+     * @param number element to be searched
+     * @return index of element if found otherwise -1
+     */
+    public int searchRecursive(int[] arr, int number) {
+        return searchUtil(arr, 0, arr.length - 1, number);
+    }
+
+    /**
+     * Recursive Approach - Search number in input array with binary search
      *
      * @param arr    input array
      * @param low    starting index
@@ -45,22 +56,21 @@ public class BinarySearch {
      * @param number element to be searched
      * @return index of element if found otherwise -1
      */
-    public int search(int[] arr, int low, int high, int number) {
+    private int searchUtil(int[] arr, int low, int high, int number) {
 
         if (low <= high) {
-            int mid = (low + high) / 2;
+            int mid = low + (high - low) / 2;
 
             if (arr[mid] == number) {
                 return mid;
             } else if (number > arr[mid]) {
-                return search(arr, mid + 1, high, number);
+                return searchUtil(arr, mid + 1, high, number);
             } else {
-                return search(arr, low, mid - 1, number);
+                return searchUtil(arr, low, mid - 1, number);
             }
         }
         // return -1 if not found
         return -1;
-
     }
 
 }
