@@ -16,6 +16,5 @@ public class BytelandianGoldCoinsTest {
         long result = bytelandianGoldCoins.replaceCoins(474788800);
 
         Assert.assertEquals(1901257550, result);
-
     }
 }
