@@ -12,7 +12,7 @@ public class MaximumSumTest {
 
     @Test
     public void testComputeSum() {
-        int[] input = new int[]{5,  5, 10, 40, 50, 35};
+        int[] input = new int[]{5, 5, 10, 40, 50, 35};
 
         MaximumSum maximumSum = new MaximumSum();
 
