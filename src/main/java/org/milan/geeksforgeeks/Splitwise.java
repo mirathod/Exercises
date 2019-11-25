@@ -38,20 +38,13 @@ public class Splitwise {
         if (amount[maxCredit] == 0 && amount[maxDebit] == 0)
             return;
 
-        int min = minOf2(-amount[maxDebit], amount[maxCredit]);
+        int min = Math.min(-amount[maxDebit], amount[maxCredit]);
         amount[maxCredit] -= min;
         amount[maxDebit] += min;
 
         System.out.println("Person " + maxDebit + " pays " + min + " to Person " + maxCredit);
 
         minimizeCashFlow(amount);
-    }
-
-    /**
-     * Get minimum out of two given values
-     */
-    private int minOf2(int x, int y) {
-        return (x < y) ? x : y;
     }
 
     /**
