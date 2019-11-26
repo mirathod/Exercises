@@ -16,6 +16,6 @@ public class ElementSameAsIndexTest {
 
         int result = elementSameAsIndex.findIndex(new int[]{-4, -2, 1, 2, 3, 5, 9});
 
-        Assert.assertEquals(3, result);
+        Assert.assertEquals(5, result);
     }
 }
