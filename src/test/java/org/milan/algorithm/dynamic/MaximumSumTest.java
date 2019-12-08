@@ -1,6 +1,7 @@
 package org.milan.algorithm.dynamic;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -10,13 +11,27 @@ import org.junit.Test;
  */
 public class MaximumSumTest {
 
+    private MaximumSum maximumSum;
+
+    private int[] arr;
+
+    @Before
+    public void setup() {
+        maximumSum = new MaximumSum();
+
+        arr = new int[]{5, 5, 10, 40, 50, 35};
+    }
+
     @Test
-    public void testComputeSum() {
-        int[] input = new int[]{5, 5, 10, 40, 50, 35};
+    public void testFindMax() {
+        int result = maximumSum.findMax(arr);
 
-        MaximumSum maximumSum = new MaximumSum();
+        Assert.assertEquals(80, result);
+    }
 
-        int result = maximumSum.computeSum(input);
+    @Test
+    public void testFindMaxV2() {
+        int result = maximumSum.findMaxV2(arr);
 
         Assert.assertEquals(80, result);
     }
