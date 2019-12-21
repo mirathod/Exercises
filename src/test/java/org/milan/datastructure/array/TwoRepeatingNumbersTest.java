@@ -40,6 +40,6 @@ public class TwoRepeatingNumbersTest {
     public void findUsingAbs() {
         int[] result = twoRepeatingNumbers.findUsingAbs(inputArray);
 
-        Assert.assertArrayEquals(new int[]{4, 2}, result);
+        Assert.assertArrayEquals(new int[]{2, 4}, result);
     }
 }
