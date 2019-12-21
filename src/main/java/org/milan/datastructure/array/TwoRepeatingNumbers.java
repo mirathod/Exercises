@@ -1,7 +1,9 @@
 package org.milan.datastructure.array;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Problem: {@link @https://www.geeksforgeeks.org/find-the-two-repeating-elements-in-a-given-array/}
@@ -81,13 +83,13 @@ public class TwoRepeatingNumbers {
      * Find two repeating numbers using count array method
      * <p>
      * Time complexity: O(n)
-     * Space complexity: O(n)
+     * Space complexity: O(1)
      *
      * @param arr input array of integers
      * @return array of two repeating integers
      */
     public int[] findUsingAbs(int[] arr) {
-        List<Integer> output = new ArrayList<>();
+        Set<Integer> output = new HashSet<>();
         for (int i = 0; i < arr.length; i++) {
             if (arr[Math.abs(arr[i])] > 0) {
                 arr[Math.abs(arr[i])] = -arr[Math.abs(arr[i])];

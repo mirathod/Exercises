@@ -11,6 +11,8 @@ public class SortElements {
 
     /**
      * Sort given stack in iterative manner
+     * <p>
+     * Time complexity: O(n*n)
      *
      * @param input input stack
      * @return sorted stack

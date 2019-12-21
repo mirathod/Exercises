@@ -13,7 +13,7 @@ import java.util.Map;
 public class VerticalSum {
 
     /**
-     * Find vertical sum using inorder recursive traversal
+     * Find vertical sum using in order recursive traversal
      *
      * @param root root of the tree
      * @return List of sums for each vertical level

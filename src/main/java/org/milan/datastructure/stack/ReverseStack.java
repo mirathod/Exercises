@@ -1,9 +1,12 @@
 package org.milan.datastructure.stack;
 
-import java.util.Deque;
+import java.util.Stack;
 
 /**
  * Problem: {@link @https://www.geeksforgeeks.org/reverse-a-stack-using-recursion/}
+ * <p>
+ * Time complexity: O(n)
+ * Space complexity: O(n)
  *
  * @author Milan Rathod
  */
@@ -12,9 +15,9 @@ public class ReverseStack {
     /**
      * stack used for storing elements
      */
-    private Deque<Integer> stack;
+    private Stack<Integer> stack;
 
-    public ReverseStack(Deque<Integer> stack) {
+    public ReverseStack(Stack<Integer> stack) {
         this.stack = stack;
     }
 

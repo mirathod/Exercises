@@ -13,6 +13,8 @@ public class ConvertBST2DLLTest {
 
     private BinarySearchTree binarySearchTree;
 
+    private ConvertBST2DLL convertBST2DLL;
+
     @Before
     public void setup() {
         binarySearchTree = new BinarySearchTree(20);
@@ -23,13 +25,20 @@ public class ConvertBST2DLLTest {
         binarySearchTree.insert(30);
         binarySearchTree.insert(35);
         binarySearchTree.insert(25);
+
+        convertBST2DLL = new ConvertBST2DLL();
     }
 
     @Test
     public void testConvert() {
-        ConvertBST2DLL convertBST2DLL = new ConvertBST2DLL();
-
         BinarySearchTree.Node head = convertBST2DLL.convert(binarySearchTree.getRoot());
+
+        Assert.assertEquals(5, head.key);
+    }
+
+    @Test
+    public void testConvertV2() {
+        BinarySearchTree.Node head = convertBST2DLL.convertV2(binarySearchTree.getRoot());
 
         Assert.assertEquals(5, head.key);
     }

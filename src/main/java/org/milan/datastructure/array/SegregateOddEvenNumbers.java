@@ -14,7 +14,7 @@ public class SegregateOddEvenNumbers {
      * <p>
      * NOTE: Order of element might change in result
      *
-     * @param arr
+     * @param arr input array of integers
      */
     public void segregate(int[] arr) {
 

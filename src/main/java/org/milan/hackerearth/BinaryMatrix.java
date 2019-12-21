@@ -27,7 +27,6 @@ public class BinaryMatrix {
             }
         }
         return maxIndex + 1;
-
     }
 
 }
