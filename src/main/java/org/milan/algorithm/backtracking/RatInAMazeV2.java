@@ -3,11 +3,11 @@ package org.milan.algorithm.backtracking;
 /**
  * Problem: Rat in a maze
  * <p>
- * refer {@link @https://www.geeksforgeeks.org/rat-in-a-maze-backtracking-2/}
+ * refer {@link @https://www.geeksforgeeks.org/rat-in-a-maze-with-multiple-steps-jump-allowed/}
  *
  * @author Milan Rathod
  */
-public class RatInAMaze {
+public class RatInAMazeV2 {
 
     private int[][] solution;
 
@@ -40,13 +40,16 @@ public class RatInAMaze {
             // Mark x, y as part of solution
             solution[x][y] = 1;
 
-            // Move forward in x direction
-            if (explore(x + 1, y, maze, solution))
-                return true;
+            // Extra step here since multiple jumps are allowed
+            for (int i = 1; i <= maze[x][y]; i++) {
+                // Move forward in x direction
+                if (explore(x + i, y, maze, solution))
+                    return true;
 
-            // If moving in x direction does not give solution move down in y direction
-            if (explore(x, y + 1, maze, solution))
-                return true;
+                // If moving in x direction does not give solution move down in y direction
+                if (explore(x, y + i, maze, solution))
+                    return true;
+            }
 
             // Backtrack - if moving forward and down does not works
             solution[x][y] = 0;
@@ -59,7 +62,7 @@ public class RatInAMaze {
      * x and y are valid indexes for next move in maze
      */
     private boolean isValid(int x, int y, int[][] maze) {
-        return (x >= 0 && x < maze.length && y >= 0 && y < maze.length && maze[x][y] == 1);
+        return (x >= 0 && x < maze.length && y >= 0 && y < maze.length && maze[x][y] != 0);
     }
 
     /**

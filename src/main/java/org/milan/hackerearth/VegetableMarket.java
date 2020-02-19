@@ -38,7 +38,7 @@ public class VegetableMarket {
     private int calculateMinimumQuantity(int[] arr, int total) {
 
         // Check if requirement can be fulfilled
-        if (totalQunatitiesOfAllStalls(arr) < total) {
+        if (totalQuantitiesOfAllStalls(arr) < total) {
             return -1;
         }
 
@@ -70,7 +70,7 @@ public class VegetableMarket {
     /**
      * Calculate Sum of All quantities available in all stalls
      */
-    private int totalQunatitiesOfAllStalls(int[] arr) {
+    private int totalQuantitiesOfAllStalls(int[] arr) {
         return Arrays.stream(arr).sum();
     }
 }

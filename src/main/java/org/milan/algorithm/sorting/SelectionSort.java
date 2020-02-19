@@ -6,9 +6,12 @@ import org.milan.datastructure.array.ArrayUtil;
  * Problem: Selection Sort
  * <p>
  * Best case time complexity: O(n*n)
+ * Average case time complexity: O(n*n)
  * Worst case time complexity: O(n*n)
  * Space complexity: O(1)
  * In place algorithm
+ * <p>
+ * Maximum O(n) swaps are done so used when memory write is costly
  *
  * @author Milan Rathod
  */

@@ -1,6 +1,7 @@
 package org.milan.datastructure.tree;
 
 import java.util.LinkedList;
+import java.util.Objects;
 import java.util.Queue;
 
 /**
@@ -204,6 +205,14 @@ public class BinaryTree {
 
         public String toString() {
             return "" + this.key;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            Node node = (Node) o;
+            return key == node.key;
         }
     }
 }

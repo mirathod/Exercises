@@ -1,8 +1,5 @@
 package org.milan.hackerearth;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -15,28 +12,9 @@ import java.util.Set;
  */
 public class PrimeString {
 
-    private static Map<Character, Integer> mapping = new HashMap<>();
+    private Map<Character, Integer> mapping = new HashMap<>();
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
-        Integer testCases = Integer.valueOf(bufferedReader.readLine());
-
-        while (testCases-- > 0) {
-
-            mapping.clear();
-
-            String input = bufferedReader.readLine();
-
-            if (isPrimeString(input)) {
-                System.out.println("YES");
-            } else {
-                System.out.println("NO");
-            }
-        }
-    }
-
-    private static boolean isPrimeString(String input) {
+    public boolean isPrimeString(String input) {
         for (char ch : input.toCharArray()) {
             if (!mapping.containsKey(ch)) {
                 mapping.put(ch, 1);
@@ -56,16 +34,14 @@ public class PrimeString {
             }
         }
         return true;
-
     }
 
     private static boolean isPrime(int n) {
-
         if (n == 1) {
             return false;
         }
 
-        for (int i = 2; i  <= Math.sqrt(n); i++) {
+        for (int i = 2; i <= Math.sqrt(n); i++) {
             if (n % i == 0)
                 return false;
         }

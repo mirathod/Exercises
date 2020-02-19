@@ -5,7 +5,8 @@ import org.milan.datastructure.array.ArrayUtil;
 /**
  * Problem: Bubble Sort
  * <p>
- * Worst Case Time Complexity: O(n*n)
+ * Worst Case Time Complexity: O(n*n) --> when array is reversed sorted
+ * Average Case Time complexity: O(n*n)
  * Best Case Time Complexity: O(n) --> when array is already sorted
  * Space Complexity: O(1)
  * In place Sorting
