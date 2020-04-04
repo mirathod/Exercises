@@ -1,6 +1,6 @@
 package org.milan.datastructure.heap;
 
-import org.milan.datastructure.array.ArrayUtil;
+import org.milan.util.ArrayUtil;
 
 import java.util.stream.IntStream;
 

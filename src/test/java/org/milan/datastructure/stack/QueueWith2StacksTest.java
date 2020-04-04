@@ -2,7 +2,7 @@ package org.milan.datastructure.stack;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.exceptions.EmptyQueueException;
+import org.milan.exception.EmptyQueueException;
 
 /**
  * Test Class for {@link QueueWith2Stacks}

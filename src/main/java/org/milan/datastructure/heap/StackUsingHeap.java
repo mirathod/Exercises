@@ -1,6 +1,6 @@
 package org.milan.datastructure.heap;
 
-import org.milan.exceptions.StackUnderflowError;
+import org.milan.exception.StackUnderflowError;
 
 import java.util.PriorityQueue;
 

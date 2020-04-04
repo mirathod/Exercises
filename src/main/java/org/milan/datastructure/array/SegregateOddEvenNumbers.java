@@ -1,5 +1,7 @@
 package org.milan.datastructure.array;
 
+import org.milan.util.ArrayUtil;
+
 /**
  * Problem: {@link @https://www.geeksforgeeks.org/segregate-even-and-odd-numbers/}
  *

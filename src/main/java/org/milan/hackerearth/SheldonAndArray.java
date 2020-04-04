@@ -1,25 +1,24 @@
 package org.milan.hackerearth;
 
-import java.util.Scanner;
-
 /**
- * Sheldon and array - Number Theory
+ * Problem: {@link @https://www.hackerearth.com/problem/algorithm/sheldon-and-array/}
  *
  * @author Milan Rathod
  */
 public class SheldonAndArray {
 
-    public static void main(String args[]) throws Exception {
+    /**
+     * Time complexity: O(n*n)
+     *
+     * @param arr given input array
+     * @return array of integers consisting of nearest max gcd
+     */
+    public int[] findNearestMaxGCD(int[] arr) {
 
-        Scanner sn = new Scanner(System.in);
-        int N = sn.nextInt();
+        int[] output = new int[arr.length];
 
-        int[] arr = new int[N];
-
-        for (int i = 0; i < N; i++) {
-            arr[i] = sn.nextInt();
-        }
-        System.out.print("-1 ");
+        // First element is left extreme thus put it -1 as output
+        output[0] = -1;
 
         for (int i = 1; i < arr.length; i++) {
             int index = i, maxGCD = 1;
@@ -33,17 +32,11 @@ public class SheldonAndArray {
                 }
 
             }
-            System.out.print(index + " ");
-
+            output[i] = index;
         }
-
+        return output;
     }
 
-    /*
-     * private static int gcd(int a,int b){ BigInteger b1 = BigInteger.valueOf(a);
-     * BigInteger b2 = BigInteger.valueOf(b); BigInteger gcd = b1.gcd(b2); return
-     * gcd.intValue(); }
-     */
     private static int gcd(int a, int b) {
         return b == 0 ? a : gcd(b, a % b);
     }

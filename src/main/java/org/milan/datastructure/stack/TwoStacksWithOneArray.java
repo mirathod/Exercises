@@ -1,6 +1,6 @@
 package org.milan.datastructure.stack;
 
-import org.milan.exceptions.StackUnderflowError;
+import org.milan.exception.StackUnderflowError;
 
 /**
  * Problem: Implement two stacks with one array

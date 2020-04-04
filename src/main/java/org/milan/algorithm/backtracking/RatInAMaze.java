@@ -9,35 +9,35 @@ package org.milan.algorithm.backtracking;
  */
 public class RatInAMaze {
 
-    private static int N;
+    private int[][] solution;
 
-    public static void main(String[] args) {
-        int[][] maze = {{1, 0, 0, 0},
-                {1, 1, 0, 1},
-                {0, 1, 0, 0},
-                {1, 1, 1, 1}};
-        N = maze.length;
-        new RatInAMaze().solve(maze);
+    /**
+     * Using backtracking
+     *
+     * @param maze given maze
+     * @return true if solution exists otherwise false
+     */
+    public boolean solveMaze(int[][] maze) {
+        solution = new int[maze.length][maze.length];
+
+        return explore(0, 0, maze, solution);
     }
 
-    private void solve(int[][] maze) {
-        int[][] solution = new int[N][N];
-
-        if (!explore(0, 0, maze, solution)) {
-            System.out.println("Solution does not exist!");
-        } else {
-            printSolution(solution);
-        }
-    }
-
+    /**
+     * Recursive Utility function to solve this problem
+     */
     private boolean explore(int x, int y, int[][] maze, int[][] solution) {
 
-        if (x == N - 1 && y == N - 1) {
+        // If x & y co-ordinates are destination return true
+        if (x == maze.length - 1 && y == maze.length - 1) {
             solution[x][y] = 1;
             return true;
         }
 
+        // Check if maze [x][y] is valid
         if (isValid(x, y, maze)) {
+
+            // Mark x, y as part of solution
             solution[x][y] = 1;
 
             // Move forward in x direction
@@ -52,7 +52,6 @@ public class RatInAMaze {
             solution[x][y] = 0;
             return false;
         }
-
         return false;
     }
 
@@ -60,16 +59,14 @@ public class RatInAMaze {
      * x and y are valid indexes for next move in maze
      */
     private boolean isValid(int x, int y, int[][] maze) {
-        return (x >= 0 && x < N && y >= 0 && y < N && maze[x][y] == 1);
+        return (x >= 0 && x < maze.length && y >= 0 && y < maze.length && maze[x][y] == 1);
     }
 
-    private void printSolution(int[][] solution) {
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                System.out.print(solution[i][j] + " ");
-            }
-            System.out.println();
-        }
+    /**
+     * @return Get solution for given maze
+     */
+    public int[][] getSolution() {
+        return solution;
     }
 
 }

@@ -35,9 +35,7 @@ public class VerticalTraversal {
 
         List<String> outIntegerList = new ArrayList<>();
 
-        map.forEach((integer, nodes) -> {
-            outIntegerList.add(nodes.toString());
-        });
+        map.forEach((integer, nodes) -> outIntegerList.add(nodes.toString()));
 
         return outIntegerList;
     }

@@ -29,7 +29,6 @@ public class VerticalTraversalTest {
         binaryTree.getRoot().right.right = new BinaryTree.Node(7);
     }
 
-
     @Test
     public void testTraverse() {
         List<String> result = verticalTraversal.traverse(binaryTree.getRoot());

@@ -31,4 +31,14 @@ public class SubsetSumTest {
     public void testIsSubsetSumV2() {
         Assert.assertTrue(subsetSum.isSubsetSumV2(arr, arr.length, 9));
     }
+
+    @Test
+    public void testIsSubsetSumV3() {
+        Assert.assertTrue(subsetSum.isSubsetSumV3(arr, arr.length, 9));
+    }
+
+    @Test
+    public void testPrintSubsetSum() {
+        subsetSum.printSubsetSum(new int[]{2, 3, 5, 6, 8, 10}, 6, 10);
+    }
 }

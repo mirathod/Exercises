@@ -19,8 +19,6 @@ public class BinarySearchTree {
      */
     private Node root;
 
-    private static int MAX_LEVEL = 0;
-
     private LinkedList<Integer> list;
 
     public BinarySearchTree(int key) {
@@ -98,10 +96,10 @@ public class BinarySearchTree {
                 return root.left;
 
             // Node with two children
-            // Find inorder predecessor of node to be deleted
+            // Find in order predecessor of node to be deleted
             root = findMax(root.left);
 
-            // Delete the inorder predecessor
+            // Delete the in order predecessor
             root.left = deleteRec(root.left, key);
         }
 
@@ -556,18 +554,6 @@ public class BinarySearchTree {
         arrayToBST(list, root.right);
     }
 
-    public void rightViewOfTree(Node node, int level) {
-        if (node == null)
-            return;
-        if (level > MAX_LEVEL) {
-            System.out.println(node.key);
-            MAX_LEVEL = level;
-        }
-        rightViewOfTree(node.right, level + 1);
-        rightViewOfTree(node.left, level + 1);
-
-    }
-
     /**
      * Find height/depth of the binary tree
      *
@@ -849,23 +835,6 @@ public class BinarySearchTree {
         return maxSum;
     }
 
-    /**
-     * Get Mirror Tree of a tree
-     *
-     * @param root root of a tree
-     * @return root of a mirror tree
-     */
-    public Node getMirror(Node root) {
-        if (root != null) {
-            getMirror(root.left);
-            getMirror(root.right);
-            Node temp = root.left;
-            root.left = root.right;
-            root.right = temp;
-        }
-        return root;
-    }
-
     public void printLevelOrder() {
         int height = height(root);
         for (int i = 1; i <= height; i++) {
@@ -906,7 +875,7 @@ public class BinarySearchTree {
                 node = node.left;
             }
             node = stack.pop();
-            if (node.right != null && (stack.isEmpty() == false && node.right == stack.peek())) {
+            if (node.right != null && (!stack.isEmpty() && node.right == stack.peek())) {
                 Node temp = stack.pop();
                 stack.push(node);
                 node = temp;
@@ -967,35 +936,7 @@ public class BinarySearchTree {
         return totalLeafNodes;
     }
 
-    public boolean checkSum(Node node) {
-        if (node == null) return false;
-        else {
-            Queue<Node> queue = new LinkedList<>();
-            queue.add(node);
-
-            while (!queue.isEmpty()) {
-                int ld = 0, rd = 0;
-                Node temp = queue.poll();
-                if (temp.left == null && temp.right == null) continue;
-                if (temp.left != null) {
-                    ld = temp.left.key;
-                    queue.add(temp.left);
-                }
-                if (temp.right != null) {
-                    rd = temp.right.key;
-                    queue.add(temp.right);
-                }
-                if (temp.key == ld + rd) {
-                    continue;
-                } else {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
-
-    public void arbitaryTree(Node node) {
+    public void arbitraryTree(Node node) {
         if (node == null) return;
         else {
             int ld = 0, rd = 0;
@@ -1015,27 +956,9 @@ public class BinarySearchTree {
                 node.key -= diff;
             }
             System.out.println(node.key);
-            arbitaryTree(node.left);
-            arbitaryTree(node.right);
+            arbitraryTree(node.left);
+            arbitraryTree(node.right);
         }
-    }
-
-    public int sumTree(Node node) {
-        if (node == null || (node.left == null && node.right == null)) return 1;
-        else {
-            int leftSubTree = sum(node.left);
-            int rightSubTree = sum(node.right);
-            if ((node.key == leftSubTree + rightSubTree) && sumTree(node.left) != 0 && sumTree(node.right) != 0) {
-                return 1;
-            }
-        }
-        return 0;
-    }
-
-    public int sum(Node node) {
-        if (node == null)
-            return 0;
-        return sum(node.left) + node.key + sum(node.right);
     }
 
     static class Node {

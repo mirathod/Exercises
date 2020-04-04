@@ -6,13 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Twitter Trends - String Searching
+ * Problem: {@link @https://www.hackerearth.com/practice/algorithms/string-algorithm/string-searching/practice-problems/algorithm/twitter-trends/}
  *
  * @author Milan Rathod
  */
@@ -20,24 +19,20 @@ public class TwitterTrends {
 
     static Map<String, Integer> treeMap = new TreeMap<>();
 
-    public static void main(String args[]) throws Exception {
+    public List<String> trendingHashTags(List<String> tweets) {
 
-        Scanner sn = new Scanner(System.in);
-        int N = sn.nextInt();
-        sn.nextLine();
+        List<String> outputList = new ArrayList<>();
 
-        for (int i = 0; i < N; i++) {
-            String tweet = sn.nextLine();
-            extractHashTags(tweet);
-        }
+        tweets.forEach(TwitterTrends::extractHashTags);
+
         treeMap = sortByValues(treeMap);
         int count = 0;
         Iterator<Entry<String, Integer>> it = treeMap.entrySet().iterator();
         while (count < 5) {
-            System.out.println(it.next().getKey());
+            outputList.add(it.next().getKey());
             count++;
         }
-
+        return outputList;
     }
 
     private static void extractHashTags(String tweet) {
@@ -56,18 +51,16 @@ public class TwitterTrends {
         }
     }
 
-    public static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
-        Comparator<K> valueComparator = new Comparator<K>() {
-            public int compare(K k1, K k2) {
-                int compare = map.get(k2).compareTo(map.get(k1));
-                if (compare == 0)
-                    return 1;
-                else
-                    return compare;
-            }
+    private static <K, V extends Comparable<V>> Map<K, V> sortByValues(final Map<K, V> map) {
+        Comparator<K> valueComparator = (k1, k2) -> {
+            int compare = map.get(k2).compareTo(map.get(k1));
+            if (compare == 0)
+                return 1;
+            else
+                return compare;
         };
 
-        Map<K, V> sortedByValues = new TreeMap<K, V>(valueComparator);
+        Map<K, V> sortedByValues = new TreeMap<>(valueComparator);
         sortedByValues.putAll(map);
         return sortedByValues;
     }
@@ -89,7 +82,6 @@ public class TwitterTrends {
             treeMap.remove(ht, max);
             list.add(ht);
         }
-
     }
 
 }

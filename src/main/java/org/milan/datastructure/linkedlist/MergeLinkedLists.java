@@ -66,7 +66,7 @@ public class MergeLinkedLists {
             return head1;
         }
 
-        LinkedList.Node<Integer> current = null;
+        LinkedList.Node<Integer> current;
 
         if (head1.data < head2.data) {
             current = head1;

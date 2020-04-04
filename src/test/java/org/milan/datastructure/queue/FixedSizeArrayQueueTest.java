@@ -2,8 +2,8 @@ package org.milan.datastructure.queue;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.milan.exceptions.EmptyQueueException;
-import org.milan.exceptions.FullQueueException;
+import org.milan.exception.EmptyQueueException;
+import org.milan.exception.FullQueueException;
 
 /**
  * Test Class for {@link FixedSizeArrayQueue}
