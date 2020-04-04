@@ -1,6 +1,6 @@
 package org.milan.algorithm.sorting;
 
-import org.milan.datastructure.array.ArrayUtil;
+import org.milan.util.ArrayUtil;
 
 /**
  * Problem: Insertion Sort
@@ -11,7 +11,7 @@ import org.milan.datastructure.array.ArrayUtil;
  * Space Complexity: O(1)
  * In place Sorting
  * Stable Algorithm
- *
+ * <p>
  * Used when number of elements are small
  *
  * @author Milan Rathod

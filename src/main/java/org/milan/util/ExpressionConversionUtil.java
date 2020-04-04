@@ -1,4 +1,4 @@
-package org.milan.datastructure.stack;
+package org.milan.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,17 +11,17 @@ import java.util.EmptyStackException;
  *
  * @author Milan Rathod
  */
-public final class ExpressionConversionUtils {
+public final class ExpressionConversionUtil {
 
     /**
      * Logger used for logging conversion related logs
      */
-    private static final Logger LOG = LoggerFactory.getLogger(ExpressionConversionUtils.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ExpressionConversionUtil.class);
 
     /**
      * private constructor
      */
-    private ExpressionConversionUtils() {
+    private ExpressionConversionUtil() {
 
     }
 

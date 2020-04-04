@@ -1,7 +1,7 @@
 package org.milan.datastructure.stack;
 
 import org.junit.Test;
-import org.milan.exceptions.StackUnderflowError;
+import org.milan.exception.StackUnderflowError;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

@@ -1,5 +1,7 @@
 package org.milan.datastructure.stack;
 
+import org.milan.util.ExpressionConversionUtil;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -37,20 +39,20 @@ public class InfixToPostfix {
             } else if (c == ')') {
                 // Pop everything from stack till '('
                 while (stack.peek() != '(') {
-                    output.append(ExpressionConversionUtils.pop(stack));
+                    output.append(ExpressionConversionUtil.pop(stack));
                 }
                 // Pop '(' from stack
-                ExpressionConversionUtils.pop(stack);
+                ExpressionConversionUtil.pop(stack);
             } else {
                 while (!stack.isEmpty() && stack.peek() != '(' &&
-                        ExpressionConversionUtils.precedence(c) <= ExpressionConversionUtils.precedence(stack.peek()))
-                    output.append(ExpressionConversionUtils.pop(stack));
+                        ExpressionConversionUtil.precedence(c) <= ExpressionConversionUtil.precedence(stack.peek()))
+                    output.append(ExpressionConversionUtil.pop(stack));
 
                 stack.push(c);
             }
         }
         while (!stack.isEmpty()) {
-            output.append(ExpressionConversionUtils.pop(stack));
+            output.append(ExpressionConversionUtil.pop(stack));
         }
         return output.toString();
     }

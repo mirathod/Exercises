@@ -1,5 +1,7 @@
 package org.milan.core.io;
 
+import org.milan.util.FileUtil;
+
 import java.io.File;
 
 /**
@@ -40,7 +42,7 @@ public class DirectoryDemo {
 
         long lastModified = directory.lastModified();
 
-        System.out.println("Last Modified Time:-" + FileUtils.format(lastModified));
+        System.out.println("Last Modified Time:-" + FileUtil.format(lastModified));
 
     }
 }

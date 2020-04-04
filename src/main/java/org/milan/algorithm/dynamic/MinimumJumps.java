@@ -5,7 +5,7 @@ package org.milan.algorithm.dynamic;
  *
  * @author Milan Rathod
  */
-public class MinimumJump {
+public class MinimumJumps {
 
     /**
      * Using dynamic programming

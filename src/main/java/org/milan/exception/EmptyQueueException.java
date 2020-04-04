@@ -1,4 +1,4 @@
-package org.milan.exceptions;
+package org.milan.exception;
 
 /**
  * Exception class thrown when queue is empty

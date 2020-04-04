@@ -1,4 +1,4 @@
-package org.milan.datastructure.array;
+package org.milan.util;
 
 /**
  * Utility for arrays

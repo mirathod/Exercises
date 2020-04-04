@@ -9,30 +9,30 @@ import org.junit.Test;
  *
  * @author Milan Rathod
  */
-public class MinimumJumpTest {
+public class MinimumJumpsTest {
 
     private int[] arr;
 
-    private MinimumJump minimumJump;
+    private MinimumJumps minimumJumps;
 
     @Before
     public void setUp() {
         arr = new int[]{1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9};
 
-        minimumJump = new MinimumJump();
+        minimumJumps = new MinimumJumps();
     }
 
     @Test
     public void testMinJumps() {
-        int result = minimumJump.minJumps(arr);
+        int result = minimumJumps.minJumps(arr);
 
-        Assert.assertEquals(3 ,result);
+        Assert.assertEquals(3, result);
     }
 
     @Test
     public void testMinJumpsV2() {
-        int result = minimumJump.minJumpsV2(arr);
+        int result = minimumJumps.minJumpsV2(arr);
 
-        Assert.assertEquals(3 ,result);
+        Assert.assertEquals(3, result);
     }
 }

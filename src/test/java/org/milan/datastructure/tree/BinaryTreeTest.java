@@ -58,5 +58,35 @@ public class BinaryTreeTest {
         Assert.assertFalse(binaryTree.isPresentIterative(binaryTree.getRoot(), 3));
     }
 
+    @Test
+    public void testMirrorTreeIterative() {
+        binaryTree.mirrorTreeIterative(binaryTree.getRoot());
+
+        Assert.assertTrue(binaryTree.isIdentical(binaryTree.getRoot(), getMirrorBinaryTree().getRoot()));
+    }
+
+    @Test
+    public void testMirrorTree() {
+        BinaryTree.Node mirrorTreeRoot = binaryTree.mirrorTree(binaryTree.getRoot());
+
+        Assert.assertTrue(binaryTree.isIdentical(mirrorTreeRoot, getMirrorBinaryTree().getRoot()));
+    }
+
+    @Test
+    public void testIsMirror() {
+        Assert.assertTrue(binaryTree.isMirror(binaryTree.getRoot(), getMirrorBinaryTree().getRoot()));
+    }
+
+    private BinaryTree getMirrorBinaryTree() {
+        BinaryTree mirrorBinaryTree = new BinaryTree(4);
+
+        mirrorBinaryTree.getRoot().left = new BinaryTree.Node(5);
+        mirrorBinaryTree.getRoot().right = new BinaryTree.Node(7);
+        mirrorBinaryTree.getRoot().right.left = new BinaryTree.Node(1);
+        mirrorBinaryTree.getRoot().left.left = new BinaryTree.Node(6);
+        mirrorBinaryTree.getRoot().left.right = new BinaryTree.Node(11);
+
+        return mirrorBinaryTree;
+    }
 
 }

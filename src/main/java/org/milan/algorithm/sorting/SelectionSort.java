@@ -1,6 +1,6 @@
 package org.milan.algorithm.sorting;
 
-import org.milan.datastructure.array.ArrayUtil;
+import org.milan.util.ArrayUtil;
 
 /**
  * Problem: Selection Sort

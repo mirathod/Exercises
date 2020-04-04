@@ -10,11 +10,11 @@ import java.util.function.Consumer;
  *
  * @author Milan Rathod
  */
-public class forEachDemo {
+public class ForEachDemo {
 
     public static void main(String[] args) {
 
-        List<Integer> myList = new ArrayList<Integer>();
+        List<Integer> myList = new ArrayList<>();
         Objects.requireNonNull(null);
         for (int i = 0; i < 10; i++)
             myList.add(i);

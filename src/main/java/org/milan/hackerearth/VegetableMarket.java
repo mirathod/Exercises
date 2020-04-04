@@ -1,35 +1,20 @@
 package org.milan.hackerearth;
 
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.List;
 
 /**
  * Vegetable Market Problem
+ * <p>
+ * Problem: {@link @https://www.hackerearth.com/practice/basic-programming/implementation/basics-of-implementation/practice-problems/algorithm/vegetable-market-ea2b4462/}
  *
  * @author Milan Rathod
  */
 public class VegetableMarket {
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public int minimumToBuy(List<Integer> stalls, int query) {
+        return calculateMinimumQuantity(stalls.stream().mapToInt(i -> i).toArray(), query);
 
-        int numberOfStalls = scanner.nextInt();
-
-        int[] stallQuantities = new int[numberOfStalls];
-
-        for (int i = 0; i < numberOfStalls; i++) {
-            stallQuantities[i] = scanner.nextInt();
-        }
-
-        int numberOfQueries = scanner.nextInt();
-
-        VegetableMarket vegetableMarket = new VegetableMarket();
-
-        while (numberOfQueries > 0) {
-            int minimumQuantity = vegetableMarket.calculateMinimumQuantity(stallQuantities, scanner.nextInt());
-            System.out.println(minimumQuantity);
-            numberOfQueries--;
-        }
     }
 
     /**

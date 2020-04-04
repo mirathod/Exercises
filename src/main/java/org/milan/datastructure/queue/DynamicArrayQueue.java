@@ -1,6 +1,6 @@
 package org.milan.datastructure.queue;
 
-import org.milan.exceptions.EmptyQueueException;
+import org.milan.exception.EmptyQueueException;
 
 /**
  * Queue implementation using dynamic sized array

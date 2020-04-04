@@ -1,5 +1,7 @@
 package org.milan.core.io;
 
+import org.milan.util.FileUtil;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,6 +38,6 @@ public class FileDemo {
 
         FileTime fileTime = Files.getLastModifiedTime(path, LinkOption.NOFOLLOW_LINKS);
 
-        System.out.println("Last Modified Time using java 7 apis:-" + FileUtils.format(fileTime.toMillis()));
+        System.out.println("Last Modified Time using java 7 apis:-" + FileUtil.format(fileTime.toMillis()));
     }
 }

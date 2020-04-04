@@ -1,6 +1,6 @@
 package org.milan.datastructure.stack;
 
-import org.milan.exceptions.EmptyQueueException;
+import org.milan.exception.EmptyQueueException;
 
 import java.util.Stack;
 

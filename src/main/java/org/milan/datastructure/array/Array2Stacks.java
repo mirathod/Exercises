@@ -1,6 +1,6 @@
 package org.milan.datastructure.array;
 
-import org.milan.exceptions.StackUnderflowError;
+import org.milan.exception.StackUnderflowError;
 
 import java.lang.reflect.Array;
 

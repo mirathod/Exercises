@@ -1,4 +1,4 @@
-package org.milan.core.io;
+package org.milan.util;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -9,9 +9,9 @@ import java.util.Date;
  *
  * @author Milan Rathod
  */
-public final class FileUtils {
+public final class FileUtil {
 
-    private FileUtils() {
+    private FileUtil() {
 
     }
 
