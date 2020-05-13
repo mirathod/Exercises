@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.interfaces.marker;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

@@ -18,16 +18,16 @@ public class TrickOrTreat {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
         // Total number of test cases
-        int testCases = Integer.valueOf(bufferedReader.readLine());
+        int testCases = Integer.parseInt(bufferedReader.readLine());
 
         while (testCases-- > 0) {
             String[] input = bufferedReader.readLine().split(" ");
 
             // total boxes
-            int totalBoxes = Integer.valueOf(input[0]);
+            int totalBoxes = Integer.parseInt(input[0]);
 
             // number of orphanage children
-            int numberOfChildren = Integer.valueOf(bufferedReader.readLine());
+            int numberOfChildren = Integer.parseInt(bufferedReader.readLine());
 
             Integer[] arr = new Integer[totalBoxes];
 
@@ -44,7 +44,7 @@ public class TrickOrTreat {
                     System.out.println("YES");
                     break;
                 } else if (numberOfChildren < 0) {
-                    numberOfChildren += Integer.valueOf(input[i]);
+                    numberOfChildren += Integer.parseInt(input[i]);
                 }
             }
 

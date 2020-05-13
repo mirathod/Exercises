@@ -28,7 +28,7 @@ public class FileDemo {
         System.out.println("Readable:-" + f.canRead());
         System.out.println("Executable:-" + f.canExecute());
         System.out.println("Free Space:-" + f.getFreeSpace());
-        System.out.println("Is it a Direstory:-" + f.isDirectory());
+        System.out.println("Is it a Directory:-" + f.isDirectory());
         System.out.println("Is it hidden ?:-" + f.isHidden());
         System.out.println("Length:-" + f.length());
         System.out.println("Last Modified Time:-" + f.lastModified());

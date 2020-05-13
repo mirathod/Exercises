@@ -5,6 +5,7 @@ import org.junit.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 import static org.junit.Assert.assertEquals;
@@ -19,8 +20,7 @@ import static org.junit.Assert.assertTrue;
 public class LoginQueueUsingSemaphoreTest {
 
     @Test
-    @Ignore
-    public void givenLoginQueue_whenReachLimit_thenBlocked() {
+    public void givenLoginQueue_whenReachLimit_thenBlocked() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
 
@@ -29,20 +29,21 @@ public class LoginQueueUsingSemaphoreTest {
         IntStream.range(0, slots)
                 .forEach(user -> executorService.execute(loginQueueUsingSemaphore::tryLogin));
         executorService.shutdown();
+        executorService.awaitTermination(10, TimeUnit.SECONDS);
 
         assertEquals(0, loginQueueUsingSemaphore.availableSlots());
         assertFalse(loginQueueUsingSemaphore.tryLogin());
     }
 
     @Test
-    @Ignore
-    public void givenLoginQueue_whenLogout_thenSlotsAvailable() {
+    public void givenLoginQueue_whenLogout_thenSlotsAvailable() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
         LoginQueueUsingSemaphore loginQueue = new LoginQueueUsingSemaphore(slots);
         IntStream.range(0, slots)
                 .forEach(user -> executorService.execute(loginQueue::tryLogin));
         executorService.shutdown();
+        executorService.awaitTermination(10, TimeUnit.SECONDS);
         assertEquals(0, loginQueue.availableSlots());
         loginQueue.logout();
 

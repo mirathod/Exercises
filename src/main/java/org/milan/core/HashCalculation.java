@@ -1,4 +1,4 @@
-package org.milan.core.networking;
+package org.milan.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.util;
 
 /**
  * Custom implementation of generation of random number using Linear Congruential Generator

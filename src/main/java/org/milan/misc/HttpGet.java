@@ -19,6 +19,10 @@ import java.util.List;
  */
 public class HttpGet {
 
+    public static void main(String[] args) {
+        new HttpGet().get();
+    }
+
     public void get() {
         List<String> output = new ArrayList<>();
 
@@ -27,7 +31,6 @@ public class HttpGet {
         int startPage = 1;
 
         int totalPages = Integer.MAX_VALUE;
-
 
         while (startPage <= totalPages) {
             try {
@@ -63,6 +66,5 @@ public class HttpGet {
         Collections.sort(output);
 
         System.out.println(output);
-
     }
 }

@@ -8,8 +8,8 @@ import java.io.File;
  * @author Milan Rathod
  */
 public class FolderDemo {
-    public static void main(String[] a) {
 
+    public static void main(String[] a) {
         File f = new File("C:/Demo");
         System.out.println("Yash");
         Recursion(f);
@@ -17,7 +17,7 @@ public class FolderDemo {
 
     static void Recursion(File f) {
         if (f.isDirectory()) {
-            String list[] = f.list();
+            String[] list = f.list();
             for (String l : list) {
                 File f1 = new File(l);
                 if (f1.isDirectory()) {

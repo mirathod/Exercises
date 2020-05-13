@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.util;
 
 import java.util.Random;
 
