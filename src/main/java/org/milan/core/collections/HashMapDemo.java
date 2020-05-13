@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 public class HashMapDemo {
 
     public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>(3, 0.75F);
+        Map<String, Integer> map = new HashMap<>(3, 0.75F);
         map.put("abc", 12);
         map.put("xyz", 18);
         map.put("pqr", 16);

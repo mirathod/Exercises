@@ -29,12 +29,11 @@ public class ReadFileDemo {
         // Read file using Scanner
         readUsingScanner(FILE_PATH);
 
-        // Read file using Java 8 apis
-        readUsingJava8(FILE_PATH);
-
         // Read file using Java 7 apis
         readUsingJava7(FILE_PATH);
 
+        // Read file using Java 8 apis
+        readUsingJava8(FILE_PATH);
     }
 
     private static void readUsingFileReader(String file) throws IOException {
@@ -49,7 +48,7 @@ public class ReadFileDemo {
     }
 
     /**
-     * Similar to FileReader but since it buffered input from files to memory for efficient read
+     * Similar to FileReader but since it buffered input from files into memory for efficient read
      * So better than FileReader since memory read operation is faster than file read operation.
      */
     private static void readUsingBufferedReader(String file) throws IOException {

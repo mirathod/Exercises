@@ -1,7 +1,8 @@
-package org.milan.core.networking;
+package org.milan.core;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.milan.core.HashCalculation;
 
 /**
  * Test Class for {@link HashCalculation}

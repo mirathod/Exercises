@@ -1,7 +1,7 @@
 package org.milan.core.thread;
 
 /**
- * Example to test Deadlock
+ * Example to create Deadlock
  *
  * @author Milan Rathod
  */

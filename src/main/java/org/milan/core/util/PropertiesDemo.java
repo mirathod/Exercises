@@ -1,4 +1,4 @@
-package org.milan.core;
+package org.milan.core.util;
 
 import java.util.Properties;
 
@@ -8,6 +8,7 @@ import java.util.Properties;
  * @author Milan Rathod
  */
 public class PropertiesDemo {
+
     public static void main(String[] a) {
         Properties properties;
         try {
