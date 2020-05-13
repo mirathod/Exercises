@@ -25,7 +25,7 @@ public class ChatServer {
         }
     }
 
-    private void start(int port) throws IOException {
+    public void start(int port) throws IOException {
         serverSocket = new ServerSocket(port);
 
         while (true) {

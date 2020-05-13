@@ -17,6 +17,15 @@ public class ChatClientTest {
 
     @Before
     public void setup() throws IOException {
+        new Thread(() -> {
+            ChatServer server = new ChatServer();
+            try {
+                server.start(6666);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+
         chatClient = new ChatClient();
 
         chatClient.startConnection("127.0.0.1", 6666);
