@@ -12,7 +12,7 @@ package org.milan.datastructure.array;
 public class RotatedArraySearch {
 
     /**
-     * Find key in given sorted and rotated arry using binary search
+     * Find key in given sorted and rotated array using binary search
      * <p>
      * Time complexity: O(logn)
      * Space complexity: O(1)

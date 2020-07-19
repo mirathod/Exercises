@@ -1,5 +1,8 @@
 package org.milan.core.collections;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -44,27 +47,13 @@ public class ArrayListDemo {
 /**
  * Animal Class
  */
+@Getter
+@Setter
 class Animal implements Comparable<Object> {
 
     private int height;
 
     private int weight;
-
-    public int getHeight() {
-        return height;
-    }
-
-    public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
 
     @Override
     public String toString() {

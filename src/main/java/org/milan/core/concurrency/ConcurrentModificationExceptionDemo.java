@@ -26,7 +26,6 @@ public class ConcurrentModificationExceptionDemo {
 
 
         new ConcurrentModificationExceptionDemo().usingIteratorV2(listOfBooks);
-
     }
 
     /**
