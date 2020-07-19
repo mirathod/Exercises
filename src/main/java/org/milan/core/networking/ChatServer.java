@@ -33,7 +33,7 @@ public class ChatServer {
         }
     }
 
-    private void stop() throws IOException {
+    public void stop() throws IOException {
         serverSocket.close();
     }
 
