@@ -5,7 +5,7 @@ package org.milan.core.interfaces;
  *
  * @author Milan Rathod
  */
-public interface TestInteface {
+public interface TestInterface {
 
     int i = 10;
 
