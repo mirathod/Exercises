@@ -127,7 +127,6 @@ class OptionalTest {
     @Test
     void givenOptionalWithNull_whenGetThrowsException() {
         Optional<String> opt = Optional.ofNullable(null);
-        String name = opt.get();
         assertThrows(NoSuchElementException.class, () -> {
             opt.get();
         });

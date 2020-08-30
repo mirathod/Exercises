@@ -15,14 +15,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * @author Milan Rathod
  */
-public class JsonToJavaConverterTest {
+class JsonToJavaConverterTest {
 
     private JsonToJavaConverter jsonToJavaConverter;
 
     @BeforeEach
     public void setup() {
         jsonToJavaConverter = new JsonToJavaConverter();
-
     }
 
     @Test
