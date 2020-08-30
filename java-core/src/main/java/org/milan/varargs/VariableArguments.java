@@ -14,4 +14,8 @@ public class VariableArguments {
         }
         return (sum);
     }
+
+    public static <T> T[] unsafe(T... elements) {
+        return elements;
+    }
 }
