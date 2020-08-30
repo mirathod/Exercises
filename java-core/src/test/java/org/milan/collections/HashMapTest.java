@@ -1,27 +1,20 @@
 package org.milan.collections;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.ConcurrentModificationException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test for {@link java.util.HashMap}
  *
  * @author Milan Rathod
  */
-public class HashMapTest {
+class HashMapTest {
 
     @Test
-    public void givenExistingKey_whenPutReturnsPrevValue() {
+    void givenExistingKey_whenPutReturnsPrevValue() {
         Map<String, String> map = new HashMap<>();
         map.put("key1", "val1");
 
@@ -31,7 +24,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void givenNewKey_whenPutReturnsNull() {
+    void givenNewKey_whenPutReturnsNull() {
         Map<String, String> map = new HashMap<>();
 
         String rtnVal = map.put("key1", "val1");
@@ -40,7 +33,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void givenNullVal_whenPutReturnsNull() {
+    void givenNullVal_whenPutReturnsNull() {
         Map<String, String> map = new HashMap<>();
         map.put("key1", null);
 
@@ -50,7 +43,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void whenContainsDistinguishesNullValues() {
+    void whenContainsDistinguishesNullValues() {
         Map<String, String> map = new HashMap<>();
 
         String val1 = map.get("key");
@@ -68,7 +61,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void givenKeySet_whenChangeReflectsInMap() {
+    void givenKeySet_whenChangeReflectsInMap() {
         Map<String, String> map = new HashMap<>();
         map.put("name", "test");
         map.put("type", "blog");
@@ -82,8 +75,8 @@ public class HashMapTest {
         assertFalse(map.containsKey("name"));
     }
 
-    @Test(expected = ConcurrentModificationException.class)
-    public void givenIterator_whenFailsFastOnModification() {
+    @Test
+    void givenIterator_whenFailsFastOnModification() {
         Map<String, String> map = new HashMap<>();
         map.put("name", "test");
         map.put("type", "blog");
@@ -92,14 +85,17 @@ public class HashMapTest {
         // a concurrent modification exception will be thrown
         Set<String> keys = map.keySet();
         Iterator<String> it = keys.iterator();
-        map.remove("type");
-        while (it.hasNext()) {
-            String key = it.next();
-        }
+
+        assertThrows(ConcurrentModificationException.class, () -> {
+            map.remove("type");
+            while (it.hasNext()) {
+                String key = it.next();
+            }
+        });
     }
 
     @Test
-    public void givenIterator_whenRemoveWorks() {
+    void givenIterator_whenRemoveWorks() {
         Map<String, String> map = new HashMap<>();
         map.put("name", "test");
         map.put("type", "blog");
@@ -118,7 +114,7 @@ public class HashMapTest {
     }
 
     @Test
-    public void whenCallsEqualsOnCollision() {
+    void whenCallsEqualsOnCollision() {
         Map<MyKey, String> map = new HashMap<>();
         MyKey k1 = new MyKey(1, "firstKey");
         MyKey k2 = new MyKey(2, "secondKey");

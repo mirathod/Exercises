@@ -1,55 +1,56 @@
 package org.milan;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.milan.AutoBoxing;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test Class for {@link AutoBoxing}
  *
  * @author Milan Rathod
  */
-public class AutoBoxingTest {
+class AutoBoxingTest {
 
     private AutoBoxing autoBoxing;
 
-    @Before
-    public void setup() {
+    @BeforeEach
+    void setup() {
         autoBoxing = new AutoBoxing();
     }
 
     @Test
-    public void testComparisonUsingOperator() {
+    void testComparisonUsingOperator() {
         Integer source = 100;
         Integer target = 100;
 
         boolean result = autoBoxing.comparisonUsingOperator(source, target);
 
-        Assert.assertTrue(result);
+        assertTrue(result);
 
         source = 160;
         target = 160;
 
         result = autoBoxing.comparisonUsingOperator(source, target);
 
-        Assert.assertFalse(result);
+        assertFalse(result);
     }
 
     @Test
-    public void testComparisonUsingMethod() {
+    void testComparisonUsingMethod() {
         Integer source = 100;
         Integer target = 100;
 
         boolean result = autoBoxing.comparisonUsingMethod(source, target);
 
-        Assert.assertTrue(result);
+        assertTrue(result);
 
         source = 160;
         target = 160;
 
         result = autoBoxing.comparisonUsingMethod(source, target);
 
-        Assert.assertTrue(result);
+        assertTrue(result);
     }
 }

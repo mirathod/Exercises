@@ -1,31 +1,31 @@
 package org.milan.converters;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.milan.models.User;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * Test Class for {@link JsonToJavaConverter}
  *
  * @author Milan Rathod
  */
-public class JsonToJavaConverterTest {
+class JsonToJavaConverterTest {
 
     private JsonToJavaConverter jsonToJavaConverter;
 
-    @Before
+    @BeforeEach
     public void setup() {
         jsonToJavaConverter = new JsonToJavaConverter();
-
     }
 
     @Test
-    public void convert() {
+    void convert() {
         String testJson = "{\n" +
                 "    \"name\": \"Milan\",\n" +
                 "    \"username\": \"mirathod\",\n" +
@@ -34,18 +34,18 @@ public class JsonToJavaConverterTest {
 
         User result = jsonToJavaConverter.convert(testJson);
 
-        Assert.assertEquals("Milan", result.getName());
-        Assert.assertEquals("mirathod", result.getUsername());
-        Assert.assertEquals(8989898989L, result.getNumber());
+        assertEquals("Milan", result.getName());
+        assertEquals("mirathod", result.getUsername());
+        assertEquals(8989898989L, result.getNumber());
     }
 
     @Test
-    public void convert1() {
+    void convert1() {
         String filePath = getClass().getClassLoader().getResource("testFile.json").getFile();
         Map<String, Object> result = jsonToJavaConverter.convert(new File(filePath));
 
-        Assert.assertEquals("Milan", result.get("name").toString());
-        Assert.assertEquals("mithapur", result.get("city").toString());
-        Assert.assertEquals(3, ((ArrayList) result.get("messages")).size());
+        assertEquals("Milan", result.get("name").toString());
+        assertEquals("mithapur", result.get("city").toString());
+        assertEquals(3, ((ArrayList) result.get("messages")).size());
     }
 }

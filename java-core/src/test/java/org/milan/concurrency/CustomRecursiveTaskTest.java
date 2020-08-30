@@ -1,20 +1,21 @@
 package org.milan.concurrency;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for {@link CustomRecursiveTask}
  *
  * @author Milan Rathod
  */
-public class CustomRecursiveTaskTest {
+class CustomRecursiveTaskTest {
 
     @Test
-    public void testCompute() {
+    void testCompute() {
         Random random = new Random();
 
         int[] arr = new int[50];
@@ -31,8 +32,8 @@ public class CustomRecursiveTaskTest {
 
         Integer result = customRecursiveTask.join();
 
-        Assert.assertTrue(customRecursiveTask.isDone());
+        assertTrue(customRecursiveTask.isDone());
 
-        Assert.assertTrue(result != 0);
+        assertTrue(result != 0);
     }
 }

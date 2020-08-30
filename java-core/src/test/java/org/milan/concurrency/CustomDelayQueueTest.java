@@ -1,23 +1,20 @@
 package org.milan.concurrency;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.DelayQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for {@link CustomDelayQueue}
  *
  * @author Milan Rathod
  */
-public class CustomDelayQueueTest {
+class CustomDelayQueueTest {
 
     @Test
-    public void givenDelayQueue_whenProduceElement_thenShouldConsumeAfterGivenDelay() throws InterruptedException {
+    void givenDelayQueue_whenProduceElement_thenShouldConsumeAfterGivenDelay() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         BlockingQueue<DelayObject> queue = new DelayQueue<>();
@@ -36,11 +33,11 @@ public class CustomDelayQueueTest {
         executorService.awaitTermination(5, TimeUnit.SECONDS);
         executorService.shutdown();
 
-        Assert.assertEquals(numberOfElementsToProduce, consumer.getNumberOfConsumedElements().get());
+        assertEquals(numberOfElementsToProduce, consumer.getNumberOfConsumedElements().get());
     }
 
     @Test
-    public void givenDelayQueue_whenProduceElement_ConsumerNotAbleToConsume() throws InterruptedException {
+    void givenDelayQueue_whenProduceElement_ConsumerNotAbleToConsume() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
         BlockingQueue<DelayObject> queue = new DelayQueue<>();
@@ -59,7 +56,7 @@ public class CustomDelayQueueTest {
         executorService.awaitTermination(5, TimeUnit.SECONDS);
         executorService.shutdown();
 
-        Assert.assertEquals(0, consumer.getNumberOfConsumedElements().get());
+        assertEquals(0, consumer.getNumberOfConsumedElements().get());
     }
 
 }

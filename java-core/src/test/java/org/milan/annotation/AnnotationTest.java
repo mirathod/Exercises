@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AnnotationTest {
 
     @Test
-    public void testRetention() {
+    void testRetention() {
         AnnotatedClass annotatedClass = new AnnotatedClass();
 
         Annotation[] annotations = annotatedClass.getClass().getAnnotations();

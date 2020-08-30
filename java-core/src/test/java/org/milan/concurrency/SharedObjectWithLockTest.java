@@ -1,21 +1,21 @@
 package org.milan.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for {@link SharedObjectWithLock}
  *
  * @author Milan Rathod
  */
-public class SharedObjectWithLockTest {
+class SharedObjectWithLockTest {
 
     @Test
-    public void testCounter() throws InterruptedException {
+    void testCounter() throws InterruptedException {
         SharedObjectWithLock sharedObjectWithLock = new SharedObjectWithLock();
 
         int threadCount = 2;

@@ -1,28 +1,27 @@
 package org.milan;
 
-import org.junit.Test;
-import org.milan.StringToBoolean;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test Class for {@link StringToBoolean}
  *
  * @author Milan Rathod
  */
-public class StringToBooleanTest {
+class StringToBooleanTest {
 
     private final String trueValue = "true";
 
     private final String falseValue = "faLse";
 
     @Test
-    public void byConstructor() {
+    void byConstructor() {
     }
 
     @Test
-    public void byParseBoolean() {
+    void byParseBoolean() {
     }
 
     @Test
-    public void byValueOf() {
+    void byValueOf() {
     }
 }

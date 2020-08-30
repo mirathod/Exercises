@@ -1,76 +1,77 @@
 package org.milan.interfaces.marker;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for {@link Employee}
  *
  * @author Milan Rathod
  */
-public class CloneableTest {
+class CloneableTest {
 
     private Employee employee;
 
-    @Before
-    public void init() {
+    @BeforeEach
+    void init() {
         employee = new Employee("testName", new Address(123456, "Bangalore"));
     }
 
     @Test
-    public void testCopyConstructor() {
+    void testCopyConstructor() {
         Employee copyConstructor = new Employee(employee);
 
-        Assert.assertNotSame(employee, copyConstructor);
+        assertNotSame(employee, copyConstructor);
 
-        Assert.assertEquals(employee, copyConstructor);
+        assertEquals(employee, copyConstructor);
 
-        Assert.assertNotSame(employee.getAddress(), copyConstructor.getAddress());
+        assertNotSame(employee.getAddress(), copyConstructor.getAddress());
 
-        Assert.assertEquals(employee.getAddress(), copyConstructor.getAddress());
+        assertEquals(employee.getAddress(), copyConstructor.getAddress());
 
         employee.getAddress().setCityName("Mysore");
 
-        Assert.assertNotSame(employee.getAddress(), copyConstructor.getAddress());
+        assertNotSame(employee.getAddress(), copyConstructor.getAddress());
 
-        Assert.assertNotEquals(employee.getAddress(), copyConstructor.getAddress());
+        assertNotEquals(employee.getAddress(), copyConstructor.getAddress());
     }
 
     @Test
-    public void testShallowCopy() throws CloneNotSupportedException {
+    void testShallowCopy() throws CloneNotSupportedException {
         Employee shallowCopy = this.employee.shallowCopy();
 
-        Assert.assertNotSame(employee, shallowCopy);
+        assertNotSame(employee, shallowCopy);
 
-        Assert.assertEquals(employee, shallowCopy);
+        assertEquals(employee, shallowCopy);
 
-        Assert.assertSame(shallowCopy.getAddress(), employee.getAddress());
+        assertSame(shallowCopy.getAddress(), employee.getAddress());
 
         employee.getAddress().setCityName("Mysore");
 
-        Assert.assertSame(shallowCopy.getAddress(), employee.getAddress());
+        assertSame(shallowCopy.getAddress(), employee.getAddress());
 
-        Assert.assertEquals(shallowCopy.getAddress(), employee.getAddress());
+        assertEquals(shallowCopy.getAddress(), employee.getAddress());
     }
 
     @Test
-    public void testDeepCopy() throws CloneNotSupportedException {
+    void testDeepCopy() throws CloneNotSupportedException {
         Employee deepCopy = this.employee.deepCopy();
 
-        Assert.assertNotSame(employee, deepCopy);
+        assertNotSame(employee, deepCopy);
 
-        Assert.assertEquals(employee, deepCopy);
+        assertEquals(employee, deepCopy);
 
-        Assert.assertNotSame(employee.getAddress(), deepCopy.getAddress());
+        assertNotSame(employee.getAddress(), deepCopy.getAddress());
 
-        Assert.assertEquals(employee.getAddress(), deepCopy.getAddress());
+        assertEquals(employee.getAddress(), deepCopy.getAddress());
 
         employee.getAddress().setCityName("Mysore");
 
-        Assert.assertNotSame(employee.getAddress(), deepCopy.getAddress());
+        assertNotSame(employee.getAddress(), deepCopy.getAddress());
 
-        Assert.assertNotEquals(employee.getAddress(), deepCopy.getAddress());
+        assertNotEquals(employee.getAddress(), deepCopy.getAddress());
     }
 
 }

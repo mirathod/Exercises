@@ -1,23 +1,22 @@
 package org.milan.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for {@link SynchronizedHashMapWithReadWriteLock}
  *
  * @author Milan Rathod
  */
-public class SynchronizedHashMapWithReadWriteLockTest {
+class SynchronizedHashMapWithReadWriteLockTest {
 
     @Test
-    public void whenWriting_ThenNoReading() throws InterruptedException {
+    void whenWriting_ThenNoReading() throws InterruptedException {
         SynchronizedHashMapWithReadWriteLock synchronizedHashMapWithReadWriteLock =
                 new SynchronizedHashMapWithReadWriteLock();
 
@@ -33,7 +32,7 @@ public class SynchronizedHashMapWithReadWriteLockTest {
     }
 
     @Test
-    public void whenReading_ThenMultipleReadingAllowed() throws InterruptedException {
+    void whenReading_ThenMultipleReadingAllowed() throws InterruptedException {
         SynchronizedHashMapWithReadWriteLock object = new SynchronizedHashMapWithReadWriteLock();
         final int threadCount = 5;
         final ExecutorService service = Executors.newFixedThreadPool(threadCount);

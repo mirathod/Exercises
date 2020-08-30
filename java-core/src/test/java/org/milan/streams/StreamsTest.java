@@ -1,6 +1,6 @@
 package org.milan.streams;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -10,17 +10,17 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for all use cases of {@link java.util.stream.Stream}
  *
  * @author Milan Rathod
  */
-public class StreamsTest {
+class StreamsTest {
 
     @Test
-    public void givenInfiniteStream_whenUseIntermediateLimitMethod_thenShouldTerminateInFiniteTime() {
+    void givenInfiniteStream_whenUseIntermediateLimitMethod_thenShouldTerminateInFiniteTime() {
         //given
         Stream<Integer> infiniteStream = Stream.iterate(0, i -> i + 2);
 
@@ -34,7 +34,7 @@ public class StreamsTest {
     }
 
     @Test
-    public void givenInfiniteStreamOfRandomInts_whenUseLimit_shouldTerminateInFiniteTime() {
+    void givenInfiniteStreamOfRandomInts_whenUseLimit_shouldTerminateInFiniteTime() {
         //given
         Supplier<UUID> randomUUIDSupplier = UUID::randomUUID;
         Stream<UUID> infiniteStreamOfRandomUUID = Stream.generate(randomUUIDSupplier);
@@ -50,7 +50,7 @@ public class StreamsTest {
     }
 
     @Test
-    public void doWhileStreamReplacement() {
+    void doWhileStreamReplacement() {
         List<Integer> outputList = new ArrayList<>();
 
         // Old way

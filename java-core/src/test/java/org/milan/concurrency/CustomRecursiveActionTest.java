@@ -1,23 +1,24 @@
 package org.milan.concurrency;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ForkJoinPool;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for {@link CustomRecursiveAction}
  *
  * @author Milan Rathod
  */
-public class CustomRecursiveActionTest {
+class CustomRecursiveActionTest {
 
     @Test
-    public void testCompute() {
+    void testCompute() {
         CustomRecursiveAction customRecursiveAction = new CustomRecursiveAction("test1234test");
 
         ForkJoinPool.commonPool().invoke(customRecursiveAction);
 
-        Assert.assertTrue(customRecursiveAction.isDone());
+        assertTrue(customRecursiveAction.isDone());
     }
 }

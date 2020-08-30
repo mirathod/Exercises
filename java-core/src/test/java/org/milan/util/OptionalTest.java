@@ -1,21 +1,14 @@
 package org.milan.util;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Use cases for {@link java.util.Optional}
@@ -24,43 +17,45 @@ import static org.junit.Assert.assertTrue;
  *
  * @author Milan Rathod
  */
-public class OptionalTest {
+class OptionalTest {
 
     @Test
-    public void whenCreatesEmptyOptional() {
+    void whenCreatesEmptyOptional() {
         Optional<String> empty = Optional.empty();
         assertFalse(empty.isPresent());
     }
 
     @Test
-    public void givenNonNull_whenCreatesNonNullable() {
+    void givenNonNull_whenCreatesNonNullable() {
         String name = "optional";
         Optional<String> optional = Optional.of(name);
         assertTrue(optional.isPresent());
     }
 
-    @Test(expected = NullPointerException.class)
-    public void givenNull_whenThrowsErrorOnCreate() {
+    @Test
+    void givenNull_whenThrowsErrorOnCreate() {
         String name = null;
-        Optional.of(name);
+        assertThrows(NullPointerException.class, () -> {
+            Optional.of(name);
+        });
     }
 
     @Test
-    public void givenNonNull_whenCreatesNullable() {
+    void givenNonNull_whenCreatesNullable() {
         String name = "optional";
         Optional<String> opt = Optional.ofNullable(name);
         assertTrue(opt.isPresent());
     }
 
     @Test
-    public void givenNull_whenCreatesNullable() {
+    void givenNull_whenCreatesNullable() {
         String name = null;
         Optional<String> opt = Optional.ofNullable(name);
         assertFalse(opt.isPresent());
     }
 
     @Test
-    public void givenAnEmptyOptional_thenIsEmptyBehavesAsExpected() {
+    void givenAnEmptyOptional_thenIsEmptyBehavesAsExpected() {
         Optional<String> opt = Optional.of("optional");
         assertFalse(opt.isEmpty());
 
@@ -69,27 +64,27 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenIfPresentWorks() {
+    void givenOptional_whenIfPresentWorks() {
         Optional<String> opt = Optional.of("optional");
         opt.ifPresent(name -> System.out.println(name.length()));
     }
 
     @Test
-    public void whenOrElseWorks() {
+    void whenOrElseWorks() {
         String nullName = null;
         String name = Optional.ofNullable(nullName).orElse("john");
         assertEquals("john", name);
     }
 
     @Test
-    public void whenOrElseGetWorks() {
+    void whenOrElseGetWorks() {
         String nullName = null;
         String name = Optional.ofNullable(nullName).orElseGet(() -> "john");
         assertEquals("john", name);
     }
 
     @Test
-    public void whenOrElseGetAndOrElseOverlap() {
+    void whenOrElseGetAndOrElseOverlap() {
         String text = null;
 
         String defaultText = Optional.ofNullable(text).orElseGet(this::getMyDefault);
@@ -100,7 +95,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void whenOrElseGetAndOrElseDiffer() {
+    void whenOrElseGetAndOrElseDiffer() {
         String text = "Text present";
 
         System.out.println("Using orElseGet:");
@@ -113,28 +108,32 @@ public class OptionalTest {
         assertEquals("Text present", defaultText);
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void whenOrElseThrowWorks() {
+    @Test
+    void whenOrElseThrowWorks() {
         String nullName = null;
-        String name = Optional.ofNullable(nullName).orElseThrow(
-                IllegalArgumentException::new);
+        assertThrows(IllegalArgumentException.class, () -> {
+            Optional.ofNullable(nullName).orElseThrow(
+                    IllegalArgumentException::new);
+        });
     }
 
     @Test
-    public void givenOptional_whenGetsValue() {
+    void givenOptional_whenGetsValue() {
         Optional<String> opt = Optional.of("optional");
         String name = opt.get();
         assertEquals("optional", name);
     }
 
-    @Test(expected = NoSuchElementException.class)
-    public void givenOptionalWithNull_whenGetThrowsException() {
+    @Test
+    void givenOptionalWithNull_whenGetThrowsException() {
         Optional<String> opt = Optional.ofNullable(null);
-        String name = opt.get();
+        assertThrows(NoSuchElementException.class, () -> {
+            opt.get();
+        });
     }
 
     @Test
-    public void whenOptionalFilterWorks() {
+    void whenOptionalFilterWorks() {
         Integer year = 2016;
         Optional<Integer> yearOptional = Optional.of(year);
         boolean is2016 = yearOptional.filter(y -> y == 2016).isPresent();
@@ -144,7 +143,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenMapWorks() {
+    void givenOptional_whenMapWorks() {
         List<String> companyNames = Arrays.asList(
                 "paypal", "oracle", "", "microsoft", "", "apple");
         Optional<List<String>> listOptional = Optional.of(companyNames);
@@ -156,7 +155,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenMapWorks2() {
+    void givenOptional_whenMapWorks2() {
         String name = "optional";
         Optional<String> nameOptional = Optional.of(name);
 
@@ -167,7 +166,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenFlatMapWorks_thenCorrect2() {
+    void givenOptional_whenFlatMapWorks_thenCorrect2() {
         Person person = new Person("test");
 
         Optional<Person> personOptional = Optional.of(person);
@@ -186,7 +185,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturned() {
+    void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturned() {
         Optional<String> found = Stream.of(getEmpty(), getHello(), getBye())
                 .filter(Optional::isPresent)
                 .map(Optional::get)
@@ -196,7 +195,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturnedAndRestNotEvaluated() {
+    void givenThreeOptionals_whenChaining_thenFirstNonEmptyIsReturnedAndRestNotEvaluated() {
         Optional<String> found =
                 Stream.<Supplier<Optional<String>>>of(this::getEmpty, this::getHello, this::getBye)
                         .map(Supplier::get)
@@ -208,7 +207,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenTwoOptionalsReturnedByOneArgMethod_whenChaining_thenFirstNonEmptyIsReturned() {
+    void givenTwoOptionalsReturnedByOneArgMethod_whenChaining_thenFirstNonEmptyIsReturned() {
         Optional<String> found = Stream.<Supplier<Optional<String>>>of(
                 () -> createOptional("empty"),
                 () -> createOptional("hello")
@@ -222,7 +221,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenTwoEmptyOptionals_whenChaining_thenDefaultIsReturned() {
+    void givenTwoEmptyOptionals_whenChaining_thenDefaultIsReturned() {
         String found = Stream.<Supplier<Optional<String>>>of(
                 () -> createOptional("empty"),
                 () -> createOptional("empty")
@@ -237,7 +236,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenPresent_thenShouldTakeAValueFromIt() {
+    void givenOptional_whenPresent_thenShouldTakeAValueFromIt() {
         Optional<String> value = Optional.of("value");
         Optional<String> defaultValue = Optional.of("default");
 
@@ -247,7 +246,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenEmpty_thenShouldTakeAValueFromOr() {
+    void givenOptional_whenEmpty_thenShouldTakeAValueFromOr() {
         Optional<String> value = Optional.empty();
         Optional<String> defaultValue = Optional.of("default");
 
@@ -257,7 +256,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenPresent_thenShouldExecuteProperCallback() {
+    void givenOptional_whenPresent_thenShouldExecuteProperCallback() {
         // given
         Optional<String> value = Optional.of("properValue");
         AtomicInteger successCounter = new AtomicInteger(0);
@@ -274,7 +273,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptional_whenNotPresent_thenShouldExecuteProperCallback() {
+    void givenOptional_whenNotPresent_thenShouldExecuteProperCallback() {
         // given
         Optional<String> value = Optional.empty();
         AtomicInteger successCounter = new AtomicInteger(0);
@@ -291,7 +290,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptionalOfSome_whenToStream_thenShouldTreatItAsOneElementStream() {
+    void givenOptionalOfSome_whenToStream_thenShouldTreatItAsOneElementStream() {
         // given
         Optional<String> value = Optional.of("a");
 
@@ -303,7 +302,7 @@ public class OptionalTest {
     }
 
     @Test
-    public void givenOptionalOfNone_whenToStream_thenShouldTreatItAsZeroElementStream() {
+    void givenOptionalOfNone_whenToStream_thenShouldTreatItAsZeroElementStream() {
         // given
         Optional<String> value = Optional.empty();
 
@@ -344,11 +343,11 @@ public class OptionalTest {
 class Person {
     private String name;
 
-    public Person(String name) {
+    Person(String name) {
         this.name = name;
     }
 
-    public Optional<String> getName() {
+    Optional<String> getName() {
         return Optional.ofNullable(name);
     }
 }
