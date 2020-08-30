@@ -1,35 +1,36 @@
 package org.milan.concurrency;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.locks.ReentrantLock;
+
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * Test Class for {@link Counter}
  *
  * @author Milan Rathod
  */
-public class CounterTest {
+class CounterTest {
 
     private Counter counter;
 
     private int tempCount;
 
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    void setUp() {
         counter = new Counter(new ReentrantLock());
         tempCount = 0;
     }
 
     @Test
-    public void testGetCount() {
+    void testGetCount() {
         Runnable r = () -> {
             int count = counter.getCount();
 
-            Assert.assertNotEquals(tempCount, count);
+            assertNotEquals(tempCount, count);
 
             tempCount = count;
         };

@@ -1,23 +1,22 @@
 package org.milan.thread;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * Test Class for {@link CalculatorThread}
  *
  * @author Milan Rathod
  */
-public class CalculatorThreadTest {
+class CalculatorThreadTest {
 
     @Test
-    public void testCalculatorOpertions() {
+    void testCalculatorOperations() {
 
         CalculatorThread calculatorThread = new CalculatorThread(10, 20, '+');
 
         Thread thread = new Thread(calculatorThread, "CalculatorThread");
 
         thread.start();
-
     }
 
 }

@@ -1,22 +1,22 @@
 package org.milan.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for {@link LongRunningAction}
  *
  * @author Milan Rathod
  */
-public class LongRunningActionTest {
+class LongRunningActionTest {
 
     @Test
-    public void givenPhaser_whenCoordinateWorksBetweenThreads_thenShouldCoordinateBetweenMultiplePhases() {
+    void givenPhaser_whenCoordinateWorksBetweenThreads_thenShouldCoordinateBetweenMultiplePhases() {
         // Given
         ExecutorService executorService = Executors.newCachedThreadPool();
         Phaser ph = new Phaser(1);

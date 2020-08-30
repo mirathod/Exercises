@@ -1,25 +1,23 @@
 package org.milan.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for {@link DelayQueueUsingTimedSemaphore}
  *
  * @author Milan Rathod
  */
-public class DelayQueueUsingTimedSemaphoreTest {
+class DelayQueueUsingTimedSemaphoreTest {
 
     @Test
-    public void givenDelayQueue_whenReachLimit_thenBlocked() throws InterruptedException {
+    void givenDelayQueue_whenReachLimit_thenBlocked() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
         DelayQueueUsingTimedSemaphore delayQueue
@@ -35,7 +33,7 @@ public class DelayQueueUsingTimedSemaphoreTest {
     }
 
     @Test
-    public void givenDelayQueue_whenTimePass_thenSlotsAvailable() throws InterruptedException {
+    void givenDelayQueue_whenTimePass_thenSlotsAvailable() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
         DelayQueueUsingTimedSemaphore delayQueue = new DelayQueueUsingTimedSemaphore(1, slots);

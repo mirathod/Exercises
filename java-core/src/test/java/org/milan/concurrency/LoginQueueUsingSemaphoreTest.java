@@ -1,25 +1,23 @@
 package org.milan.concurrency;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for {@link LoginQueueUsingSemaphore}
  *
  * @author Milan Rathod
  */
-public class LoginQueueUsingSemaphoreTest {
+class LoginQueueUsingSemaphoreTest {
 
     @Test
-    public void givenLoginQueue_whenReachLimit_thenBlocked() throws InterruptedException {
+    void givenLoginQueue_whenReachLimit_thenBlocked() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
 
@@ -35,7 +33,7 @@ public class LoginQueueUsingSemaphoreTest {
     }
 
     @Test
-    public void givenLoginQueue_whenLogout_thenSlotsAvailable() throws InterruptedException {
+    void givenLoginQueue_whenLogout_thenSlotsAvailable() throws InterruptedException {
         int slots = 10;
         ExecutorService executorService = Executors.newFixedThreadPool(slots);
         LoginQueueUsingSemaphore loginQueue = new LoginQueueUsingSemaphore(slots);

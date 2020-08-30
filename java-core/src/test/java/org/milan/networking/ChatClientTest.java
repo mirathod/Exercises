@@ -1,26 +1,27 @@
 package org.milan.networking;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for testing {@link ChatClient} and {@link ChatServer}
  *
  * @author Milan Rathod
  */
-public class ChatClientTest {
+class ChatClientTest {
 
     private ChatClient chatClient;
 
     private ChatServer chatServer;
 
-    @Before
-    public void setup() throws IOException {
+    @BeforeEach
+    void setup() throws IOException {
         chatServer = new ChatServer();
         new Thread(() -> {
             try {
@@ -35,19 +36,19 @@ public class ChatClientTest {
         chatClient.startConnection("127.0.0.1", 6666);
     }
 
-    @After
-    public void cleanup() throws Exception {
+    @AfterEach
+    void cleanup() throws Exception {
         chatClient.stopConnection();
     }
 
     @Test
-    @Ignore
-    public void testSendMessage() {
-        Assert.assertEquals("hello server", chatClient.sendMessage("hello server"));
+    @Disabled
+    void testSendMessage() {
+        assertEquals("hello server", chatClient.sendMessage("hello server"));
 
-        Assert.assertEquals("!", chatClient.sendMessage("!"));
+        assertEquals("!", chatClient.sendMessage("!"));
 
-        Assert.assertEquals("good bye", chatClient.sendMessage("."));
+        assertEquals("good bye", chatClient.sendMessage("."));
     }
 
 }

@@ -1,35 +1,37 @@
 package org.milan.interfaces.marker;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test class for {@link CustomMarker}
  *
  * @author Milan Rathod
  */
-public class CustomMarkerTest {
+class CustomMarkerTest {
 
     private CustomService customService;
 
-    @Before
-    public void init() {
+    @BeforeEach
+    void init() {
         customService = new CustomService();
     }
 
     @Test
-    public void testCustomMarker() {
+    void testCustomMarker() {
         CustomMarker customMarker = new CustomMarkerClass();
 
-        Assert.assertTrue(customService.delete(customMarker));
+        assertTrue(customService.delete(customMarker));
     }
 
     @Test
-    public void testNormal() {
+    void testNormal() {
         NormalClass normalClass = new NormalClass();
 
-        Assert.assertFalse(customService.delete(normalClass));
+        assertFalse(customService.delete(normalClass));
     }
 
 }

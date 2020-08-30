@@ -1,17 +1,18 @@
 package org.milan.misc;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test class for {@link ImmutableStudent}
  *
  * @author Milan Rathod
  */
-public class ImmutableStudentTest {
+class ImmutableStudentTest {
 
     @Test
-    public void test() {
+    void test() {
         Age age = new Age();
         age.setDay(19);
         age.setMonth(7);
@@ -19,19 +20,19 @@ public class ImmutableStudentTest {
 
         ImmutableStudent student = new ImmutableStudent("covid", "Corona", age);
 
-        Assert.assertEquals("covid", student.getId());
-        Assert.assertEquals("Corona", student.getName());
-        Assert.assertEquals(19, student.getAge().getDay());
-        Assert.assertEquals(7, student.getAge().getMonth());
-        Assert.assertEquals(2020, student.getAge().getYear());
+        assertEquals("covid", student.getId());
+        assertEquals("Corona", student.getName());
+        assertEquals(19, student.getAge().getDay());
+        assertEquals(7, student.getAge().getMonth());
+        assertEquals(2020, student.getAge().getYear());
 
         // If we modify mutable object by changing age object
         age.setYear(2019);
-        Assert.assertEquals(2020, student.getAge().getYear());
+        assertEquals(2020, student.getAge().getYear());
 
         // If we modify mutable object by first getting and then setting of the property of age object
         student.getAge().setYear(2019);
-        Assert.assertEquals(2020, student.getAge().getYear());
+        assertEquals(2020, student.getAge().getYear());
     }
 
 }
