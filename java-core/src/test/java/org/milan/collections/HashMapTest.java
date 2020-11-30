@@ -85,11 +85,11 @@ class HashMapTest {
         // a concurrent modification exception will be thrown
         Set<String> keys = map.keySet();
         Iterator<String> it = keys.iterator();
+        map.remove("type");
 
         assertThrows(ConcurrentModificationException.class, () -> {
-            map.remove("type");
             while (it.hasNext()) {
-                String key = it.next();
+                it.next();
             }
         });
     }
@@ -134,9 +134,9 @@ class HashMapTest {
         System.out.println("retrieving value for k3");
         String v3 = map.get(k3);
 
-        assertEquals(2, map.size());
+        assertEquals(3, map.size());
         assertEquals("firstValue", v1);
-        assertEquals("thirdValue", v2);
+        assertEquals("secondValue", v2);
         assertEquals("thirdValue", v3);
     }
 }

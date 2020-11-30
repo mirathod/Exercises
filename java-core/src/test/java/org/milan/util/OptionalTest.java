@@ -127,9 +127,7 @@ class OptionalTest {
     @Test
     void givenOptionalWithNull_whenGetThrowsException() {
         Optional<String> opt = Optional.ofNullable(null);
-        assertThrows(NoSuchElementException.class, () -> {
-            opt.get();
-        });
+        assertThrows(NoSuchElementException.class, opt::get);
     }
 
     @Test
@@ -171,14 +169,17 @@ class OptionalTest {
 
         Optional<Person> personOptional = Optional.of(person);
 
+        // map() implementation does an additional wrapping internally
         Optional<Optional<String>> nameOptionalWrapper = personOptional.map(Person::getName);
 
+        // Additional null-safety is needed
         Optional<String> testName = nameOptionalWrapper.orElseThrow(IllegalArgumentException::new);
 
         String name = testName.orElse("");
 
         assertEquals("test", name);
 
+        // flatMap() is being used for flat structure
         name = personOptional.flatMap(Person::getName).orElse("");
 
         assertEquals("test", name);

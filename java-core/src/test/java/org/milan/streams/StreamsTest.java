@@ -34,7 +34,7 @@ class StreamsTest {
     }
 
     @Test
-    void givenInfiniteStreamOfRandomInts_whenUseLimit_shouldTerminateInFiniteTime() {
+    void givenInfiniteStreamOfRandomIntegers_whenUseLimit_shouldTerminateInFiniteTime() {
         //given
         Supplier<UUID> randomUUIDSupplier = UUID::randomUUID;
         Stream<UUID> infiniteStreamOfRandomUUID = Stream.generate(randomUUIDSupplier);

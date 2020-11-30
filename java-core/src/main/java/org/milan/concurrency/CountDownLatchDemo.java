@@ -13,6 +13,7 @@ import java.util.stream.Stream;
  * @author Milan Rathod
  */
 public class CountDownLatchDemo {
+
     public static void main(String[] args) throws InterruptedException {
         List<String> outputScraper = Collections.synchronizedList(new ArrayList<>());
 
@@ -34,9 +35,9 @@ public class CountDownLatchDemo {
 
 class Worker implements Runnable {
 
-    private List<String> outputScraper;
+    private final List<String> outputScraper;
 
-    private CountDownLatch countDownLatch;
+    private final CountDownLatch countDownLatch;
 
     public Worker(List<String> outputScraper, CountDownLatch countDownLatch) {
         this.outputScraper = outputScraper;

@@ -11,9 +11,8 @@ import java.util.concurrent.CyclicBarrier;
 public class CyclicBarrierDemo {
 
     public static void main(String[] args) {
-        CyclicBarrier cyclicBarrier = new CyclicBarrier(3, () -> {
-            System.out.println("All previous tasks are completed");
-        });
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3,
+                () -> System.out.println("All previous tasks are completed"));
 
         Thread t1 = new Thread(new Task(cyclicBarrier), "T1");
         Thread t2 = new Thread(new Task(cyclicBarrier), "T2");
@@ -29,7 +28,7 @@ public class CyclicBarrierDemo {
 
 class Task implements Runnable {
 
-    private CyclicBarrier cyclicBarrier;
+    private final CyclicBarrier cyclicBarrier;
 
     public Task(CyclicBarrier cyclicBarrier) {
         this.cyclicBarrier = cyclicBarrier;
@@ -42,7 +41,7 @@ class Task implements Runnable {
             cyclicBarrier.await();
             System.out.println(Thread.currentThread().getName() + " is released");
         } catch (InterruptedException | BrokenBarrierException e) {
-            e.printStackTrace();
+            System.err.println(Thread.currentThread().getName() + " is interrupted");
         }
     }
 }

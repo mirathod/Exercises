@@ -39,7 +39,6 @@ public class ArrayListDemo {
         for (Object o : arrayFromArrayList) {
             System.out.println(o.toString());
         }
-
     }
 
 }

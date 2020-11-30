@@ -1,4 +1,4 @@
-package org.milan.interfaces.marker;
+package org.milan.marker;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
