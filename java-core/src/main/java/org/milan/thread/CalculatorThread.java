@@ -7,13 +7,11 @@ package org.milan.thread;
  */
 public class CalculatorThread implements Runnable {
 
-    private double firstOperand;
+    private final double firstOperand;
 
-    private double secondOperand;
+    private final double secondOperand;
 
-    private char operation;
-
-    private double result;
+    private final char operation;
 
     public CalculatorThread(double firstOperand, double secondOperand, char operation) {
         this.firstOperand = firstOperand;
@@ -22,7 +20,7 @@ public class CalculatorThread implements Runnable {
     }
 
     public void run() {
-
+        double result;
         if (operation == '+') {
             result = firstOperand + secondOperand;
         } else if (operation == '-') {
@@ -33,7 +31,6 @@ public class CalculatorThread implements Runnable {
             result = firstOperand / secondOperand;
         }
         System.out.println("Result :- " + result);
-
     }
 
 }

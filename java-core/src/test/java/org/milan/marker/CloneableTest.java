@@ -1,4 +1,4 @@
-package org.milan.interfaces.marker;
+package org.milan.marker;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

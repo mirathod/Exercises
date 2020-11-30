@@ -1,4 +1,4 @@
-package org.milan.interfaces.marker;
+package org.milan.marker;
 
 /**
  * Custom marker interface

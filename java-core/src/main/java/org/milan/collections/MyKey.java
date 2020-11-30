@@ -3,6 +3,8 @@ package org.milan.collections;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.util.Objects;
+
 /**
  * Custom object used as {@code Key} for {@link java.util.HashMap}
  *
@@ -24,10 +26,10 @@ public class MyKey {
 
     @Override
     public boolean equals(Object o) {
-        System.out.println("Calling equals for key: " + o);
+        System.out.println("Calling equals(): " + o);
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MyKey myKey = (MyKey) o;
-        return id == myKey.id;
+        return id == myKey.id && Objects.equals(name, myKey.name);
     }
 }
